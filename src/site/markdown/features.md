@@ -16,3 +16,24 @@
 
 # Features
 
+The Settings management plugin covers the following features:
+
++ Maintenance
+    + Form data
+    + Event log
+    + Brokenlinks checker
++ Uploads
+    + Configure image upload settings
+        + Simultaneous threads
+        + Max image size
+        + etc
+    + Configure asset upload settings
+        + Simultaneous threads
+        + Max file size
+        + etc
+    + Use flash or non-flash for uploads
++ Security
+    + Login page security
+    + Password policies
++ Other
+    + Social sharing configuration
