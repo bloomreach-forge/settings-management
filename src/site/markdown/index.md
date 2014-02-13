@@ -13,9 +13,6 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   -->
-Hippo CMS Settings management plugin
-====================================
-
 # Introduction
 
 ## What is the Settings management plugin?
