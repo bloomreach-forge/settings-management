@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright 2013 Hippo B.V. (http://www.onehippo.com)
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
+<wicket:extend>
+    <div class="settings-formfield-group">
+        <label class="settings-formfield-label"><wicket:message key="checker-connection-timeout">Connection Timeout (in ms)</wicket:message></label>
+        <div>
+            <input wicket:id="linkscheck-connectionTimeout"/>
+        </div>
+    </div>
+    <div class="settings-formfield-group">
+        <label class="settings-formfield-label"><wicket:message key="checker-socket-timeout">Socket Timeout (in ms)</wicket:message></label>
+        <div>
+            <input wicket:id="linkscheck-socketTimeout"/>
+        </div>
+    </div>
+    <div class="settings-formfield-group">
+        <label class="settings-formfield-label"><wicket:message key="checker-number-threads">Number of threads</wicket:message></label>
+        <div>
+            <input wicket:id="linkscheck-nrOfThreads"/>
+        </div>
+    </div>
+    <div class="settings-formfield-group">
+        <label class="settings-formfield-label"><wicket:message key="checker-start-path">Start path</wicket:message></label>
+        <div>
+            <input wicket:id="linkscheck-startPath" readonly="true"/>
+            <img wicket:id="linkcheck-startPath-location-search"/>
+        </div>
+    </div>
+</wicket:extend>
+</html>
