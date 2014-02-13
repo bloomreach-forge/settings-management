@@ -131,6 +131,11 @@ repository/src/main/resources/loginpage.xml -text
 repository/src/main/resources/passwordpolicies.xml -text
 repository/src/main/resources/socialmedia.xml -text
 repository/src/main/resources/usermanagement.xml -text
+src/site/markdown/features.md -text
+src/site/markdown/index.md -text
+src/site/markdown/install.md -text
+src/site/markdown/screenshots.md -text
+src/site/resources/images/admin_panel.png -text
+src/site/resources/images/hippo-logo.png -text
+src/site/resources/images/settings-panel.png -text
 src/site/site.xml -text
-src/site/xdoc/index.xml -text
-src/site/xdoc/install.xml -text
