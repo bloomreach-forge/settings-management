@@ -76,7 +76,7 @@ Now that we have the Model in place that maps to the JCR node we need to create 
 ```java
 public class UserManagementConfigModel extends LoadableDetachableConfigModel<UserManagementConfig> {
 
-    public static final String USER_MANAGEMENT_CONFIG_MODEL_PATH = "hippo:configuration/hippo:frontend/cms/cms-admin/users";
+    public static final String USER_MANAGEMENT_CONFIG_MODEL_PATH = "/hippo:configuration/hippo:frontend/cms/cms-admin/users";
 
     @Override
     protected UserManagementConfig load() {
