@@ -18,3 +18,4 @@
 
 ![Admin panel](images/admin_panel.png)
 ![Settings panel - Other](images/settings-panel.png)
+![Security panel - Other](images/security-panel.png)

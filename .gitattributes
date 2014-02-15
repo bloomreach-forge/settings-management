@@ -138,5 +138,6 @@ src/site/markdown/install.md -text
 src/site/markdown/screenshots.md -text
 src/site/resources/images/admin_panel.png -text
 src/site/resources/images/hippo-logo.png -text
+src/site/resources/images/security-panel.png -text
 src/site/resources/images/settings-panel.png -text
 src/site/site.xml -text
