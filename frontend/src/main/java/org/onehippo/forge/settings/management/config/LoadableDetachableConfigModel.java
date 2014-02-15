@@ -37,14 +37,11 @@ public abstract class LoadableDetachableConfigModel<T> extends LoadableDetachabl
 
     protected Node getConfigNode(final String path) {
         try {
-            return getRootNode().getNode(path);
+            return UserSession.get().getJcrSession().getNode(path);
         } catch (RepositoryException e) {
             log.warn("No configuration found at: {}", path);
         }
         return null;
     }
 
-    protected Node getRootNode() throws RepositoryException {
-        return UserSession.get().getJcrSession().getRootNode();
-    }
 }

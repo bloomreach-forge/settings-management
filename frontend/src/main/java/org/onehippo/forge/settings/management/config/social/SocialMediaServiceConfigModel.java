@@ -19,12 +19,12 @@ package org.onehippo.forge.settings.management.config.social;
 import org.onehippo.forge.settings.management.config.LoadableDetachableConfigModel;
 
 /**
- * TODO
+ * LDM model for Social media servies
  * @author Jeroen Reijn
  */
 public class SocialMediaServiceConfigModel extends LoadableDetachableConfigModel<SocialMediaServiceConfig> {
 
-    public static final String MEDIA_SERVICE_CONFIG_PATH = "hippo:configuration/hippo:frontend/cms/cms-services/popupSocialMediaService";
+    public static final String MEDIA_SERVICE_CONFIG_PATH = "/hippo:configuration/hippo:frontend/cms/cms-services/popupSocialMediaService";
 
     @Override
     protected SocialMediaServiceConfig load() {

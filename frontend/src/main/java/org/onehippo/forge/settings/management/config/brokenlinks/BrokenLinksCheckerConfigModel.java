@@ -23,7 +23,7 @@ import org.onehippo.forge.settings.management.config.LoadableDetachableConfigMod
  */
 public class BrokenLinksCheckerConfigModel extends LoadableDetachableConfigModel<BrokenlinksCheckerConfig> {
 
-    public static final String CONFIG_PATH = "hippo:configuration/hippo:workflows/brokenlinks/checkbrokenlinks/hipposys:config";
+    public static final String CONFIG_PATH = "/hippo:configuration/hippo:workflows/brokenlinks/checkbrokenlinks/hipposys:config";
 
     @Override
     protected BrokenlinksCheckerConfig load() {

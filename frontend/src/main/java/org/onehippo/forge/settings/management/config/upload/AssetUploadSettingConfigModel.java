@@ -26,7 +26,7 @@ import org.onehippo.forge.settings.management.config.LoadableDetachableConfigMod
  */
 public class AssetUploadSettingConfigModel extends LoadableDetachableConfigModel<UploadSettingsConfig> {
 
-    public static final String ASSET_UPLOAD_CONFIG_PATH = "hippo:configuration/hippo:workflows/gallery/asset-gallery/frontend:renderer";
+    public static final String ASSET_UPLOAD_CONFIG_PATH = "/hippo:configuration/hippo:workflows/gallery/asset-gallery/frontend:renderer";
 
     @Override
     protected UploadSettingsConfig load() {

@@ -23,7 +23,7 @@ import org.onehippo.forge.settings.management.config.LoadableDetachableConfigMod
  */
 public class EventLogConfigModel extends LoadableDetachableConfigModel<EventLogConfig> {
 
-    public static final String EVENTLOG_MODULE_PATH = "hippo:configuration/hippo:modules/eventlogcleanup/hippo:moduleconfig";
+    public static final String EVENTLOG_MODULE_PATH = "/hippo:configuration/hippo:modules/eventlogcleanup/hippo:moduleconfig";
 
     @Override
     protected EventLogConfig load() {

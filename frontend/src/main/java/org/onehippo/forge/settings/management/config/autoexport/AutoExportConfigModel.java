@@ -23,7 +23,7 @@ import org.onehippo.forge.settings.management.config.LoadableDetachableConfigMod
  */
 public class AutoExportConfigModel extends LoadableDetachableConfigModel<AutoExportConfig> {
 
-    public static final String AUTOEXPORT_MODULE_PATH = "hippo:configuration/hippo:modules/autoexport/hippo:moduleconfig";
+    public static final String AUTOEXPORT_MODULE_PATH = "/hippo:configuration/hippo:modules/autoexport/hippo:moduleconfig";
 
     @Override
     protected AutoExportConfig load() {

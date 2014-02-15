@@ -26,7 +26,7 @@ import org.onehippo.forge.settings.management.config.LoadableDetachableConfigMod
  */
 public class ImageValidationServiceConfigModel extends LoadableDetachableConfigModel<ImageValidationServiceConfig> {
 
-    public static final String IMAGE_VALIDATION_CONFIG_PATH = "hippo:configuration/hippo:frontend/cms/cms-services/imageValidationService";
+    public static final String IMAGE_VALIDATION_CONFIG_PATH = "/hippo:configuration/hippo:frontend/cms/cms-services/imageValidationService";
 
     @Override
     protected ImageValidationServiceConfig load() {

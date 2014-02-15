@@ -26,7 +26,7 @@ import org.onehippo.forge.settings.management.config.LoadableDetachableConfigMod
  */
 public class AssetValidationServiceConfigModel extends LoadableDetachableConfigModel<AssetValidationServiceConfig> {
 
-    public static final String ASSET_VALIDATION_CONFIG_PATH = "hippo:configuration/hippo:frontend/cms/cms-services/assetValidationService";
+    public static final String ASSET_VALIDATION_CONFIG_PATH = "/hippo:configuration/hippo:frontend/cms/cms-services/assetValidationService";
 
     @Override
     protected AssetValidationServiceConfig load() {

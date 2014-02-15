@@ -23,7 +23,7 @@ import org.onehippo.forge.settings.management.config.LoadableDetachableConfigMod
  */
 public class LoginConfigModel extends LoadableDetachableConfigModel<LoginConfig> {
 
-    public static final String LOGIN_PAGE_CONFIG_PATH = "hippo:configuration/hippo:frontend/login/login/loginPage";
+    public static final String LOGIN_PAGE_CONFIG_PATH = "/hippo:configuration/hippo:frontend/login/login/loginPage";
 
     @Override
     protected LoginConfig load() {

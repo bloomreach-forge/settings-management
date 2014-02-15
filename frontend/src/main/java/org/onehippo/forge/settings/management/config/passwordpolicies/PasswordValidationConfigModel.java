@@ -23,7 +23,7 @@ import org.onehippo.forge.settings.management.config.LoadableDetachableConfigMod
  */
 public class PasswordValidationConfigModel extends LoadableDetachableConfigModel<PasswordValidationConfig> {
 
-    public static final String PASSWORD_SERVICE_PATH = "hippo:configuration/hippo:frontend/cms/cms-services/passwordValidationService";
+    public static final String PASSWORD_SERVICE_PATH = "/hippo:configuration/hippo:frontend/cms/cms-services/passwordValidationService";
 
     @Override
     protected PasswordValidationConfig load() {

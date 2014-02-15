@@ -23,7 +23,7 @@ import org.onehippo.forge.settings.management.config.LoadableDetachableConfigMod
  */
 public class UserManagementConfigModel extends LoadableDetachableConfigModel<UserManagementConfig> {
 
-    public static final String USER_MANAGEMENT_CONFIG_MODEL_PATH = "hippo:configuration/hippo:frontend/cms/cms-admin/users";
+    public static final String USER_MANAGEMENT_CONFIG_MODEL_PATH = "/hippo:configuration/hippo:frontend/cms/cms-admin/users";
 
     @Override
     protected UserManagementConfig load() {
