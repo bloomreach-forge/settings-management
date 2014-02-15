@@ -17,11 +17,11 @@
 
 ## Prerequisites
 
-These instruction assumes that you have an Hippo CMS project based on the Hippo website archetype, i.e. a Maven multiproject
+These instruction assumes that you have an Hippo CMS project based on the Hippo website archetype, i.e. a Maven multi-module project
 consisting of at least three sub-modules: cms, site and content.
 
-### Maven 3 repository
-Add this repository to your root pom.xml (if it has not already been defined in a parent pom):
+### Maven 3 repository (optional)
+Add the following repository to your root pom.xml (not needed if you use no custom parent pom.xml ):
 
 ```
 <repository>
@@ -58,4 +58,5 @@ Add these two dependency to the pom.xml of your *cms* module:
 
 ```
 
-Rebuild your project. In case you start with an existing repository add *-Drepo.bootstrap=true*.
+Rebuild your project. In case you start with an existing repository don't forget to add *-Drepo.bootstrap=true*
+to your startup options.
