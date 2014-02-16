@@ -94,6 +94,7 @@ public class SocialMediaService implements CMSFeatureConfig, Serializable {
             node.setProperty(PROP_ENABLED,this.enabled);
             node.setProperty(PROP_SHARE_URL,this.url);
             node.setProperty(PROP_DISPLAY_NAME,this.name);
+            node.getSession().save();
         }
     }
 }

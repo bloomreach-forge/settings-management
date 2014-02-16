@@ -74,5 +74,6 @@ public class UploadSettingsConfig implements CMSFeatureConfig {
     public void save() throws RepositoryException {
         node.setProperty(FILEUPLOAD_FLASH_ENABLED_SETTING,this.flashUploadEnabled);
         node.setProperty(FILEUPLOAD_MAX_ITEMS_SETTING,this.maxNumberOfFiles);
+        node.getSession().save();
     }
 }

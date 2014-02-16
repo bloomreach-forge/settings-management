@@ -113,5 +113,6 @@ public class PasswordValidationConfig implements CMSFeatureConfig {
         if(requiredStrength!=null) {
             configNode.setProperty(PASSWORD_STRENGTH,requiredStrength);
         }
+        configNode.getSession().save();
     }
 }
