@@ -16,12 +16,12 @@
 
 # Adding a panel for your custom features
 
-Adding a new feature consists of three different steps:
+Adding or extending the configuration panels with your own Hippo CMS plugin configuration is quite easy.
+It basically consists of three steps:
 
 * Create a Wicket Model wrapping the JCR node that contains the configuration
-* Create a Wicket Panel for displaying the fields in the
+* Create a Wicket Panel for displaying the fields in the settings management panel
 * Adding the new panel to one of the existing categories (or to a new category)
-
 
 ##Creating a Wicket Model
 
@@ -159,7 +159,7 @@ Create a new XML file in your bootstrap directory with the following XML.
 </sv:node>
 ```
 
-As you can see you can control the order of you item in an existing list by changing the sequence property of the node.
+As you can see you can control the order of your item in an existing category by changing the sequence property of the node.
 
 Now you also need add this XML file to your _hippoecm-extension.xml_ file.
 

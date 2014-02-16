@@ -32,6 +32,7 @@
   <description>
     This plugin allows administrators to configure system settings, which are normally stored somewhere in the Hippo Repository.
   </description>
+  <url>http://manage_settings.forge.onehippo.org/</url>
 
   <groupId>org.onehippo.forge.settingsmanagement</groupId>
   <artifactId>hippo-addon-settings-management</artifactId>

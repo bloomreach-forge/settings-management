@@ -18,6 +18,13 @@
 ## What is the Settings management plugin?
 
 The settings management plugin allows you to configure system settings, which are located somewhere in the Hippo Repository.
+Before you would have to dive into the Hippo CMS Console and browse to a specific location to change the setting.
+With this plugin CMS admin users can just change these settings from within the CMS UI .
+
+## Features
+
+This plugin for now covers only the core Hippo CMS settings. However configuration screens for other plugins can be added
+to the settings management panel. See the [adding features page](adding-features.html) for more information.
 
 ## Versioning
 

@@ -52,7 +52,7 @@
     <menu name="Usage">
       <item name="Installation" href="install.html" />
       <item name="Functional coverage" href="features.html" />
-      <item name="Adding custom panels" href="adding-features.html" />
+      <item name="Adding custom features" href="adding-features.html" />
       <item name="Screenshots" href="screenshots.html" />
     </menu>
     <menu ref="reports" />
