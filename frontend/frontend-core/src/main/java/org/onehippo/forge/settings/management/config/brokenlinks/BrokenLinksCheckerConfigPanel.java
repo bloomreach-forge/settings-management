@@ -64,7 +64,7 @@ public class BrokenLinksCheckerConfigPanel extends FeatureConfigPanel {
         TextField brokenlinksCheckNrOfThreads = new TextField("linkscheck-nrOfThreads", new PropertyModel(brokenLinksCheckerConfigModel,"nrOfThreads"));
 
         final TextField brokenlinksCheckStartPath = new TextField("linkscheck-startPath", new PropertyModel(this, "checkerStartPath"));
-        final Image locationPickLink = new Image("linkcheck-startPath-location-search", new ResourceReference(SettingsPlugin.class, "folder-choose.png")) {
+        final Image locationPickLink = new Image("linkcheck-startPath-location-search", new ResourceReference(BrokenLinksCheckerConfigPanel.class, "folder-choose.png")) {
             @Override
             public boolean isVisible() {
                 return true;

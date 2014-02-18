@@ -151,7 +151,7 @@ Create a new XML file in your bootstrap directory with the following XML.
     <sv:value>frontend:pluginconfig</sv:value>
   </sv:property>
   <sv:property sv:name="featureConfigClass" sv:type="String">
-    <sv:value>org.onehippo.forge.settings.management.config.usermanagement.UserManagementConfigPanel</sv:value>
+    <sv:value>UserManagementConfigPanel</sv:value>
   </sv:property>
   <sv:property sv:name="sequence" sv:type="Double">
     <sv:value>1.0</sv:value>

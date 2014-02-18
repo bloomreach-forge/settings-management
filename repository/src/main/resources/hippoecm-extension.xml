@@ -30,7 +30,7 @@
       <sv:value>/hippo:configuration/hippo:frontend/cms/cms-admin</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>59002.0</sv:value>
+      <sv:value>22002.0</sv:value>
     </sv:property>
   </sv:node>
   <!-- maintenance -->
@@ -45,7 +45,7 @@
       <sv:value>/hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/maintenance</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>59010.0</sv:value>
+      <sv:value>22010.0</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="cms-admin-settings-brokenlinkschecker">
@@ -59,7 +59,7 @@
       <sv:value>/hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/maintenance</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>59010.0</sv:value>
+      <sv:value>22010.0</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="cms-admin-settings-formdata">
@@ -73,7 +73,7 @@
       <sv:value>/hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/maintenance</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>59010.0</sv:value>
+      <sv:value>22010.0</sv:value>
     </sv:property>
   </sv:node>
   <!-- TODO needs to go to DEV panel -->
@@ -88,7 +88,7 @@
       <sv:value>/hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/development</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>59010.0</sv:value>
+      <sv:value>22010.0</sv:value>
     </sv:property>
   </sv:node>-->
   <!-- security -->
@@ -103,7 +103,7 @@
       <sv:value>/hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/security</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>59010.0</sv:value>
+      <sv:value>22010.0</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="cms-admin-settings-usermanagement">
@@ -117,7 +117,7 @@
       <sv:value>/hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/security</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>59010.0</sv:value>
+      <sv:value>22010.0</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="cms-admin-settings-passwordpolicies">
@@ -131,7 +131,7 @@
       <sv:value>/hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/security</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>59010.0</sv:value>
+      <sv:value>22010.0</sv:value>
     </sv:property>
   </sv:node>
   <!-- other -->
@@ -146,7 +146,7 @@
       <sv:value>/hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/other</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>59010.0</sv:value>
+      <sv:value>22010.0</sv:value>
     </sv:property>
   </sv:node>
   <!-- upload -->
@@ -161,7 +161,7 @@
       <sv:value>/hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/upload</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>59010.0</sv:value>
+      <sv:value>22010.0</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="cms-admin-settings-imageupload-validation">
@@ -175,7 +175,7 @@
       <sv:value>/hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/upload</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>59010.1</sv:value>
+      <sv:value>22010.1</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="cms-admin-settings-assetupload">
@@ -189,7 +189,7 @@
       <sv:value>/hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/upload</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>59011.0</sv:value>
+      <sv:value>22011.0</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="cms-admin-settings-assetupload-validation">
@@ -203,7 +203,7 @@
       <sv:value>/hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/upload</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>59011.1</sv:value>
+      <sv:value>22011.1</sv:value>
     </sv:property>
   </sv:node>
 
