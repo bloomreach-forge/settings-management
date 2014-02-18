@@ -110,6 +110,7 @@ div.settings-formfield-group {
 .settings-tabs .tab-panel {
     padding-top: 10px;
     padding-left: 10px;
+    padding-right: 10px;
     border: 1px solid #CCCCCC;
     float:left;
     width: 100%;
@@ -183,4 +184,12 @@ a.tooltip span {
     -moz-box-shadow: 5px 5px 8px #CCC;
     -webkit-box-shadow: 5px 5px 8px #CCC;
     box-shadow: 5px 5px 8px #CCC;
+}
+
+.settings-form-feedback ul.feedbackPanel {
+    background-color: #fcf8e3;
+}
+
+.settings-form-feedback ul li {
+    padding: 15px;
 }

@@ -36,6 +36,7 @@ frontend/src/main/java/org/onehippo/forge/settings/management/config/eventlog/Ev
 frontend/src/main/java/org/onehippo/forge/settings/management/config/eventlog/EventLogConfigPanel.html -text
 frontend/src/main/java/org/onehippo/forge/settings/management/config/eventlog/EventLogConfigPanel.java -text
 frontend/src/main/java/org/onehippo/forge/settings/management/config/eventlog/EventLogConfigPanel.properties -text
+frontend/src/main/java/org/onehippo/forge/settings/management/config/eventlog/EventLogConfigPanel_nl.properties -text
 frontend/src/main/java/org/onehippo/forge/settings/management/config/formdata/FormdataConfig.java -text
 frontend/src/main/java/org/onehippo/forge/settings/management/config/formdata/FormdataConfigModel.java -text
 frontend/src/main/java/org/onehippo/forge/settings/management/config/formdata/FormdataConfigPanel.html -text

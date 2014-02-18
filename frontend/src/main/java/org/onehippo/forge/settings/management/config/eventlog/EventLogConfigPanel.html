@@ -16,18 +16,29 @@
   -->
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
-  <wicket:extend>
+<wicket:extend>
     <div class="settings-formfield-group">
-      <label class="settings-formfield-label" for="cronexpression">Cron expression</label>
-      <input wicket:id="cronexpression" id="cronexpression"/>
+        <p>
+            <wicket:message key="intro">Intro</wicket:message>
+        </p>
     </div>
     <div class="settings-formfield-group">
-      <label class="settings-formfield-label" for="keepitemsfor">Keep items for (duration in ms)</label>
-      <input wicket:id="keepitemsfor" id="keepitemsfor"/>
+        <label class="settings-formfield-label" for="cronexpression">
+            <wicket:message key="cron-expression">Cron expression</wicket:message>
+            <a href="#" class="tooltip">?<span class="callout"><wicket:message key="cron-expression-tip"/></span></a></label>
+        <input wicket:id="cronexpression" id="cronexpression"/>
     </div>
     <div class="settings-formfield-group">
-      <label class="settings-formfield-label" for="maxitems">Max items to keep</label>
-      <input wicket:id="maxitems" id="maxitems"/>
+        <label class="settings-formfield-label" for="keepitemsfor">
+            <wicket:message key="keep-items-for">Keep items for (duration)</wicket:message>
+            <a href="#" class="tooltip">?<span class="callout"><wicket:message key="keep-items-for-tip"/></span></a></label>
+        <input wicket:id="keepitemsfor" id="keepitemsfor"/>
     </div>
-  </wicket:extend>
+    <div class="settings-formfield-group">
+        <label class="settings-formfield-label" for="maxitems">
+            <wicket:message key="max-items">Max items to keep</wicket:message>
+            <a href="#" class="tooltip">?<span class="callout"><wicket:message key="max-items-tip"/></span></a></label>
+        <input wicket:id="maxitems" id="maxitems"/>
+    </div>
+</wicket:extend>
 </html>

@@ -21,10 +21,14 @@ import java.util.ArrayList;
 
 import javax.jcr.RepositoryException;
 
+import org.apache.wicket.Session;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.form.AjaxButton;
 import org.apache.wicket.extensions.breadcrumb.IBreadCrumbModel;
 import org.apache.wicket.extensions.breadcrumb.IBreadCrumbParticipant;
+import org.apache.wicket.feedback.ComponentFeedbackMessageFilter;
+import org.apache.wicket.feedback.FeedbackMessage;
+import org.apache.wicket.feedback.IFeedbackMessageFilter;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
@@ -61,9 +65,13 @@ public class TabPanel extends Panel {
         }
 
         // create feedback panel to show errors
-        final FeedbackPanel feedback = new FeedbackPanel("feedback");
+        final FeedbackPanel feedback = new FeedbackPanel("feedback", new IFeedbackMessageFilter() {
+            @Override
+            public boolean accept(final FeedbackMessage message) {
+                return !message.isRendered();
+            }
+        });
         feedback.setOutputMarkupId(true);
-        add(feedback);
 
         final Form form = new Form("form");
 
@@ -74,6 +82,7 @@ public class TabPanel extends Panel {
                     feature.save();
                 }
                 target.addComponent(form);
+                info(getString("data-saved"));
                 target.addComponent(feedback);
             }
 
@@ -102,6 +111,8 @@ public class TabPanel extends Panel {
                 breadCrumbModel.setActive(l.get(l.size() - 2));
             }
         }.setDefaultFormProcessing(false));
+
+        form.add(feedback);
 
         // add a ListView containing all features to the form
         final ListView<FeatureConfigPanel> listView = new ListView<FeatureConfigPanel>("feature-list", features) { // or use a provider
