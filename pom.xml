@@ -67,6 +67,13 @@
       <organizationUrl>http://www.onehippo.com</organizationUrl>
       <timezone>1</timezone>
     </developer>
+    <developer>
+      <id>tjeger</id>
+      <name>Tobias Jeger</name>
+      <organization>Hippo</organization>
+      <organizationUrl>http://www.onehippo.com</organizationUrl>
+      <timezone>1</timezone>
+    </developer>
   </developers>
 
   <contributors>
