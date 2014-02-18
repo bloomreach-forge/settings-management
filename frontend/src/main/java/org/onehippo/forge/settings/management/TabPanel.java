@@ -19,6 +19,8 @@ package org.onehippo.forge.settings.management;
 import java.util.List;
 import java.util.ArrayList;
 
+import javax.jcr.RepositoryException;
+
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.form.AjaxButton;
 import org.apache.wicket.extensions.breadcrumb.IBreadCrumbModel;
@@ -30,6 +32,7 @@ import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.hippoecm.frontend.plugin.IPluginContext;
 import org.hippoecm.frontend.plugin.config.IPluginConfig;
+import org.hippoecm.frontend.session.UserSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -89,7 +92,11 @@ public class TabPanel extends Panel {
                 for (FeatureConfigPanel feature : features) {
                     feature.cancel();
                 }
-
+                try {
+                    UserSession.get().getJcrSession().refresh(false);
+                } catch (RepositoryException e) {
+                    log.error("An exception occurred while trying to refresh the session: {}", e);
+                }
                 // one up
                 List<IBreadCrumbParticipant> l = breadCrumbModel.allBreadCrumbParticipants();
                 breadCrumbModel.setActive(l.get(l.size() - 2));

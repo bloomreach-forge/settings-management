@@ -18,15 +18,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
   <wicket:extend>
     <div class="settings-formfield-group">
-      <label class="settings-formfield-label" for="cronexpression"><wicket:message key="cron-expression">Cron expression</wicket:message></label>
+      <wicket:message key="intro">Intro</wicket:message>
+    </div>
+    <div class="settings-formfield-group">
+      <label class="settings-formfield-label" for="cronexpression"><wicket:message key="cron-expression">Cron expression</wicket:message> <a href="#" class="tooltip">?<span class="callout"><wicket:message key="cron-expression-tip"/></span></a></label>
       <input wicket:id="cronexpression" id="cronexpression"/>
     </div>
     <div class="settings-formfield-group">
-      <label class="settings-formfield-label" for="minutesToLive"><wicket:message key="timetolive">Time to live (in minutes)</wicket:message></label>
+      <label class="settings-formfield-label" for="minutesToLive"><wicket:message key="timetolive">Time to live (in minutes)</wicket:message> <a href="#" class="tooltip">?<span class="callout"><wicket:message key="timetolive-tip"/></span></a></label>
       <input wicket:id="minutestolive" id="minutesToLive"/>
     </div>
     <div class="settings-formfield-group">
-      <label class="settings-formfield-label" for="formdata-exclusions">Uitgesloten paden </label>
+      <label class="settings-formfield-label" for="formdata-exclusions"><wicket:message key="path-exclusions">Excluded paths</wicket:message> <a href="#" class="tooltip">?<span class="callout"><wicket:message key="path-exclusions-tip"/></span></a></label>
       <table id="formdata-exclusions" wicket:id="excludedPathsView">
           <tr wicket:id="formdata-excludedPaths" class="file-extensions">
               <td style="width: 60%"><input type="text" wicket:id="formdata-path"></td>

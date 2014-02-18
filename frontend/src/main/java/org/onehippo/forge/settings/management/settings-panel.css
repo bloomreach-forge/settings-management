@@ -168,6 +168,7 @@ a.tooltip:hover span {
 }
 
 .callout {
+    text-align: left;
     z-index: 20;
     position: relative;
     border: 0;
