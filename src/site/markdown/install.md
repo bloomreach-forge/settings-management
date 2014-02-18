@@ -52,7 +52,7 @@ Add these two dependency to the pom.xml of your *cms* module:
 
 <dependency>
   <groupId>org.onehippo.forge.settingsmanagement</groupId>
-  <artifactId>hippo-addon-settings-management-frontend</artifactId>
+  <artifactId>hippo-addon-settings-management-frontend-core</artifactId>
   <version>...</version>
 </dependency>
 
