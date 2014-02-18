@@ -54,6 +54,7 @@
       <item name="Functional coverage" href="features.html" />
       <item name="Adding custom features" href="adding-features.html" />
       <item name="Screenshots" href="screenshots.html" />
+      <item name="Roadmap" href="roadmap.html" />
     </menu>
     <menu ref="reports" />
   </body>
