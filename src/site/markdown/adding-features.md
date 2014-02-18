@@ -183,3 +183,4 @@ Now you also need add this XML file to your _hippoecm-extension.xml_ file.
 __Take note__ that the initialize sequence starts at __22000__ for the default settings management configuration.
 If you would like add your own configuration it's advisable to put your _hippo:sequence_ number higher than __23000__.
 
+Before you start it's highly recommended to take a look at the [existing code](source-repository.html) for examples and references.
