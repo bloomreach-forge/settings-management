@@ -36,3 +36,7 @@ For now the planned roadmap is:
     </tr>
   </tbody>
 </table>
+
+## About the versioning scheme
+
+This project uses the Semantic Versioning Specification. For more information about the version numbers mean see the [Semantic Versioning Specification](http://semver.org/).
