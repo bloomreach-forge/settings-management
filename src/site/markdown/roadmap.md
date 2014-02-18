@@ -39,4 +39,4 @@ For now the planned roadmap is:
 
 ## About the versioning scheme
 
-This project uses the Semantic Versioning Specification. For more information about the version numbers mean see the [Semantic Versioning Specification](http://semver.org/).
+This project uses the Semantic Versioning Specification. For more information about what the version numbers mean see the [Semantic Versioning Specification](http://semver.org/).

@@ -48,13 +48,14 @@
   <body>
     <menu name="Main">
       <item name="Welcome" href="index.html" />
+      <item name="Functional coverage" href="features.html" />
+      <item name="Release notes" href="release-notes.html" />
+      <item name="Roadmap" href="roadmap.html" />
+      <item name="Screenshots" href="screenshots.html" />
     </menu>
     <menu name="Usage">
       <item name="Installation" href="install.html" />
-      <item name="Functional coverage" href="features.html" />
       <item name="Adding custom features" href="adding-features.html" />
-      <item name="Screenshots" href="screenshots.html" />
-      <item name="Roadmap" href="roadmap.html" />
     </menu>
     <menu ref="reports" />
   </body>

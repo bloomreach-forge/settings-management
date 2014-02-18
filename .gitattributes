@@ -120,6 +120,7 @@ src/site/markdown/adding-features.md -text
 src/site/markdown/features.md -text
 src/site/markdown/index.md -text
 src/site/markdown/install.md -text
+src/site/markdown/release-notes.md -text
 src/site/markdown/roadmap.md -text
 src/site/markdown/screenshots.md -text
 src/site/resources/images/admin_panel.png -text

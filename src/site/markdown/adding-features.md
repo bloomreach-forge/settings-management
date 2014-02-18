@@ -142,7 +142,7 @@ And adding the markup for our panel.
 
 ##Adding the configuration
 
-Create a new XML file in your bootstrap directory with the following XML.
+Create a new XML file in your bootstrap directory with the following content.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -180,5 +180,6 @@ Now you also need add this XML file to your _hippoecm-extension.xml_ file.
 </sv:node>
 ```
 
-__Take note__ that the initialize sequence starts at __59000__ for the default settings management configuration.
-If you would like add your own configuration it's advisable to put your _hippo:sequence_ number higher than __60000__.
+__Take note__ that the initialize sequence starts at __22000__ for the default settings management configuration.
+If you would like add your own configuration it's advisable to put your _hippo:sequence_ number higher than __23000__.
+
