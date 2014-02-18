@@ -219,7 +219,6 @@
                 <!-- no license headers needed for these files -->
                 <exclude>TODO</exclude>
                 <exclude>atlassian-ide-plugin.xml</exclude>
-                <exclude>**/jquery.ui.*.css</exclude>
                 <exclude>**/*.cnd</exclude>
                 <exclude>**/*.json</exclude>
                 <exclude>**/*.log</exclude>
