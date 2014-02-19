@@ -175,7 +175,7 @@ Now you also need add this XML file to your _hippoecm-extension.xml_ file.
     <sv:value>/hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/security</sv:value>
   </sv:property>
   <sv:property sv:name="hippo:sequence" sv:type="Double">
-    <sv:value>59010.0</sv:value>
+    <sv:value>22010.0</sv:value>
   </sv:property>
 </sv:node>
 ```
