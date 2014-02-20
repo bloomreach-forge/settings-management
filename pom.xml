@@ -91,6 +91,9 @@
       <id>settings-management-maven-repo</id>
       <url>svn:https://forge.onehippo.org/svn/manage_settings/maven2</url>
     </repository>
+    <snapshotRepository>
+
+    </snapshotRepository>
   </distributionManagement>
 
   <issueManagement>
@@ -118,6 +121,7 @@
       <url>http://maven.onehippo.com/maven2-forge</url>
     </repository>
   </repositories>
+
 
   <build>
     <defaultGoal>package</defaultGoal>
