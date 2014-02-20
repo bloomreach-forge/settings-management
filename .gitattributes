@@ -117,6 +117,7 @@ repository/src/main/resources/passwordpolicies.xml -text
 repository/src/main/resources/socialmedia.xml -text
 repository/src/main/resources/usermanagement.xml -text
 src/site/markdown/adding-features.md -text
+src/site/markdown/building-from-source.md -text
 src/site/markdown/features.md -text
 src/site/markdown/index.md -text
 src/site/markdown/install.md -text
