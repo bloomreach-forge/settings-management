@@ -18,5 +18,10 @@
 
 This page contains the release notes.
 
+##Version 0.2.1
++ Removed some hardcoded labels
++ Added more tooltips
++ Documentation updates
+
 ##Version 0.2.0
 + Initial release see [features page](features.html) for more information.

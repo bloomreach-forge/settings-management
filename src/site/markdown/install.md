@@ -47,13 +47,13 @@ Add these two dependency to the pom.xml of your *cms* module:
 <dependency>
   <groupId>org.onehippo.forge.settingsmanagement</groupId>
   <artifactId>hippo-addon-settings-management-repository</artifactId>
-  <version>0.2.0</version>
+  <version>0.2.1</version>
 </dependency>
 
 <dependency>
   <groupId>org.onehippo.forge.settingsmanagement</groupId>
   <artifactId>hippo-addon-settings-management-frontend-core</artifactId>
-  <version>0.2.0</version>
+  <version>0.2.1</version>
 </dependency>
 
 ```
