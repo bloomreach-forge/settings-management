@@ -14,20 +14,32 @@
   limitations under the License.
   -->
 
-# Adding a panel for your custom features
+# Adding configuration options for custom features
 
 Adding or extending the configuration panels with your own Hippo CMS plugin configuration is quite easy.
 It basically consists of three steps:
 
+* Create a new Maven project (or add an existing module to your project/plugin)
+* Add the required dependencies
 * Create a Wicket Model wrapping the JCR node that contains the configuration
 * Create a Wicket Panel for displaying the fields in the settings management panel
 * Adding the new panel to one of the existing categories (or to a new category)
+
+##Add the API dependency to your project
+
+```
+<dependency>
+  <groupId>org.onehippo.forge.settingsmanagement</groupId>
+  <artifactId>hippo-addon-settings-management-frontend-api</artifactId>
+  <version>0.2.0</version>
+</dependency>
+```
 
 ##Creating a Wicket Model
 
 Make sure the newly created Java class implement the _CMSFeatureConfig_ interface.
 
-See the example below for a real-life code sample of a Model wrapping the User management configuration node.
+See the example below for a real-life code sample of an object wrapping the User management JCR configuration node.
 
 ```java
 public class UserManagementConfig implements CMSFeatureConfig {
@@ -71,7 +83,7 @@ public class UserManagementConfig implements CMSFeatureConfig {
 }
 ```
 
-Now that we have the Model in place that maps to the JCR node we need to create a DetachableModel for our Wicket Panel.
+Now that we have the simple object in place that maps to the JCR node we need to create a DetachableModel for our Wicket Panel.
 
 ```java
 public class UserManagementConfigModel extends LoadableDetachableConfigModel<UserManagementConfig> {

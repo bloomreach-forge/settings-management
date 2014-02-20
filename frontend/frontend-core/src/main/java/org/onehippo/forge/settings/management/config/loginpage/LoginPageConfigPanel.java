@@ -71,7 +71,7 @@ public class LoginPageConfigPanel extends FeatureConfigPanel {
         try {
             loginConfig.save();
         } catch (RepositoryException e) {
-            error("An error occurred while trying to save event log configuration: " + e);
+            error("An error occurred while trying to save login page configuration: " + e);
         }
     }
 

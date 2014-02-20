@@ -21,18 +21,26 @@ For now the planned roadmap is:
 <table>
   <thead>
       <tr>
-        <th>Version</th><th>Feature</th>
+        <th>Version</th><th>Changes</th>
       </tr>
   </thead>
   <tbody>
     <tr>
-      <td>0.2.0</td><td>Initial release</td>
+      <td>0.2.0</td>
+      <td>Initial release</td>
     </tr>
     <tr>
-      <td>0.3.0</td><td>Improve save handling of individual features</td>
+      <td>0.2.1</td>
+      <td>
+      <ul>
+        <li>Improve save handling of individual features</li>
+        <li>Add more tooltips to existing plugins</li>
+      </ul>
+      </td>
     </tr>
     <tr>
-      <td>0.4.0</td><td>CMS 7.9 compliance version + added features</td>
+      <td>0.3.0</td>
+      <td>CMS 7.9 compliance version + added features</td>
     </tr>
   </tbody>
 </table>
