@@ -34,7 +34,7 @@
 
   <groupId>org.onehippo.forge.settingsmanagement</groupId>
   <artifactId>hippo-addon-settings-management</artifactId>
-  <version>0.2.1</version>
+  <version>0.2.2-SNAPSHOT</version>
 
   <properties>
     <!-- test related -->
@@ -51,9 +51,9 @@
   </modules>
 
   <scm>
-    <connection>scm:svn:https://forge.onehippo.org/svn/manage_settings/tags/hippo-addon-settings-management-0.2.1</connection>
-    <developerConnection>scm:svn:https://forge.onehippo.org/svn/manage_settings/tags/hippo-addon-settings-management-0.2.1</developerConnection>
-    <url>https://forge.onehippo.org/svn/manage_settings/tags/hippo-addon-settings-management-0.2.1</url>
+    <connection>scm:svn:https://forge.onehippo.org/svn/manage_settings/trunk</connection>
+    <developerConnection>scm:svn:https://forge.onehippo.org/svn/manage_settings/trunk</developerConnection>
+    <url>https://forge.onehippo.org/svn/manage_settings/trunk</url>
   </scm>
 
 
