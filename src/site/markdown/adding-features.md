@@ -27,11 +27,12 @@ It basically consists of three steps:
 
 ##Add the API dependency to your project
 
+Add the frontend api to your custom feature module. For the latest version see the [release notes](/release-notes.html) page.
 ```
 <dependency>
   <groupId>org.onehippo.forge.settingsmanagement</groupId>
   <artifactId>hippo-addon-settings-management-frontend-api</artifactId>
-  <version>0.2.0</version>
+  <version>0.2.X</version>
 </dependency>
 ```
 
