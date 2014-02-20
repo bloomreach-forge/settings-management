@@ -18,7 +18,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
   <wicket:extend>
       <div class="settings-formfield-group">
-          <label class="settings-formfield-label" for="imagevalidation-extensions">Toegestane bestandsextensies <a href="#" class="tooltip">?<span class="callout">Please provide the correct image file extensions: *.jpg, *.jpeg, *.png, etc</span></a></label>
+          <label class="settings-formfield-label" for="imagevalidation-extensions"><wicket:message key="valid.extensions"/> <a href="#" class="tooltip">?<span class="callout"><wicket:message key="valid.extensions.tooltip"/></span></a></label>
           <table id="imagevalidation-extensions" wicket:id="allowedExtensionsView">
               <tr wicket:id="imagevalidation-allowedExtensions" class="file-extensions">
                   <td style="width: 60%"><input type="text" wicket:id="image-extension"></td>
