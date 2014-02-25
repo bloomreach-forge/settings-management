@@ -33,3 +33,12 @@ This project uses the [Semantic Versioning Specification](http://semver.org/).
 ##Screenshots
 
 See more [screenshots](screenshots.html).
+
+##How you can contribute
+
+- We need help with translating the labels and tooltips for each feature (de, fr, etc)
+- A settings panel for you (forge) plugin
+- Add more panels for existing parts of HippoCMS
+- Improve the UI of the existing plugins
+
+Please go ahead and register as a team member to the project [https://forge.onehippo.org/gf/project/manage_settings/](https://forge.onehippo.org/gf/project/manage_settings/)
