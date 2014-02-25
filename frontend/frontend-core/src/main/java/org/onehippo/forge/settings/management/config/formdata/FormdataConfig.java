@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2014 Hippo B.V. (http://www.onehippo.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,9 +45,14 @@ public class FormdataConfig implements CMSFeatureConfig {
     private String cronexpression;
     private Long minutesToLive;
     private List<String> excludepaths;
+    private boolean dataAvailable = true;
 
     public FormdataConfig(final Node node) {
-        init(node);
+        if(node != null) {
+            init(node);
+        } else {
+            dataAvailable = false;
+        }
     }
 
     private void init(final Node node) {
@@ -104,5 +109,9 @@ public class FormdataConfig implements CMSFeatureConfig {
         }
         node.setProperty(PROP_MINUTES_TO_LIVE, getMinutesToLive());
         node.getSession().save();
+    }
+
+    public boolean isDataAvailable() {
+        return this.dataAvailable;
     }
 }

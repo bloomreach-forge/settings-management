@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2014 Hippo B.V. (http://www.onehippo.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,6 @@ import org.apache.wicket.model.ResourceModel;
 import org.hippoecm.frontend.plugin.IPluginContext;
 import org.hippoecm.frontend.plugin.config.IPluginConfig;
 import org.onehippo.forge.settings.management.FeatureConfigPanel;
-import org.onehippo.forge.settings.management.SettingsPlugin;
 import org.onehippo.forge.settings.management.config.CMSFeatureConfig;
 
 /**
@@ -41,11 +40,13 @@ import org.onehippo.forge.settings.management.config.CMSFeatureConfig;
 public class FormdataConfigPanel extends FeatureConfigPanel {
 
     private FormdataConfigModel formdataConfigModel = new FormdataConfigModel();
+    private boolean isVisble;
 
     public FormdataConfigPanel(IPluginContext context, IPluginConfig config) {
         super(context, config, new ResourceModel("title"));
 
         final FormdataConfig formdata = formdataConfigModel.getObject();
+        isVisble = formdata.isDataAvailable();
 
         add(new TextField("cronexpression", new PropertyModel(formdata, "cronexpression")));
         add(new TextField("minutestolive", new PropertyModel(formdata, "minutesToLive")));
@@ -118,4 +119,10 @@ public class FormdataConfigPanel extends FeatureConfigPanel {
     public void cancel() {
         // do nothing.
     }
+
+    @Override
+    public boolean isVisible() {
+        return isVisble;
+    }
+
 }
