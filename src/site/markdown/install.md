@@ -1,5 +1,5 @@
 <!--
-  Copyright 2013 Hippo B.V. (http://www.onehippo.com)
+  Copyright 2014 Hippo B.V. (http://www.onehippo.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -18,10 +18,35 @@
 ## Prerequisites
 
 These instruction assumes that you have an Hippo CMS project based on the Hippo website archetype, i.e. a Maven multi-module project
-consisting of at least three sub-modules: cms, site and content.
+consisting of at least three sub-modules: cms, site and bootstrap.
+
+### Installation in CMS/Repository
+Add this property to the properties section of the *root* pom.xml:
+
+    <forge.settingsmanagement.version>0.2.1</forge.settingsmanagement.version>
+
+Add these two dependency to the pom.xml of your *cms* module:
+
+```
+<dependency>
+  <groupId>org.onehippo.forge.settingsmanagement</groupId>
+  <artifactId>hippo-addon-settings-management-repository</artifactId>
+  <version>${forge.settingsmanagement.version}</version>
+</dependency>
+
+<dependency>
+  <groupId>org.onehippo.forge.settingsmanagement</groupId>
+  <artifactId>hippo-addon-settings-management-frontend-core</artifactId>
+  <version>${forge.settingsmanagement.version}</version>
+</dependency>
+
+```
+
+Rebuild your project. In case you start with an existing repository don't forget to add *-Drepo.bootstrap=true*
+to your startup options.
 
 ### Maven 3 repository (optional)
-Add the following repository to your root pom.xml (not needed if you use no custom parent pom.xml ):
+If you are not using a Hippo release pom as parent, you may need to add the following repository to your root pom.xml:
 
 ```
 <repository>
@@ -39,24 +64,3 @@ Add the following repository to your root pom.xml (not needed if you use no cust
 ```
 
 
-### Installation in CMS/Repository
-
-Add these two dependency to the pom.xml of your *cms* module:
-
-```
-<dependency>
-  <groupId>org.onehippo.forge.settingsmanagement</groupId>
-  <artifactId>hippo-addon-settings-management-repository</artifactId>
-  <version>0.2.1</version>
-</dependency>
-
-<dependency>
-  <groupId>org.onehippo.forge.settingsmanagement</groupId>
-  <artifactId>hippo-addon-settings-management-frontend-core</artifactId>
-  <version>0.2.1</version>
-</dependency>
-
-```
-
-Rebuild your project. In case you start with an existing repository don't forget to add *-Drepo.bootstrap=true*
-to your startup options.
