@@ -1,1 +1,11 @@
 /*.iml
+/.idea
+frontend/*.iml
+frontend/frontend-api/*.iml
+frontend/frontend-api/target
+frontend/frontend-core/*.iml
+frontend/frontend-core/target
+frontend/target
+repository/*.iml
+repository/target
+/target
