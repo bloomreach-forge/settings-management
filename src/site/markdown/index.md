@@ -36,7 +36,7 @@ See more [screenshots](screenshots.html).
 
 ##Status
 
-Version range 0.3.x runs on Hippo 7.9, us 0.2.x when on Hippo 7.8
+Version range 0.3.x runs on Hippo 7.9, use 0.2.x when on Hippo 7.8
 
 ##How you can contribute
 
