@@ -23,9 +23,12 @@ import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxEventBehavior;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
+import org.apache.wicket.markup.html.form.Radio;
+import org.apache.wicket.markup.html.form.RadioGroup;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.image.Image;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.model.ResourceModel;
 import org.apache.wicket.request.resource.PackageResourceReference;
@@ -57,9 +60,15 @@ public class BrokenLinksCheckerConfigPanel extends FeatureConfigPanel {
         checkerContentUUID = brokenlinksCheckerConfig.getStartPathUUID();
         checkerStartPath =  brokenlinksCheckerConfig.getStartPath();
 
+        RadioGroup linksCheckEnabledRadioGroup = new RadioGroup("linkscheck-enabledgroup", new PropertyModel(brokenLinksCheckerConfigModel, "enabled"));
+        linksCheckEnabledRadioGroup.add(new Radio("linkscheck-disabled", new Model(Boolean.FALSE)));
+        linksCheckEnabledRadioGroup.add(new Radio("linkscheck-enabled", new Model(Boolean.TRUE)));
+
+        TextField cronExpressionField = new TextField("linkscheck-cronexpression", new PropertyModel(brokenLinksCheckerConfigModel, "cronExpression"));
         TextField brokenlinksCheckConnectionTimeoutField = new TextField("linkscheck-connectionTimeout", new PropertyModel(brokenLinksCheckerConfigModel,"connectionTimeout"));
         TextField brokenlinksCheckSocketTimeoutField = new TextField("linkscheck-socketTimeout", new PropertyModel(brokenLinksCheckerConfigModel,"socketTimeout"));
         TextField brokenlinksCheckNrOfThreads = new TextField("linkscheck-nrOfThreads", new PropertyModel(brokenLinksCheckerConfigModel,"nrOfThreads"));
+        TextField brokenlinksUrlExcludes = new TextField("linkscheck-urlExcludes", new PropertyModel(brokenLinksCheckerConfigModel,"urlExcludes"));
 
         final TextField brokenlinksCheckStartPath = new TextField("linkscheck-startPath", new PropertyModel(this, "checkerStartPath"));
         final Image locationPickLink = new Image("linkcheck-startPath-location-search", new PackageResourceReference(BrokenLinksCheckerConfigPanel.class, "folder-choose.png")) {
@@ -113,11 +122,14 @@ public class BrokenLinksCheckerConfigPanel extends FeatureConfigPanel {
             }
         });
 
+        add(linksCheckEnabledRadioGroup);
+        add(cronExpressionField);
         add(locationPickLink);
         add(brokenlinksCheckConnectionTimeoutField);
         add(brokenlinksCheckSocketTimeoutField);
         add(brokenlinksCheckNrOfThreads);
         add(brokenlinksCheckStartPath);
+        add(brokenlinksUrlExcludes);
     }
 
     public void save() {

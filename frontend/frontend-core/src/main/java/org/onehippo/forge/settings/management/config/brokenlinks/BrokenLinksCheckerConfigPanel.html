@@ -18,6 +18,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
 <wicket:extend>
     <div class="settings-formfield-group">
+        <div wicket:id="linkscheck-enabledgroup">
+            <label class="settings-formfield-label"><wicket:message key="linkscheck-enabledgroup"></wicket:message> <a href="#" class="tooltip">?<span class="callout"><wicket:message key="linkscheck-enabledgroup-tip"/></span></a></label>
+            <div class="settings-formfield-radio">
+                <input type="radio" wicket:id="linkscheck-enabled"/><label><wicket:message key="linkscheck-on"/></label>
+            </div>
+            <div class="settings-formfield-radio">
+                <input type="radio" wicket:id="linkscheck-disabled"/><label><wicket:message key="linkscheck-off"/></label>
+            </div>
+        </div>
+    </div>
+    <div class="settings-formfield-group">
+        <label class="settings-formfield-label" for="checker-cronexpression">
+            <wicket:message key="checker-cron-expression">Cron expression</wicket:message>
+            <a href="#" class="tooltip">?<span class="callout"><wicket:message key="checker-cron-expression-tip"/></span></a>
+        </label>
+        <input wicket:id="linkscheck-cronexpression" id="checker-cronexpression"/>
+    </div>
+    <div class="settings-formfield-group">
         <label class="settings-formfield-label"><wicket:message key="checker-connection-timeout">Connection Timeout (in ms)</wicket:message></label>
         <div>
             <input wicket:id="linkscheck-connectionTimeout"/>
@@ -42,5 +60,12 @@
             <img wicket:id="linkcheck-startPath-location-search"/>
         </div>
     </div>
+    <div class="settings-formfield-group">
+        <label class="settings-formfield-label"><wicket:message key="checker-urlExcludes">Excluded URLs</wicket:message></label>
+        <div>
+            <input wicket:id="linkscheck-urlExcludes"/>
+        </div>
+    </div>
+
 </wicket:extend>
 </html>

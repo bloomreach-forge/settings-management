@@ -34,11 +34,18 @@ public class BrokenlinksCheckerConfig implements CMSFeatureConfig {
     public static final String PROP_NR_THREADS = "nrOfThreads";
     public static final String PROP_SOCKET_TIMEOUT = "socketTimeout";
     public static final String PROP_STARTPATH = "startPath";
+    public static final String PROP_ENABLED = "enabled";
+    public static final String PROP_CRONEXPRESSION = "cronExpression";
+    public static final String PROP_URLEXCLUDES = "urlExcludes";
 
     public static final Long DEFAULT_CONNECTION_TIMEOUT = 10000l;
     public static final Integer DEFAULT_NR_THREADS = 10;
     public static final Long DEFAULT_SOCKET_TIMEOUT = 10000l;
     public static final String DEFAULT_START_PATH = "/content/documents";
+    public static final String DEFAULT_CRON_EXPRESSION = "0 0 2 * * ? *";
+
+    //default in 7.9 is disabled
+    private boolean enabled = false;
 
     private transient Node node;
     private Long connectionTimeout;
@@ -46,6 +53,9 @@ public class BrokenlinksCheckerConfig implements CMSFeatureConfig {
     private String startPath;
     private String startPathUUID;
     private int nrOfThreads;
+    private String cronExpression;
+    private String urlExcludes;
+
 
     public BrokenlinksCheckerConfig(final Node configNode) {
         this.node = configNode;
@@ -70,6 +80,20 @@ public class BrokenlinksCheckerConfig implements CMSFeatureConfig {
             } else {
                 startPath = DEFAULT_START_PATH;
             }
+            if(node.hasProperty(PROP_ENABLED)){
+                enabled = node.getProperty(PROP_ENABLED).getBoolean();
+            }
+            if(node.hasProperty(PROP_CRONEXPRESSION)) {
+                cronExpression = node.getProperty(PROP_CRONEXPRESSION).getString();
+            } else {
+                cronExpression = DEFAULT_CRON_EXPRESSION;
+            }
+            if(node.hasProperty(PROP_URLEXCLUDES)) {
+                urlExcludes = node.getProperty(PROP_URLEXCLUDES).getString();
+            } else {
+                urlExcludes = "";
+            }
+
             startPathUUID = getIdentifierForPath(startPath);
         } catch (RepositoryException e) {
             log.error("Error: {}",e);
@@ -91,10 +115,13 @@ public class BrokenlinksCheckerConfig implements CMSFeatureConfig {
 
     @Override
     public void save() throws RepositoryException {
-        node.setProperty(PROP_CONNECTION_TIMEOUT,connectionTimeout);
-        node.setProperty(PROP_NR_THREADS,nrOfThreads);
-        node.setProperty(PROP_SOCKET_TIMEOUT,socketTimeout);
-        node.setProperty(PROP_STARTPATH,startPath);
+        node.setProperty(PROP_CONNECTION_TIMEOUT, connectionTimeout);
+        node.setProperty(PROP_NR_THREADS, nrOfThreads);
+        node.setProperty(PROP_SOCKET_TIMEOUT, socketTimeout);
+        node.setProperty(PROP_STARTPATH, startPath);
+        node.setProperty(PROP_ENABLED, enabled);
+        node.setProperty(PROP_CRONEXPRESSION, cronExpression);
+        node.setProperty(PROP_URLEXCLUDES, urlExcludes);
         node.getSession().save();
     }
 
@@ -137,5 +164,29 @@ public class BrokenlinksCheckerConfig implements CMSFeatureConfig {
     public void setStartPathUUID(final String startPathUUID) {
         this.startPathUUID = startPathUUID;
         setStartPath(getPathForIdentifier(startPathUUID));
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(final boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public String getCronExpression() {
+        return cronExpression;
+    }
+
+    public void setCronExpression(final String cronExpression) {
+        this.cronExpression = cronExpression;
+    }
+
+    public String getUrlExcludes() {
+        return urlExcludes;
+    }
+
+    public void setUrlExcludes(final String urlExcludes) {
+        this.urlExcludes = urlExcludes;
     }
 }
