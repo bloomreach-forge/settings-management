@@ -19,8 +19,12 @@
 This page contains the release notes.
 
 ##Version 0.3.0
-+ Upgraded to Hippo 7.9. Use 0.2.x for Hippo 7.8.
++ Upgraded to Hippo 7.9. Use 0.2.x for Hippo 7.8. (thanks to Unico Hommes)
 + Updated the configuration options of the Brokenlinkschecker to be compliant with 7.9
+
+##Version 0.2.2
++ Removed some debug statements (sysout)
++ Check for existence of formdata configuration to make the 0.2.2 release work with CMS 7.7. (thanks to Bert Leunis)
 
 ##Version 0.2.1
 + Removed some hardcoded labels
