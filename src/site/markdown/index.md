@@ -34,6 +34,10 @@ This project uses the [Semantic Versioning Specification](http://semver.org/).
 
 See more [screenshots](screenshots.html).
 
+##Status
+
+Version range 0.3.x runs on Hippo 7.9, us 0.2.x when on Hippo 7.8
+
 ##How you can contribute
 
 - We need help with translating the labels and tooltips for each feature (de, fr, etc)
