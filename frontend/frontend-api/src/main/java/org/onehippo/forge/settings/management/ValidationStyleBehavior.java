@@ -17,11 +17,11 @@
 package org.onehippo.forge.settings.management;
 
 import org.apache.wicket.Component;
-import org.apache.wicket.behavior.AbstractBehavior;
+import org.apache.wicket.behavior.Behavior;
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.form.FormComponent;
 
-public class ValidationStyleBehavior extends AbstractBehavior {
+public class ValidationStyleBehavior extends Behavior {
 
     public void onComponentTag(final Component component, final ComponentTag tag) {
 

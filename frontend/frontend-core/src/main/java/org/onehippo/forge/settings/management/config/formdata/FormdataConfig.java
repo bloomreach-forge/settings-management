@@ -111,7 +111,7 @@ public class FormdataConfig implements CMSFeatureConfig {
         node.getSession().save();
     }
 
-    public boolean isDataAvailable() {
+    public Boolean isDataAvailable() {
         return this.dataAvailable;
     }
 }

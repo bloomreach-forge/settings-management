@@ -81,7 +81,7 @@ public class FormdataConfigPanel extends FeatureConfigPanel {
                     @Override
                     protected void onSubmit(AjaxRequestTarget target, Form form) {
                         getModelObject().remove(item.getModelObject());
-                        target.addComponent(listContainer);
+                        target.add(listContainer);
                     }
                 };
                 remove.setDefaultFormProcessing(false);
@@ -95,7 +95,7 @@ public class FormdataConfigPanel extends FeatureConfigPanel {
             @Override
             public void onClick(AjaxRequestTarget target) {
                 excludedPathsView.getModelObject().add("");
-                target.addComponent(listContainer);
+                target.add(listContainer);
                 target.focusComponent(this);
             }
         };

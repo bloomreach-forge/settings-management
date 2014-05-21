@@ -30,11 +30,13 @@ import org.apache.wicket.extensions.ajax.markup.html.tabs.AjaxTabbedPanel;
 import org.apache.wicket.extensions.breadcrumb.IBreadCrumbModel;
 import org.apache.wicket.extensions.markup.html.tabs.AbstractTab;
 import org.apache.wicket.extensions.markup.html.tabs.ITab;
-import org.apache.wicket.markup.html.CSSPackageResource;
+import org.apache.wicket.markup.head.CssHeaderItem;
+import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
+import org.apache.wicket.request.resource.CssResourceReference;
 import org.hippoecm.frontend.plugin.IPluginContext;
 import org.hippoecm.frontend.plugin.config.IPluginConfig;
 import org.hippoecm.frontend.plugins.cms.admin.AdminBreadCrumbPanel;
@@ -71,8 +73,6 @@ public class SettingsPanel extends AdminBreadCrumbPanel {
     public SettingsPanel(final String componentId, final IBreadCrumbModel breadCrumbModel, final IPluginContext context, final IPluginConfig config) {
         super(componentId,breadCrumbModel);
 
-        add(CSSPackageResource.getHeaderContribution(SettingsPanel.class,"settings-panel.css"));
-
         // Load the tabs configuration from the repository
         List<Tab> tabConfigs = new ArrayList<Tab>();
         try {
@@ -104,20 +104,31 @@ public class SettingsPanel extends AdminBreadCrumbPanel {
                     }
                 }
 
-                tabs.add(new AbstractTab(new Model<String>(tabConfig.getTitle()))
+                tabs.add(new AbstractTab(new Model<>(tabConfig.getTitle()))
                 {
+                    private TabPanel panel;
                     @Override
                     public Panel getPanel(String panelId)
                     {
-                        return new TabPanel(panelId, breadCrumbModel, context, config, mcs);
+                        if (panel == null) {
+                            panel = new TabPanel(panelId, breadCrumbModel, context, config, mcs);
+                        }
+                        return panel;
                     }
                 });
             }
-            add(new AjaxTabbedPanel("tabs", tabs));
+            add(new AjaxTabbedPanel<>("tabs", tabs));
         } else {
             add(new Label("tabs", new ClassResourceModel("admin-settings-no-tabs", SettingsPanel.class)));
         }
     }
+
+    @Override
+    public void renderHead(final IHeaderResponse response) {
+        super.renderHead(response);
+        response.render(CssHeaderItem.forReference(new CssResourceReference(SettingsPanel.class, "settings-panel.css")));
+    }
+
 
     @Override
     public IModel<String> getTitle(final Component component) {

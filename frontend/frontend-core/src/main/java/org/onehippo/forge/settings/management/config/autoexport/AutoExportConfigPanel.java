@@ -83,7 +83,7 @@ public class AutoExportConfigPanel extends FeatureConfigPanel {
                     protected void onSubmit(AjaxRequestTarget target, Form form) {
                         //modulesList.remove(item.getIndex());
                         //autoExportConfigModel.getObject().setModules(modulesList);
-                        target.addComponent(listContainer);
+                        target.add(listContainer);
                     }
                 };
                 remove.setDefaultFormProcessing(false);

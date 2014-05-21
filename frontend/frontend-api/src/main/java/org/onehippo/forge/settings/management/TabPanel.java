@@ -16,17 +16,15 @@
 
 package org.onehippo.forge.settings.management;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.jcr.RepositoryException;
 
-import org.apache.wicket.Session;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.form.AjaxButton;
 import org.apache.wicket.extensions.breadcrumb.IBreadCrumbModel;
 import org.apache.wicket.extensions.breadcrumb.IBreadCrumbParticipant;
-import org.apache.wicket.feedback.ComponentFeedbackMessageFilter;
 import org.apache.wicket.feedback.FeedbackMessage;
 import org.apache.wicket.feedback.IFeedbackMessageFilter;
 import org.apache.wicket.markup.html.form.Form;
@@ -81,15 +79,15 @@ public class TabPanel extends Panel {
                 for (FeatureConfigPanel feature : features) {
                     feature.save();
                 }
-                target.addComponent(form);
+                target.add(form);
                 info(getString("data-saved"));
-                target.addComponent(feedback);
+                target.add(feedback);
             }
 
             @Override
             protected void onError(final AjaxRequestTarget target, final Form<?> form) {
-                target.addComponent(form);
-                target.addComponent(feedback);
+                target.add(form);
+                target.add(feedback);
             }
         });
 

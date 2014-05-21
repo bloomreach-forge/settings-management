@@ -54,7 +54,7 @@ public class UploadSettingsConfig implements CMSFeatureConfig {
         }
     }
 
-    public int getMaxNumberOfFiles() {
+    public Integer getMaxNumberOfFiles() {
         return maxNumberOfFiles;
     }
 
@@ -62,7 +62,7 @@ public class UploadSettingsConfig implements CMSFeatureConfig {
         this.maxNumberOfFiles = maxNumberOfFiles;
     }
 
-    public boolean isFlashUploadEnabled() {
+    public Boolean isFlashUploadEnabled() {
         return flashUploadEnabled;
     }
 

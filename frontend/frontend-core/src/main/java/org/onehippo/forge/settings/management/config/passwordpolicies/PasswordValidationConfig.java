@@ -78,7 +78,7 @@ public class PasswordValidationConfig implements CMSFeatureConfig {
         }
     }
 
-    public int getRequiredStrength() {
+    public Integer getRequiredStrength() {
         return requiredStrength;
     }
 
@@ -86,7 +86,7 @@ public class PasswordValidationConfig implements CMSFeatureConfig {
         this.requiredStrength = requiredStrength;
     }
 
-    public int getMinimalLengthPassword() {
+    public Integer getMinimalLengthPassword() {
         return minimalLengthPassword;
     }
 
@@ -94,7 +94,7 @@ public class PasswordValidationConfig implements CMSFeatureConfig {
         this.minimalLengthPassword = minimalLengthPassword;
     }
 
-    public int getNumberofpreviouspasswords() {
+    public Integer getNumberofpreviouspasswords() {
         return numberofpreviouspasswords;
     }
 

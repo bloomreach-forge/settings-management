@@ -20,7 +20,6 @@ import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
 import org.apache.wicket.Component;
-import org.apache.wicket.ResourceReference;
 import org.apache.wicket.ajax.AjaxEventBehavior;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
@@ -29,6 +28,7 @@ import org.apache.wicket.markup.html.image.Image;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.model.ResourceModel;
+import org.apache.wicket.request.resource.PackageResourceReference;
 import org.hippoecm.frontend.PluginRequestTarget;
 import org.hippoecm.frontend.dialog.AbstractDialog;
 import org.hippoecm.frontend.dialog.DialogAction;
@@ -38,8 +38,6 @@ import org.hippoecm.frontend.editor.plugins.linkpicker.LinkPickerDialog;
 import org.hippoecm.frontend.plugin.IPluginContext;
 import org.hippoecm.frontend.plugin.config.IPluginConfig;
 import org.onehippo.forge.settings.management.FeatureConfigPanel;
-import org.onehippo.forge.settings.management.SettingsPlugin;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -64,7 +62,7 @@ public class BrokenLinksCheckerConfigPanel extends FeatureConfigPanel {
         TextField brokenlinksCheckNrOfThreads = new TextField("linkscheck-nrOfThreads", new PropertyModel(brokenLinksCheckerConfigModel,"nrOfThreads"));
 
         final TextField brokenlinksCheckStartPath = new TextField("linkscheck-startPath", new PropertyModel(this, "checkerStartPath"));
-        final Image locationPickLink = new Image("linkcheck-startPath-location-search", new ResourceReference(BrokenLinksCheckerConfigPanel.class, "folder-choose.png")) {
+        final Image locationPickLink = new Image("linkcheck-startPath-location-search", new PackageResourceReference(BrokenLinksCheckerConfigPanel.class, "folder-choose.png")) {
             @Override
             public boolean isVisible() {
                 return true;
@@ -83,7 +81,7 @@ public class BrokenLinksCheckerConfigPanel extends FeatureConfigPanel {
 
                     @Override
                     public void render(PluginRequestTarget target) {
-                        target.addComponent(brokenlinksCheckStartPath);
+                        target.add(brokenlinksCheckStartPath);
                         super.render(target);
                     }
 
@@ -147,10 +145,10 @@ public class BrokenLinksCheckerConfigPanel extends FeatureConfigPanel {
             protected void onUpdate(AjaxRequestTarget target) {
                 if (components != null) {
                     for (final Component component : components) {
-                        target.addComponent(component);
+                        target.add(component);
                         Component reset = component.getParent().get(component.getId() + "-reset-container");
                         if (reset != null) {
-                            target.addComponent(reset);
+                            target.add(reset);
                         }
                     }
                 }

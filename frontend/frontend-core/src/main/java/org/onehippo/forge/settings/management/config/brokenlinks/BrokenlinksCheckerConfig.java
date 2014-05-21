@@ -122,7 +122,7 @@ public class BrokenlinksCheckerConfig implements CMSFeatureConfig {
         this.startPath = startPath;
     }
 
-    public int getNrOfThreads() {
+    public Integer getNrOfThreads() {
         return nrOfThreads;
     }
 

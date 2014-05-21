@@ -65,7 +65,7 @@ public class SocialMediaConfigPanel extends FeatureConfigPanel {
                 if(newService!=null) {
                     socialservicesView.getModelObject().add(newService);
                 }
-                target.addComponent(listContainer);
+                target.add(listContainer);
                 target.focusComponent(this);
             }
         };
@@ -104,7 +104,7 @@ public class SocialMediaConfigPanel extends FeatureConfigPanel {
             item.add(label);
 
             final RequiredTextField<String> displayname = new RequiredTextField<String>("displayname", new PropertyModel<String>(item.getModel(), "name"));
-            displayname.add(new StringValidator.MinimumLengthValidator(1));
+            displayname.add(new StringValidator(1, null));
             displayname.add(new ValidationStyleBehavior());
 
             item.add(displayname);
@@ -119,7 +119,7 @@ public class SocialMediaConfigPanel extends FeatureConfigPanel {
                 protected void onUpdate(AjaxRequestTarget target)
                 {
                     label.setDefaultModelObject(getValue(displayname.getDefaultModelObjectAsString()));
-                    target.addComponent(label);
+                    target.add(label);
                 }
             };
             displayname.add(onChangeAjaxBehavior);

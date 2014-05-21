@@ -87,7 +87,7 @@ public class LoginConfig implements CMSFeatureConfig {
         }
     }
 
-    public int getRememberMeCookieAge() {
+    public Integer getRememberMeCookieAge() {
         return rememberMeCookieAge;
     }
 
@@ -95,7 +95,7 @@ public class LoginConfig implements CMSFeatureConfig {
         this.rememberMeCookieAge = rememberMeCookieAge;
     }
 
-    public int getHippoAutoLoginCookieAge() {
+    public Integer getHippoAutoLoginCookieAge() {
         return hippoAutoLoginCookieAge;
     }
 
@@ -103,7 +103,7 @@ public class LoginConfig implements CMSFeatureConfig {
         this.hippoAutoLoginCookieAge = hippoAutoLoginCookieAge;
     }
 
-    public int getNumberOfAttemptBeforeCaptchaIsShown() {
+    public Integer getNumberOfAttemptBeforeCaptchaIsShown() {
         return numberOfAttemptBeforeCaptchaIsShown;
     }
 

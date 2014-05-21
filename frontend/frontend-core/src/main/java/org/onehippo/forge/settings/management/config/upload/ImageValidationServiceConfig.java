@@ -97,19 +97,19 @@ public class ImageValidationServiceConfig implements CMSFeatureConfig {
         this.maxFileSize = maxFileSize;
     }
 
-    public long getMaxWidth() {
+    public Long getMaxWidth() {
         return maxWidth;
     }
 
-    public void setMaxWidth(final long maxWidth) {
+    public void setMaxWidth(final Long maxWidth) {
         this.maxWidth = maxWidth;
     }
 
-    public long getMaxHeight() {
+    public Long getMaxHeight() {
         return maxHeight;
     }
 
-    public void setMaxHeight(final long maxHeight) {
+    public void setMaxHeight(final Long maxHeight) {
         this.maxHeight = maxHeight;
     }
 

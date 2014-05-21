@@ -16,9 +16,11 @@
 
 package org.onehippo.forge.settings.management;
 
-import org.apache.wicket.ResourceReference;
+
 import org.apache.wicket.extensions.breadcrumb.IBreadCrumbModel;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.request.resource.PackageResourceReference;
+import org.apache.wicket.request.resource.ResourceReference;
 import org.hippoecm.frontend.plugin.IPluginContext;
 import org.hippoecm.frontend.plugin.config.IPluginConfig;
 import org.hippoecm.frontend.plugins.cms.admin.AdminPanelPlugin;
@@ -38,7 +40,7 @@ public class SettingsPlugin extends AdminPanelPlugin {
 
     @Override
     public ResourceReference getImage() {
-        return new ResourceReference(this.getClass(), "settings-info-48.png");
+        return new PackageResourceReference(getClass(), "settings-info-48.png");
     }
 
     @Override
