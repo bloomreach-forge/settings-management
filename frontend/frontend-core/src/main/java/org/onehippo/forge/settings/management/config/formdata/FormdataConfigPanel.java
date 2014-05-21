@@ -65,14 +65,6 @@ public class FormdataConfigPanel extends FeatureConfigPanel {
             protected void populateItem(final ListItem<String> item) {
                 RequiredTextField extensionField = new RequiredTextField("formdata-path", item.getModel());
                 extensionField.setOutputMarkupId(true);
-                extensionField.add(new OnChangeAjaxBehavior() {
-                    private static final long serialVersionUID = 1L;
-
-                    @Override
-                    protected void onUpdate(AjaxRequestTarget target) {
-                        System.out.println(item.getModelObject());
-                    }
-                });
                 item.add(extensionField);
 
                 AjaxSubmitLink remove = new AjaxSubmitLink("remove") {
