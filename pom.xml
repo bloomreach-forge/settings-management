@@ -51,9 +51,9 @@
   </modules>
 
   <scm>
-    <connection>scm:svn:https://forge.onehippo.org/svn/manage_settings/trunk</connection>
-    <developerConnection>scm:svn:https://forge.onehippo.org/svn/manage_settings/trunk</developerConnection>
-    <url>https://forge.onehippo.org/svn/manage_settings/trunk</url>
+    <connection>scm:svn:https://forge.onehippo.org/svn/manage_settings/branches/hippo-addon-settings-management-0.2.X</connection>
+    <developerConnection>scm:svn:https://forge.onehippo.org/svn/manage_settings/branches/hippo-addon-settings-management-0.2.X</developerConnection>
+    <url>https://forge.onehippo.org/svn/manage_settings/branches/hippo-addon-settings-management-0.2.X</url>
   </scm>
 
 
