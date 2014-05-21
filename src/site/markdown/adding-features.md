@@ -33,9 +33,11 @@ Add the frontend api to your custom feature module. For the latest version see t
 <dependency>
   <groupId>org.onehippo.forge.settingsmanagement</groupId>
   <artifactId>hippo-addon-settings-management-frontend-api</artifactId>
-  <version>0.2.X</version>
+  <version>0.X.X</version>
 </dependency>
 ```
+
+Select the correct version for your project. See the [release notes](release-notes.html) for more information on which version is applicable.
 
 ##Creating a Wicket Model
 

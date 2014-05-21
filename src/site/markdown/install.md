@@ -23,7 +23,9 @@ consisting of at least three sub-modules: cms, site and bootstrap.
 ### Installation in CMS/Repository
 Add this property to the properties section of the *root* pom.xml:
 
-    <forge.settingsmanagement.version>0.2.1</forge.settingsmanagement.version>
+    <forge.settingsmanagement.version>0.X.X</forge.settingsmanagement.version>
+
+Select the correct version for your project. See the [release notes](release-notes.html) for more information on which version is applicable.
 
 Add these two dependency to the pom.xml of your *cms* module:
 
@@ -62,5 +64,3 @@ If you are not using a Hippo release pom as parent, you may need to add the foll
   <layout>default</layout>
 </repository>
 ```
-
-
