@@ -37,7 +37,7 @@ public class SocialMediaServiceConfig implements CMSFeatureConfig {
     private transient Node configNode;
 
     public SocialMediaServiceConfig(final Node configNode) {
-        services = new ArrayList<SocialMediaService>();
+        services = new ArrayList<>();
         init(configNode);
     }
 

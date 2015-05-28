@@ -29,6 +29,7 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class LoadableDetachableConfigModel<T> extends LoadableDetachableModel<T> {
 
+    private static final long serialVersionUID = 1L;
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     public CMSFeatureConfig getConfig() {

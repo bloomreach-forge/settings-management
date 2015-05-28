@@ -29,7 +29,7 @@ import org.hippoecm.frontend.plugin.config.IPluginConfig;
 import org.onehippo.forge.settings.management.FeatureConfigPanel;
 
 public class LoginPageConfigPanel extends FeatureConfigPanel {
-
+    private static final long serialVersionUID = 1L;
     private LoginConfigModel loginConfigModel;
 
     public LoginPageConfigPanel(IPluginContext context, IPluginConfig config) {

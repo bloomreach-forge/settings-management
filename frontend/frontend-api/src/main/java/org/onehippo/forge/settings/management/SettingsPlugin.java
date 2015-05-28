@@ -34,6 +34,7 @@ import org.hippoecm.frontend.plugins.standards.panelperspective.breadcrumb.Panel
  */
 public class SettingsPlugin extends AdminPanelPlugin {
 
+    private static final long serialVersionUID = 1L;
     public SettingsPlugin(final IPluginContext context, final IPluginConfig config) {
         super(context, config);
     }

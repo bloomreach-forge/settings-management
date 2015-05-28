@@ -23,8 +23,8 @@ import org.onehippo.forge.settings.management.config.LoadableDetachableConfigMod
  * @author Jeroen Reijn
  */
 public class HippoSecurityConfigModel extends LoadableDetachableConfigModel<HippoSecurityConfig> {
-
-    private static final String SECURITY_PATH = "/" + HippoNodeType.CONFIGURATION_PATH + "/" + HippoNodeType.SECURITY_PATH;
+    private static final long serialVersionUID = 1L;
+    private static final String SECURITY_PATH = '/' + HippoNodeType.CONFIGURATION_PATH + '/' + HippoNodeType.SECURITY_PATH;
 
     @Override
     protected HippoSecurityConfig load() {

@@ -23,6 +23,7 @@ import org.apache.wicket.markup.html.form.FormComponent;
 
 public class ValidationStyleBehavior extends Behavior {
 
+    private static final long serialVersionUID = 1L;
     public void onComponentTag(final Component component, final ComponentTag tag) {
 
         FormComponent comp = (FormComponent) component;

@@ -45,7 +45,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class BrokenLinksCheckerConfigPanel extends FeatureConfigPanel {
-
+    private static final long serialVersionUID = 1L;
     private final static Logger log = LoggerFactory.getLogger(BrokenLinksCheckerConfigPanel.class);
     private BrokenLinksCheckerConfigModel brokenLinksCheckerConfigModel;
     private String checkerContentUUID;
@@ -72,6 +72,7 @@ public class BrokenLinksCheckerConfigPanel extends FeatureConfigPanel {
 
         final TextField brokenlinksCheckStartPath = new TextField("linkscheck-startPath", new PropertyModel(this, "checkerStartPath"));
         final Image locationPickLink = new Image("linkcheck-startPath-location-search", new PackageResourceReference(BrokenLinksCheckerConfigPanel.class, "folder-choose.png")) {
+            private static final long serialVersionUID = 1L;
             @Override
             public boolean isVisible() {
                 return true;
@@ -87,7 +88,7 @@ public class BrokenLinksCheckerConfigPanel extends FeatureConfigPanel {
             public AbstractDialog<String> createDialog() {
 
                 return new LinkPickerDialog(getContext(), getConfig(), contentUUID) {
-
+                    private static final long serialVersionUID = 1L;
                     @Override
                     public void render(PluginRequestTarget target) {
                         target.add(brokenlinksCheckStartPath);
@@ -116,6 +117,7 @@ public class BrokenLinksCheckerConfigPanel extends FeatureConfigPanel {
 
         final DialogAction dialogAction = new DialogAction(dialogFactory, getDialogService());
         locationPickLink.add(new AjaxEventBehavior("onclick") {
+            private static final long serialVersionUID = 1L;
             @Override
             protected void onEvent(final AjaxRequestTarget target) {
                 dialogAction.execute();
@@ -153,6 +155,7 @@ public class BrokenLinksCheckerConfigPanel extends FeatureConfigPanel {
 
     private AjaxFormComponentUpdatingBehavior createSimpleAjaxChangeBehavior(final Component... components) {
         return new AjaxFormComponentUpdatingBehavior("onchange") {
+            private static final long serialVersionUID = 1L;
             @Override
             protected void onUpdate(AjaxRequestTarget target) {
                 if (components != null) {

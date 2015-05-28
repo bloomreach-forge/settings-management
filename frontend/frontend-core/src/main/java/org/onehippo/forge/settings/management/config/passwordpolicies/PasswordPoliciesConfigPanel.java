@@ -26,7 +26,7 @@ import org.hippoecm.frontend.plugin.config.IPluginConfig;
 import org.onehippo.forge.settings.management.FeatureConfigPanel;
 
 public class PasswordPoliciesConfigPanel extends FeatureConfigPanel {
-
+    private static final long serialVersionUID = 1L;
     private final HippoSecurityConfigModel hippoSecurityConfigModel;
     private final ChangePasswordConfigModel changePasswordConfigModel;
     private final PasswordValidationConfigModel passwordValidationConfigModel;

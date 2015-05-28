@@ -23,7 +23,7 @@ import org.onehippo.forge.settings.management.config.LoadableDetachableConfigMod
  * @author Jeroen Reijn
  */
 public class SocialMediaServiceConfigModel extends LoadableDetachableConfigModel<SocialMediaServiceConfig> {
-
+    private static final long serialVersionUID = 1L;
     public static final String MEDIA_SERVICE_CONFIG_PATH = "/hippo:configuration/hippo:frontend/cms/cms-services/popupSocialMediaService";
 
     @Override

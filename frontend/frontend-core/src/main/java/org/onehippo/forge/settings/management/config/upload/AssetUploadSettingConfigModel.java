@@ -25,7 +25,7 @@ import org.onehippo.forge.settings.management.config.LoadableDetachableConfigMod
  * @author Jeroen Reijn
  */
 public class AssetUploadSettingConfigModel extends LoadableDetachableConfigModel<UploadSettingsConfig> {
-
+    private static final long serialVersionUID = 1L;
     public static final String ASSET_UPLOAD_CONFIG_PATH = "/hippo:configuration/hippo:workflows/gallery/asset-gallery/frontend:renderer";
 
     @Override

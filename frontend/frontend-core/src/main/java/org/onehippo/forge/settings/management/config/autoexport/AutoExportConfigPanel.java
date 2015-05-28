@@ -32,6 +32,7 @@ import org.hippoecm.frontend.plugin.config.IPluginConfig;
 import org.onehippo.forge.settings.management.FeatureConfigPanel;
 
 public class AutoExportConfigPanel extends FeatureConfigPanel {
+    private static final long serialVersionUID = 1L;
     private AutoExportConfigModel autoExportConfigModel;
 
     public AutoExportConfigPanel(IPluginContext context, IPluginConfig config) {
@@ -63,6 +64,7 @@ public class AutoExportConfigPanel extends FeatureConfigPanel {
         final AutoExportConfig autoExportConfig = autoExportConfigModel.getObject();
         //final ArrayList<String> modulesList = autoExportConfig.getModules();
         ListView<String> modules = new ListView<String>("autoexport-modules", new PropertyModel(autoExportConfigModel, "modules")) {
+            private static final long serialVersionUID = 1L;
             @Override
             protected void populateItem(final ListItem<String> item) {
                 RequiredTextField moduleField = new RequiredTextField("module", item.getModel());

@@ -26,7 +26,9 @@ import org.onehippo.forge.settings.management.config.LoadableDetachableConfigMod
  */
 public class AssetValidationServiceConfigModel extends LoadableDetachableConfigModel<AssetValidationServiceConfig> {
 
+    private static final long serialVersionUID = 1L;
     public static final String ASSET_VALIDATION_CONFIG_PATH = "/hippo:configuration/hippo:frontend/cms/cms-services/assetValidationService";
+
 
     @Override
     protected AssetValidationServiceConfig load() {

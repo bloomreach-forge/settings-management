@@ -22,7 +22,7 @@ import org.onehippo.forge.settings.management.config.LoadableDetachableConfigMod
  * @author Jeroen Reijn
  */
 public class BrokenLinksCheckerConfigModel extends LoadableDetachableConfigModel<BrokenlinksCheckerConfig> {
-
+    private static final long serialVersionUID = 1L;
     public static final String CONFIG_PATH = "/hippo:configuration/hippo:modules/scheduler/hippo:moduleconfig/system/CheckBrokenLinks";
 
     @Override

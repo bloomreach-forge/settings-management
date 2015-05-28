@@ -30,6 +30,7 @@ import org.onehippo.forge.settings.management.FeatureConfigPanel;
 
 public class UserManagementConfigPanel extends FeatureConfigPanel {
 
+    private static final long serialVersionUID = 1L;
     private UserManagementConfigModel userManagementConfigModel;
 
     public UserManagementConfigPanel(IPluginContext context, IPluginConfig config) {

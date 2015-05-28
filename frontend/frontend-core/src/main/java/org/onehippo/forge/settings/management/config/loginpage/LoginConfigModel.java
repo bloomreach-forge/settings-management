@@ -22,7 +22,7 @@ import org.onehippo.forge.settings.management.config.LoadableDetachableConfigMod
  * @author Jeroen Reijn
  */
 public class LoginConfigModel extends LoadableDetachableConfigModel<LoginConfig> {
-
+    private static final long serialVersionUID = 1L;
     public static final String LOGIN_PAGE_CONFIG_PATH = "/hippo:configuration/hippo:frontend/login/login/loginPage";
 
     @Override

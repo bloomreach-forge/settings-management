@@ -39,6 +39,7 @@ import org.onehippo.forge.settings.management.config.CMSFeatureConfig;
  */
 public class AssetValidationServiceConfigPanel extends FeatureConfigPanel {
 
+    private static final long serialVersionUID = 1L;
     private AssetValidationServiceConfigModel assetValidationServiceConfigModel;
 
     public AssetValidationServiceConfigPanel(IPluginContext context, IPluginConfig config) {
@@ -71,6 +72,7 @@ public class AssetValidationServiceConfigPanel extends FeatureConfigPanel {
         // Don't do this in a listview
         final ListView<String> allowedExtensionsView;
         allowedExtensionsView = new ListView<String>("assetvalidation-allowedExtensions", new PropertyModel(assetValidationServiceConfig, "allowedExtensions")) {
+            private static final long serialVersionUID = 1L;
             @Override
             protected void populateItem(final ListItem<String> item) {
                 RequiredTextField extensionField = new RequiredTextField("asset-extension", item.getModel());

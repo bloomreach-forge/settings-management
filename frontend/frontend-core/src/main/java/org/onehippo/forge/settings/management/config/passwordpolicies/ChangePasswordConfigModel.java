@@ -23,6 +23,7 @@ import org.onehippo.forge.settings.management.config.LoadableDetachableConfigMod
  */
 public class ChangePasswordConfigModel extends LoadableDetachableConfigModel<ChangePasswordConfig> {
 
+    private static final long serialVersionUID = 1L;
     public static final String CHANGE_PASSWORD_CONFIG_PATH = "/hippo:configuration/hippo:frontend/cms/cms-dashshortcuts/changePasswordShortcut";
 
     @Override

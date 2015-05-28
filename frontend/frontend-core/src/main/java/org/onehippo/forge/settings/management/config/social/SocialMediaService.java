@@ -29,6 +29,7 @@ import org.slf4j.LoggerFactory;
  * @author Jeroen Reijn
  */
 public class SocialMediaService implements CMSFeatureConfig, Serializable {
+    private static final long serialVersionUID = 1L;
     private static final Logger log = LoggerFactory.getLogger(SocialMediaService.class);
     private static final String PROP_DISPLAY_NAME = "display.name";
     private static final String PROP_ENABLED = "enabled";

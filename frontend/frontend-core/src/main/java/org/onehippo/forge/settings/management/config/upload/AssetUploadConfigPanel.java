@@ -33,7 +33,7 @@ import org.onehippo.forge.settings.management.config.CMSFeatureConfig;
  * Panel for configuring the asset gallery upload settings.
  */
 public class AssetUploadConfigPanel extends FeatureConfigPanel {
-
+    private static final long serialVersionUID = 1L;
     private AssetUploadSettingConfigModel assetUploadSettingConfigModel = new AssetUploadSettingConfigModel();
 
     public AssetUploadConfigPanel(IPluginContext context, IPluginConfig config) {

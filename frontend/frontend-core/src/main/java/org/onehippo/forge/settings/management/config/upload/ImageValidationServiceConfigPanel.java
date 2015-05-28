@@ -38,7 +38,7 @@ import org.onehippo.forge.settings.management.config.CMSFeatureConfig;
  * Panel for configuring the image validation service.
  */
 public class ImageValidationServiceConfigPanel extends FeatureConfigPanel {
-
+    private static final long serialVersionUID = 1L;
     private ImageValidationServiceConfigModel imageValidationServiceConfigModel = new ImageValidationServiceConfigModel();
 
     public ImageValidationServiceConfigPanel(IPluginContext context, IPluginConfig config) {
@@ -74,6 +74,7 @@ public class ImageValidationServiceConfigPanel extends FeatureConfigPanel {
         // Don't do this in a listview
         final ListView<String> allowedExtensionsView;
         allowedExtensionsView = new ListView<String>("imagevalidation-allowedExtensions", new PropertyModel(imageValidationServiceConfig, "allowedExtensions")) {
+            private static final long serialVersionUID = 1L;
             @Override
             protected void populateItem(final ListItem<String> item) {
                 RequiredTextField extensionField = new RequiredTextField("image-extension", item.getModel());

@@ -38,7 +38,7 @@ import org.onehippo.forge.settings.management.config.CMSFeatureConfig;
 /**
  */
 public class FormdataConfigPanel extends FeatureConfigPanel {
-
+    private static final long serialVersionUID = 1L;
     private FormdataConfigModel formdataConfigModel = new FormdataConfigModel();
     private boolean isVisble;
 
@@ -61,6 +61,7 @@ public class FormdataConfigPanel extends FeatureConfigPanel {
         // Don't do this in a listview
         final ListView<String> excludedPathsView;
         excludedPathsView = new ListView<String>("formdata-excludedPaths", new PropertyModel(formdataConfig, "excludepaths")) {
+            private static final long serialVersionUID = 1L;
             @Override
             protected void populateItem(final ListItem<String> item) {
                 RequiredTextField extensionField = new RequiredTextField("formdata-path", item.getModel());

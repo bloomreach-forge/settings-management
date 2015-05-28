@@ -49,7 +49,7 @@ public class AssetValidationServiceConfig implements CMSFeatureConfig {
             if (node.hasProperty(DefaultUploadValidationService.EXTENSIONS_ALLOWED)) {
                 allowedExtensions = getArrayListOfValueArray(node.getProperty(DefaultUploadValidationService.EXTENSIONS_ALLOWED).getValues());
             } else {
-                allowedExtensions = new ArrayList<String>();
+                allowedExtensions = new ArrayList<>();
             }
             if (node.hasProperty(DefaultUploadValidationService.MAX_FILE_SIZE)) {
                 maxFileSize = node.getProperty(DefaultUploadValidationService.MAX_FILE_SIZE).getString();
@@ -59,11 +59,11 @@ public class AssetValidationServiceConfig implements CMSFeatureConfig {
         }
     }
 
-    private ArrayList<String> getArrayListOfValueArray(Value[] values) {
-        ArrayList<String> newValues = new ArrayList<String>(values.length);
-        for (int i = 0; i < values.length; i++) {
+    private List<String> getArrayListOfValueArray(Value[] values) {
+        List<String> newValues = new ArrayList<String>(values.length);
+        for (final Value value : values) {
             try {
-                newValues.add(values[i].getString());
+                newValues.add(value.getString());
             } catch (RepositoryException e) {
                 log.error("Error: {}", e);
             }

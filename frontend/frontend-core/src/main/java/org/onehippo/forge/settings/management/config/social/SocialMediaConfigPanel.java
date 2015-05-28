@@ -42,6 +42,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class SocialMediaConfigPanel extends FeatureConfigPanel {
+    private static final long serialVersionUID = 1L;
     private static final Logger log = LoggerFactory.getLogger(SocialMediaConfigPanel.class);
 
     private SocialMediaServiceConfigModel socialMediaServiceConfigModel;
@@ -89,6 +90,7 @@ public class SocialMediaConfigPanel extends FeatureConfigPanel {
 
     private static final class SocialMediaServiceListView extends ListView<SocialMediaService>
     {
+        private static final long serialVersionUID = 1L;
         public SocialMediaServiceListView(String id, List<SocialMediaService> serviceList)
         {
             super(id,serviceList);
@@ -115,6 +117,7 @@ public class SocialMediaConfigPanel extends FeatureConfigPanel {
             urlField.add(new ValidationStyleBehavior());
             OnChangeAjaxBehavior onChangeAjaxBehavior = new OnChangeAjaxBehavior()
             {
+                private static final long serialVersionUID = 1L;
                 @Override
                 protected void onUpdate(AjaxRequestTarget target)
                 {

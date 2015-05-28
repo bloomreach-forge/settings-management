@@ -26,11 +26,9 @@ import org.hippoecm.frontend.plugin.config.IPluginConfig;
 import org.onehippo.forge.settings.management.FeatureConfigPanel;
 import org.onehippo.forge.settings.management.config.CMSFeatureConfig;
 
-/**
- * Created with IntelliJ IDEA. User: tjeger Date: 2/8/13 Time: 1:56 PM To change this template use File | Settings |
- * File Templates.
- */
+
 public class EventLogConfigPanel extends FeatureConfigPanel {
+    private static final long serialVersionUID = 1L;
     private EventLogConfigModel detachableEventLogConfig = new EventLogConfigModel();
 
     public EventLogConfigPanel(IPluginContext context, IPluginConfig config) {
