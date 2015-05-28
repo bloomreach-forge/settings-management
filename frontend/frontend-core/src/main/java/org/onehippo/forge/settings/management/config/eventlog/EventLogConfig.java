@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2013-2015 Hippo B.V. (http://www.onehippo.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,14 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.onehippo.forge.settings.management.config.eventlog;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
-import org.apache.commons.lang.StringUtils;
 import org.onehippo.forge.settings.management.config.CMSFeatureConfig;
+import org.onehippo.forge.settings.management.config.SchedulerUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,32 +30,25 @@ public class EventLogConfig implements CMSFeatureConfig {
 
     private final static Logger logger = LoggerFactory.getLogger(EventLogConfig.class);
 
-    public static final String PROP_CRONEXPRESSION = "cronexpression";
-    public static final String PROP_KEEP_ITEMS_FOR = "keepitemsfor";
-    public static final String PROP_MAXITEMS = "maxitems";
+    private static final String ATTR_MINUTES_TO_LIVE = "minutestolive";
+    private static final String ATTR_MAXITEMS = "maxitems";
 
-    private transient Node node;
+    private transient Node jobNode;
 
     private String cronexpression;
-    private Long keepitemsfor;
+    private Long minutestolive;
     private Long maxitems;
 
-    public EventLogConfig(final Node node) {
-        init(node);
+    public EventLogConfig(final Node jobNode) {
+        init(jobNode);
     }
 
     private void init(final Node node) {
-        this.node = node;
+        this.jobNode = node;
         try {
-            if (node.hasProperty(PROP_CRONEXPRESSION)) {
-                this.cronexpression = node.getProperty(PROP_CRONEXPRESSION).getString();
-            }
-            if (node.hasProperty(PROP_KEEP_ITEMS_FOR)) {
-                this.keepitemsfor = node.getProperty(PROP_KEEP_ITEMS_FOR).getLong();
-            }
-            if (node.hasProperty(PROP_MAXITEMS)) {
-                this.maxitems = node.getProperty(PROP_MAXITEMS).getLong();
-            }
+            maxitems = SchedulerUtils.getAttributeAsLong(jobNode, ATTR_MAXITEMS, -1l);
+            minutestolive = SchedulerUtils.getAttributeAsLong(jobNode, ATTR_MINUTES_TO_LIVE, -1l);
+            cronexpression = SchedulerUtils.getCronExpression(jobNode);
         } catch (RepositoryException e) {
             logger.error("Error: {}", e);
         }
@@ -70,12 +62,12 @@ public class EventLogConfig implements CMSFeatureConfig {
         this.cronexpression = cronexpression;
     }
 
-    public Long getKeepitemsfor() {
-        return keepitemsfor;
+    public Long getMinutestolive() {
+        return minutestolive;
     }
 
-    public void setKeepitemsfor(final Long keepitemsfor) {
-        this.keepitemsfor = keepitemsfor;
+    public void setMinutestolive(final Long minutestolive) {
+        this.minutestolive = minutestolive;
     }
 
     public Long getMaxitems() {
@@ -87,13 +79,11 @@ public class EventLogConfig implements CMSFeatureConfig {
     }
 
     public void save() throws RepositoryException {
-        if (StringUtils.isNotBlank(getCronExpression())) {
-            node.setProperty(PROP_CRONEXPRESSION, getCronExpression());
-        } else {
-            node.getProperty(PROP_CRONEXPRESSION).remove();
-        }
-        node.setProperty(PROP_KEEP_ITEMS_FOR, getKeepitemsfor());
-        node.setProperty(PROP_MAXITEMS, getMaxitems());
-        node.getSession().save();
+        SchedulerUtils.setCronExpression(jobNode, getCronExpression());
+        SchedulerUtils.setAttribute(jobNode, ATTR_MAXITEMS, getMaxitems().toString());
+        SchedulerUtils.setAttribute(jobNode, ATTR_MINUTES_TO_LIVE, getMinutestolive().toString());
+        jobNode.getSession().save();
     }
+
+
 }

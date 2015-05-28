@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2013-2015 Hippo B.V. (http://www.onehippo.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,10 +23,11 @@ import org.onehippo.forge.settings.management.config.LoadableDetachableConfigMod
  */
 public class EventLogConfigModel extends LoadableDetachableConfigModel<EventLogConfig> {
 
-    public static final String EVENTLOG_MODULE_PATH = "/hippo:configuration/hippo:modules/eventlogcleanup/hippo:moduleconfig";
+    public static final String EVENTLOG_CLEANUP_JOB_PATH = "/hippo:configuration/hippo:modules/scheduler/hippo:moduleconfig/system/EventLogCleanup";
 
     @Override
     protected EventLogConfig load() {
-        return new EventLogConfig(getConfigNode(EVENTLOG_MODULE_PATH));
+        return new EventLogConfig(getConfigNode(EVENTLOG_CLEANUP_JOB_PATH));
     }
+
 }

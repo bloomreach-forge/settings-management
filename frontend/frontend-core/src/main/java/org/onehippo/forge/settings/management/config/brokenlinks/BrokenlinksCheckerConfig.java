@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2013-2015 Hippo B.V. (http://www.onehippo.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
 import org.onehippo.forge.settings.management.config.CMSFeatureConfig;
+import org.onehippo.forge.settings.management.config.SchedulerUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,83 +31,51 @@ public class BrokenlinksCheckerConfig implements CMSFeatureConfig {
 
     private static final Logger log = LoggerFactory.getLogger(BrokenlinksCheckerConfig.class);
 
-    public static final String PROP_CONNECTION_TIMEOUT = "connectionTimeout";
-    public static final String PROP_NR_THREADS = "nrOfThreads";
-    public static final String PROP_SOCKET_TIMEOUT = "socketTimeout";
-    public static final String PROP_STARTPATH = "startPath";
-    public static final String PROP_ENABLED = "enabled";
-    public static final String PROP_CRONEXPRESSION = "cronExpression";
-    public static final String PROP_URLEXCLUDES = "urlExcludes";
+    public static final String ATTR_CONNECTION_TIMEOUT = "connectionTimeout";
+    public static final String ATTR_SOCKET_TIMEOUT = "socketTimeout";
+    public static final String ATTR_NR_THREADS = "nrOfThreads";
+    public static final String ATTR_STARTPATH = "startPath";
+    public static final String ATTR_URLEXCLUDES = "urlExcludes";
 
     public static final Long DEFAULT_CONNECTION_TIMEOUT = 10000l;
-    public static final Integer DEFAULT_NR_THREADS = 10;
+    public static final Long DEFAULT_NR_THREADS = 10l;
     public static final Long DEFAULT_SOCKET_TIMEOUT = 10000l;
     public static final String DEFAULT_START_PATH = "/content/documents";
-    public static final String DEFAULT_CRON_EXPRESSION = "0 0 2 * * ? *";
 
-    //default in 7.9 is disabled
-    private boolean enabled = false;
-
-    private transient Node node;
+    private transient Node jobNode;
     private Long connectionTimeout;
     private Long socketTimeout;
+    private Long nrOfThreads;
     private String startPath;
     private String startPathUUID;
-    private int nrOfThreads;
-    private String cronExpression;
     private String urlExcludes;
+    private boolean enabled;
+    private String cronExpression;
 
 
     public BrokenlinksCheckerConfig(final Node configNode) {
-        this.node = configNode;
+        this.jobNode = configNode;
         try {
-            if(node.hasProperty(PROP_CONNECTION_TIMEOUT)) {
-                connectionTimeout = node.getProperty(PROP_CONNECTION_TIMEOUT).getLong();
-            } else {
-                connectionTimeout = DEFAULT_CONNECTION_TIMEOUT;
-            }
-            if(node.hasProperty(PROP_NR_THREADS)) {
-                nrOfThreads = Integer.parseInt(node.getProperty(PROP_NR_THREADS).getString());
-            } else {
-                nrOfThreads = DEFAULT_NR_THREADS;
-            }
-            if(node.hasProperty(PROP_SOCKET_TIMEOUT)) {
-                socketTimeout = node.getProperty(PROP_SOCKET_TIMEOUT).getLong();
-            } else {
-                socketTimeout = DEFAULT_SOCKET_TIMEOUT;
-            }
-            if(node.hasProperty(PROP_STARTPATH)) {
-                startPath = node.getProperty(PROP_STARTPATH).getString();
-            } else {
-                startPath = DEFAULT_START_PATH;
-            }
-            if(node.hasProperty(PROP_ENABLED)){
-                enabled = node.getProperty(PROP_ENABLED).getBoolean();
-            }
-            if(node.hasProperty(PROP_CRONEXPRESSION)) {
-                cronExpression = node.getProperty(PROP_CRONEXPRESSION).getString();
-            } else {
-                cronExpression = DEFAULT_CRON_EXPRESSION;
-            }
-            if(node.hasProperty(PROP_URLEXCLUDES)) {
-                urlExcludes = node.getProperty(PROP_URLEXCLUDES).getString();
-            } else {
-                urlExcludes = "";
-            }
-
+            connectionTimeout = SchedulerUtils.getAttributeAsLong(jobNode, ATTR_CONNECTION_TIMEOUT, DEFAULT_CONNECTION_TIMEOUT);
+            socketTimeout = SchedulerUtils.getAttributeAsLong(jobNode, ATTR_SOCKET_TIMEOUT, DEFAULT_SOCKET_TIMEOUT);
+            nrOfThreads = SchedulerUtils.getAttributeAsLong(jobNode, ATTR_NR_THREADS, DEFAULT_NR_THREADS);
+            startPath = SchedulerUtils.getAttribute(jobNode, ATTR_STARTPATH, DEFAULT_START_PATH);
             startPathUUID = getIdentifierForPath(startPath);
+            urlExcludes = SchedulerUtils.getAttribute(jobNode, ATTR_URLEXCLUDES, null);
+            cronExpression = SchedulerUtils.getCronExpression(jobNode);
+            enabled = SchedulerUtils.isEnabled(jobNode);
         } catch (RepositoryException e) {
             log.error("Error: {}",e);
         }
     }
 
     private String getIdentifierForPath(String path) throws RepositoryException {
-        return node.getSession().getNode(path).getIdentifier();
+        return jobNode.getSession().getNode(path).getIdentifier();
     }
 
     private String getPathForIdentifier(String uuid)  {
         try {
-            return node.getSession().getNodeByIdentifier(uuid).getPath();
+            return jobNode.getSession().getNodeByIdentifier(uuid).getPath();
         } catch (RepositoryException e) {
             log.error("Error: {}", e);
         }
@@ -115,14 +84,12 @@ public class BrokenlinksCheckerConfig implements CMSFeatureConfig {
 
     @Override
     public void save() throws RepositoryException {
-        node.setProperty(PROP_CONNECTION_TIMEOUT, connectionTimeout);
-        node.setProperty(PROP_NR_THREADS, nrOfThreads);
-        node.setProperty(PROP_SOCKET_TIMEOUT, socketTimeout);
-        node.setProperty(PROP_STARTPATH, startPath);
-        node.setProperty(PROP_ENABLED, enabled);
-        node.setProperty(PROP_CRONEXPRESSION, cronExpression);
-        node.setProperty(PROP_URLEXCLUDES, urlExcludes);
-        node.getSession().save();
+        SchedulerUtils.setAttribute(jobNode, ATTR_CONNECTION_TIMEOUT, getConnectionTimeout());
+        SchedulerUtils.setAttribute(jobNode, ATTR_SOCKET_TIMEOUT, getSocketTimeout());
+        SchedulerUtils.setAttribute(jobNode, ATTR_NR_THREADS, getNrOfThreads());
+        SchedulerUtils.setAttribute(jobNode, ATTR_STARTPATH, getStartPath());
+        SchedulerUtils.setAttribute(jobNode, ATTR_URLEXCLUDES, getUrlExcludes());
+        jobNode.getSession().save();
     }
 
     public Long getConnectionTimeout() {
@@ -149,11 +116,11 @@ public class BrokenlinksCheckerConfig implements CMSFeatureConfig {
         this.startPath = startPath;
     }
 
-    public Integer getNrOfThreads() {
+    public Long getNrOfThreads() {
         return nrOfThreads;
     }
 
-    public void setNrOfThreads(final int nrOfThreads) {
+    public void setNrOfThreads(final long nrOfThreads) {
         this.nrOfThreads = nrOfThreads;
     }
 

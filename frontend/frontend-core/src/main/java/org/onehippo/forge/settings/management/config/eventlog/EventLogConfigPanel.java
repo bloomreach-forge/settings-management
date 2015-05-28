@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2013-2015 Hippo B.V. (http://www.onehippo.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,7 +37,7 @@ public class EventLogConfigPanel extends FeatureConfigPanel {
         super(context, config, new ResourceModel("title"));
 
         add(new TextField("cronexpression", new PropertyModel(detachableEventLogConfig, "cronexpression")));
-        add(new TextField("keepitemsfor", new PropertyModel(detachableEventLogConfig, "keepitemsfor")));
+        add(new TextField("minutestolive", new PropertyModel(detachableEventLogConfig, "minutestolive")));
         add(new TextField("maxitems", new PropertyModel(detachableEventLogConfig, "maxitems")));
     }
 

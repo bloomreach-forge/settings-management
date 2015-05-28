@@ -24,7 +24,7 @@ import org.onehippo.forge.settings.management.config.LoadableDetachableConfigMod
  */
 public class FormdataConfigModel extends LoadableDetachableConfigModel<FormdataConfig> {
 
-    public static final String FORMDATA_CLEANUP_MODULE_PATH = "/hippo:configuration/hippo:modules/formdatacleanup/hippo:moduleconfig";
+    public static final String FORMDATA_CLEANUP_MODULE_PATH = "/hippo:configuration/hippo:modules/scheduler/hippo:moduleconfig/system/FormDataCleanup";
 
     @Override
     protected FormdataConfig load() {

@@ -16,57 +16,55 @@
 
 package org.onehippo.forge.settings.management.config.formdata;
 
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
-import javax.jcr.Value;
 
 import org.apache.commons.lang.StringUtils;
-import org.hippoecm.frontend.plugins.yui.upload.validation.ImageUploadValidationService;
 import org.onehippo.forge.settings.management.config.CMSFeatureConfig;
 import org.onehippo.forge.settings.management.config.ConfigUtil;
+import org.onehippo.forge.settings.management.config.SchedulerUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * @author Jeroen Reijn
+ *
+ * TODO: attribute batchsize
  */
 public class FormdataConfig implements CMSFeatureConfig {
 
     private final static Logger logger = LoggerFactory.getLogger(FormdataConfig.class);
 
-    public static final String PROP_CRONEXPRESSION = "cronexpression";
-    public static final String PROP_MINUTES_TO_LIVE = "minutestolive";
-    public static final String PROP_EXCLUDE_PATHS = "excludepaths";
+    public static final String ATTR_MINUTES_TO_LIVE = "minutestolive";
+    public static final String ATTR_EXCLUDE_PATHS = "excludepaths";
 
-    private transient Node node;
+    private transient Node jobNode;
 
     private String cronexpression;
     private Long minutesToLive;
     private List<String> excludepaths;
     private boolean dataAvailable = true;
 
-    public FormdataConfig(final Node node) {
-        if(node != null) {
-            init(node);
+    public FormdataConfig(final Node jobNode) {
+        if(jobNode != null) {
+            init(jobNode);
         } else {
             dataAvailable = false;
         }
     }
 
     private void init(final Node node) {
-        this.node = node;
+        this.jobNode = node;
         try {
-            if (node.hasProperty(PROP_CRONEXPRESSION)) {
-                this.cronexpression = node.getProperty(PROP_CRONEXPRESSION).getString();
-            }
-            if (node.hasProperty(PROP_MINUTES_TO_LIVE)) {
-                this.minutesToLive = node.getProperty(PROP_MINUTES_TO_LIVE).getLong();
-            }
-            if (node.hasProperty(PROP_EXCLUDE_PATHS)) {
-                final Value[] values = node.getProperty(PROP_EXCLUDE_PATHS).getValues();
-                excludepaths = ConfigUtil.getListOfStringsFromValueArray(values);
+            this.cronexpression = SchedulerUtils.getCronExpression(jobNode);
+            minutesToLive = SchedulerUtils.getAttributeAsLong(jobNode, ATTR_MINUTES_TO_LIVE, -1l);
+            final String excludepathsAttr = SchedulerUtils.getAttribute(jobNode, ATTR_EXCLUDE_PATHS, "/formdata/permanent/");
+            if (excludepathsAttr != null) {
+                excludepaths = Arrays.asList(excludepathsAttr.split("\\|"));
             }
         } catch (RepositoryException e) {
             logger.error("Error: {}", e);
@@ -97,18 +95,24 @@ public class FormdataConfig implements CMSFeatureConfig {
         this.excludepaths = excludepaths;
     }
 
+    private String getExludePathsAttr() {
+        final StringBuilder sb = new StringBuilder();
+        if (excludepaths != null && !excludepaths.isEmpty()) {
+            final Iterator<String> iterator = excludepaths.iterator();
+            while (iterator.hasNext()) {
+                sb.append(iterator.next());
+                if (iterator.hasNext()) {
+                    sb.append("|");
+                }
+            }
+        }
+        return sb.toString();
+    }
     public void save() throws RepositoryException {
-        if (this.excludepaths != null) {
-            String[] selectedPaths = this.excludepaths.toArray(new String[this.excludepaths.size()]);
-            node.setProperty(PROP_EXCLUDE_PATHS, selectedPaths);
-        }
-        if (StringUtils.isNotBlank(getCronExpression())) {
-            node.setProperty(PROP_CRONEXPRESSION, getCronExpression());
-        } else {
-            node.getProperty(PROP_CRONEXPRESSION).remove();
-        }
-        node.setProperty(PROP_MINUTES_TO_LIVE, getMinutesToLive());
-        node.getSession().save();
+        SchedulerUtils.setCronExpression(jobNode, getCronExpression());
+        SchedulerUtils.setAttribute(jobNode, ATTR_MINUTES_TO_LIVE, getMinutesToLive().toString());
+        SchedulerUtils.setAttribute(jobNode, ATTR_EXCLUDE_PATHS, getExludePathsAttr());
+        jobNode.getSession().save();
     }
 
     public Boolean isDataAvailable() {

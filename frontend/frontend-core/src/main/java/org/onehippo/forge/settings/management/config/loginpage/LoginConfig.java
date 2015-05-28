@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2013-2015 Hippo B.V. (http://www.onehippo.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,10 +34,6 @@ public class LoginConfig implements CMSFeatureConfig {
     public static final String PROP_AUTOCOMPLETE = "signin.form.autocomplete";
     public static final String PROP_USE_CAPTCHA = "use.captcha";
     public static final String PROP_NUMBER_OF_ATTEMPTS_BEFORE_CAPTCHA_IS_SHOWN = "show.captcha.after.how.many.times";
-    public static final String PROP_HTTP_ONLY_COOKIES = "use.httponly.cookies";
-    public static final String PROP_SECURE_COOKIES = "use.secure.cookies";
-    public static final String PROP_REMEMBER_ME_COOKIE_AGE = "rememberme.cookie.maxage";
-    public static final String PROP_HAL_COOKIE_AGE = "hal.cookie.maxage";
 
     private static final int DEFAULT_NUMBER_OF_ATTEMPTS_BEFORE_CAPTCHA_IS_SHOWN = 3;
 
@@ -45,11 +41,7 @@ public class LoginConfig implements CMSFeatureConfig {
 
     private Boolean autoComplete;
     private Boolean useCaptcha;
-    private Boolean useHttpOnlyCookies;
-    private Boolean useSecureCookies;
     private int numberOfAttemptBeforeCaptchaIsShown;
-    private int rememberMeCookieAge;
-    private int hippoAutoLoginCookieAge;
 
     public LoginConfig(Node configNode) {
         init(configNode);
@@ -64,43 +56,13 @@ public class LoginConfig implements CMSFeatureConfig {
             if (node.hasProperty(PROP_USE_CAPTCHA)) {
                 this.useCaptcha = node.getProperty(PROP_USE_CAPTCHA).getBoolean();
             }
-            if (node.hasProperty(PROP_HTTP_ONLY_COOKIES)) {
-                this.useHttpOnlyCookies = node.getProperty(PROP_HTTP_ONLY_COOKIES).getBoolean();
-            }
-            if (node.hasProperty(PROP_SECURE_COOKIES)) {
-                this.useSecureCookies = node.getProperty(PROP_SECURE_COOKIES).getBoolean();
-            }
             if (node.hasProperty(PROP_NUMBER_OF_ATTEMPTS_BEFORE_CAPTCHA_IS_SHOWN)) {
                 Property nrOfAttemptsProperty = node.getProperty(PROP_NUMBER_OF_ATTEMPTS_BEFORE_CAPTCHA_IS_SHOWN);
                 this.numberOfAttemptBeforeCaptchaIsShown = Integer.parseInt(nrOfAttemptsProperty.getString());
             }
-            if (node.hasProperty(PROP_REMEMBER_ME_COOKIE_AGE)) {
-                Property rememberMeCookieAgeProperty = node.getProperty(PROP_REMEMBER_ME_COOKIE_AGE);
-                this.rememberMeCookieAge = Integer.parseInt(rememberMeCookieAgeProperty.getString());
-            }
-            if (node.hasProperty(PROP_HAL_COOKIE_AGE)) {
-                Property halCookieAgeProperty = node.getProperty(PROP_HAL_COOKIE_AGE);
-                this.hippoAutoLoginCookieAge = Integer.parseInt(halCookieAgeProperty.getString());
-            }
         } catch (RepositoryException e) {
             log.error("Error: {}", e);
         }
-    }
-
-    public Integer getRememberMeCookieAge() {
-        return rememberMeCookieAge;
-    }
-
-    public void setRememberMeCookieAge(final int rememberMeCookieAge) {
-        this.rememberMeCookieAge = rememberMeCookieAge;
-    }
-
-    public Integer getHippoAutoLoginCookieAge() {
-        return hippoAutoLoginCookieAge;
-    }
-
-    public void setHippoAutoLoginCookieAge(final int hippoAutoLoginCookieAge) {
-        this.hippoAutoLoginCookieAge = hippoAutoLoginCookieAge;
     }
 
     public Integer getNumberOfAttemptBeforeCaptchaIsShown() {
@@ -127,30 +89,10 @@ public class LoginConfig implements CMSFeatureConfig {
         this.useCaptcha = useCaptcha;
     }
 
-    public Boolean getUseHttpOnlyCookies() {
-        return useHttpOnlyCookies;
-    }
-
-    public void setUseHttpOnlyCookies(final Boolean useHttpOnlyCookies) {
-        this.useHttpOnlyCookies = useHttpOnlyCookies;
-    }
-
-    public Boolean getUseSecureCookies() {
-        return useSecureCookies;
-    }
-
-    public void setUseSecureCookies(final Boolean useSecureCookies) {
-        this.useSecureCookies = useSecureCookies;
-    }
-
     public void save() throws RepositoryException {
         node.setProperty(PROP_AUTOCOMPLETE, autoComplete);
         node.setProperty(PROP_USE_CAPTCHA, useCaptcha);
-        node.setProperty(PROP_HTTP_ONLY_COOKIES, useHttpOnlyCookies);
-        node.setProperty(PROP_SECURE_COOKIES, useSecureCookies);
         node.setProperty(PROP_NUMBER_OF_ATTEMPTS_BEFORE_CAPTCHA_IS_SHOWN, numberOfAttemptBeforeCaptchaIsShown);
-        node.setProperty(PROP_REMEMBER_ME_COOKIE_AGE, rememberMeCookieAge);
-        node.setProperty(PROP_HAL_COOKIE_AGE, hippoAutoLoginCookieAge);
         node.getSession().save();
     }
 
