@@ -27,13 +27,12 @@ import org.slf4j.LoggerFactory;
  */
 public class UploadSettingsConfig implements CMSFeatureConfig {
 
-    public static final String FILEUPLOAD_FLASH_ENABLED_SETTING = "fileupload.flashEnabled";
+
     public static final String FILEUPLOAD_MAX_ITEMS_SETTING = "fileupload.maxItems";
 
     private final static Logger logger = LoggerFactory.getLogger(UploadSettingsConfig.class);
 
     private int maxNumberOfFiles = 1;
-    private boolean flashUploadEnabled = true;
     private transient Node node;
 
     public UploadSettingsConfig(final Node node) {
@@ -43,9 +42,7 @@ public class UploadSettingsConfig implements CMSFeatureConfig {
     private void init(final Node node) {
         try {
             this.node = node;
-            if (node.hasProperty(FILEUPLOAD_FLASH_ENABLED_SETTING)) {
-                this.flashUploadEnabled = node.getProperty(FILEUPLOAD_FLASH_ENABLED_SETTING).getBoolean();
-            }
+
             if (node.hasProperty(FILEUPLOAD_MAX_ITEMS_SETTING)) {
                 this.maxNumberOfFiles = Long.valueOf(node.getProperty(FILEUPLOAD_MAX_ITEMS_SETTING).getLong()).intValue();
             }
@@ -62,17 +59,10 @@ public class UploadSettingsConfig implements CMSFeatureConfig {
         this.maxNumberOfFiles = maxNumberOfFiles;
     }
 
-    public Boolean isFlashUploadEnabled() {
-        return flashUploadEnabled;
-    }
 
-    public void setFlashUploadEnabled(final boolean flashUploadEnabled) {
-        this.flashUploadEnabled = flashUploadEnabled;
-    }
 
     @Override
     public void save() throws RepositoryException {
-        node.setProperty(FILEUPLOAD_FLASH_ENABLED_SETTING,this.flashUploadEnabled);
         node.setProperty(FILEUPLOAD_MAX_ITEMS_SETTING,this.maxNumberOfFiles);
         node.getSession().save();
     }

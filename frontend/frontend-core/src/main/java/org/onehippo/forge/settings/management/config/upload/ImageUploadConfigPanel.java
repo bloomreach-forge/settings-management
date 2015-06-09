@@ -45,11 +45,6 @@ public class ImageUploadConfigPanel extends FeatureConfigPanel {
         final RequiredTextField<String> maxFilesizeField = new RequiredTextField<String>("imageupload-max-items", new PropertyModel(uploadSettingsConfig, "maxNumberOfFiles"));
         add(maxFilesizeField);
 
-        RadioGroup captchaRadioGroup = new RadioGroup("upload-use-flash", new PropertyModel(uploadSettingsConfig, "flashUploadEnabled"));
-        captchaRadioGroup.add(new Radio("flash-off", new Model(Boolean.FALSE)));
-        captchaRadioGroup.add(new Radio("flash-on", new Model(Boolean.TRUE)));
-        add(captchaRadioGroup);
-
     }
 
     public void save() {
