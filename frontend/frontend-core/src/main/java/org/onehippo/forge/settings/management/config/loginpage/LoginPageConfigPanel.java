@@ -38,31 +38,13 @@ public class LoginPageConfigPanel extends FeatureConfigPanel {
         loginConfigModel = new LoginConfigModel();
 
         RadioGroup captchaRadioGroup = new RadioGroup("login-use-captcha", new PropertyModel(loginConfigModel, "useCaptcha"));
-        captchaRadioGroup.add(new Radio("captcha-off", new Model(Boolean.FALSE)));
-        captchaRadioGroup.add(new Radio("captcha-on", new Model(Boolean.TRUE)));
+        captchaRadioGroup.add(new Radio<>("captcha-off", new Model<>(Boolean.FALSE)));
+        captchaRadioGroup.add(new Radio<>("captcha-on", new Model<>(Boolean.TRUE)));
         add(captchaRadioGroup);
 
-        add(new TextField("numberOfAttemptBeforeCaptchaIsShown",
-                          new PropertyModel(loginConfigModel, "numberOfAttemptBeforeCaptchaIsShown")));
+        add(new TextField("numberOfAttemptBeforeCaptchaIsShown", new PropertyModel(loginConfigModel, "numberOfAttemptBeforeCaptchaIsShown")));
 
-        RadioGroup autoCompleteRadioGroup = new RadioGroup("login-use-autoComplete", new PropertyModel(loginConfigModel, "autoComplete"));
-        autoCompleteRadioGroup.add(new Radio("autoComplete-off", new Model(Boolean.FALSE)));
-        autoCompleteRadioGroup.add(new Radio("autoComplete-on", new Model(Boolean.TRUE)));
-        add(autoCompleteRadioGroup);
 
-        RadioGroup secureCookiesRadioGroup = new RadioGroup("login-use-secureCookies", new PropertyModel(loginConfigModel, "useSecureCookies"));
-        secureCookiesRadioGroup.add(new Radio("secureCookies-off", new Model(Boolean.FALSE)));
-        secureCookiesRadioGroup.add(new Radio("secureCookies-on", new Model(Boolean.TRUE)));
-        add(secureCookiesRadioGroup);
-
-        RadioGroup httpOnlyCookiesRadioGroup = new RadioGroup("login-use-httpOnlyCookies", new PropertyModel(loginConfigModel, "useHttpOnlyCookies"));
-        httpOnlyCookiesRadioGroup.add(new Radio("httpOnlyCookies-off", new Model(Boolean.FALSE)));
-        httpOnlyCookiesRadioGroup.add(new Radio("httpOnlyCookies-on", new Model(Boolean.TRUE)));
-        add(httpOnlyCookiesRadioGroup);
-
-        add(new TextField("login-rememberme-cookie-age",new PropertyModel(loginConfigModel,"rememberMeCookieAge")));
-
-        add(new TextField("login-hippo-auto-login-cookie-age", new PropertyModel(loginConfigModel,"hippoAutoLoginCookieAge")));
     }
 
     public void save() {

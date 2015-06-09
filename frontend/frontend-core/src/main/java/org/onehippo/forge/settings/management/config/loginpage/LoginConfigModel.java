@@ -25,6 +25,7 @@ public class LoginConfigModel extends LoadableDetachableConfigModel<LoginConfig>
     private static final long serialVersionUID = 1L;
     public static final String LOGIN_PAGE_CONFIG_PATH = "/hippo:configuration/hippo:frontend/login/login/loginPage";
 
+
     @Override
     protected LoginConfig load() {
         return new LoginConfig(getConfigNode(LOGIN_PAGE_CONFIG_PATH));
