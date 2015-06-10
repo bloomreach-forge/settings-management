@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2013-2015 Hippo B.V. (http://www.onehippo.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,10 +18,7 @@ package org.onehippo.forge.settings.management.config.upload;
 
 import javax.jcr.RepositoryException;
 
-import org.apache.wicket.markup.html.form.Radio;
-import org.apache.wicket.markup.html.form.RadioGroup;
 import org.apache.wicket.markup.html.form.RequiredTextField;
-import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.model.ResourceModel;
 import org.hippoecm.frontend.plugin.IPluginContext;
@@ -43,7 +40,6 @@ public class AssetUploadConfigPanel extends FeatureConfigPanel {
 
         final RequiredTextField<String> maxFilesizeField = new RequiredTextField<String>("assetupload-max-items", new PropertyModel(uploadSettingsConfig, "maxNumberOfFiles"));
         add(maxFilesizeField);
-
     }
 
     public void save() {

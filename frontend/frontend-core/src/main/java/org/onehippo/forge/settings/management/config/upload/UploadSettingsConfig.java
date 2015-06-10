@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2013-2015 Hippo B.V. (http://www.onehippo.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,6 @@ import org.slf4j.LoggerFactory;
  * @author Jeroen Reijn
  */
 public class UploadSettingsConfig implements CMSFeatureConfig {
-
 
     public static final String FILEUPLOAD_MAX_ITEMS_SETTING = "fileupload.maxItems";
 
@@ -58,8 +57,6 @@ public class UploadSettingsConfig implements CMSFeatureConfig {
     public void setMaxNumberOfFiles(final int maxNumberOfFiles) {
         this.maxNumberOfFiles = maxNumberOfFiles;
     }
-
-
 
     @Override
     public void save() throws RepositoryException {
