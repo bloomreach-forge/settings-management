@@ -1,5 +1,5 @@
 <!--
-  Copyright 2013 Hippo B.V. (http://www.onehippo.com)
+  Copyright 2013-2015 Hippo B.V. (http://www.onehippo.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -17,6 +17,9 @@
 # Release notes
 
 This page contains the release notes.
+
+##Version 0.4.0-milestone-1
++ Test release upgraded to Hippo 10.
 
 ##Version 0.3.0
 + Upgraded to Hippo 7.9. Use 0.2.x for Hippo 7.8. (thanks to Unico Hommes)

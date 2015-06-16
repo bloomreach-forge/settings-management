@@ -1,5 +1,5 @@
 <!--
-  Copyright 2013 Hippo B.V. (http://www.onehippo.com)
+  Copyright 2015 Hippo B.V. (http://www.onehippo.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -31,7 +31,6 @@ The Settings management plugin covers the following features:
         + Simultaneous threads
         + Max file size
         + etc
-    + Use flash or non-flash for uploads
 + Security
     + Login page security
     + Password policies

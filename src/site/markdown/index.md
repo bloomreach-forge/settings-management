@@ -1,5 +1,5 @@
 <!--
-  Copyright 2013 Hippo B.V. (http://www.onehippo.com)
+  Copyright 2015 Hippo B.V. (http://www.onehippo.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ See more [screenshots](screenshots.html).
 
 ##Status
 
-Version range 0.3.x runs on Hippo 7.9, use 0.2.x when on Hippo 7.8
+Version range 0.4.x runs on Hippo 10, use 0.3.x when on Hippo 7.9, 0.2.x for Hippo 7.8
 
 ##How you can contribute
 
