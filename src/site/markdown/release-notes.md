@@ -18,6 +18,9 @@
 
 This page contains the release notes.
 
+##Version 0.4.0-milestone-2
++ HIPPLUG-1136: Incorrect and thereafter failing save of BrokenLinksChecker scheduler configuration
+
 ##Version 0.4.0-milestone-1
 + Test release upgraded to Hippo 10.
 
