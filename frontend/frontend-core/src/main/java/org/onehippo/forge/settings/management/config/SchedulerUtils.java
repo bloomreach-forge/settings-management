@@ -93,7 +93,7 @@ public class SchedulerUtils {
             newNames[newNames.length - 1] = valueFactory.createValue(attributeName);
             jobNode.setProperty(PROP_ATTR_NAMES, newNames);
             Value[] oldValues = jobNode.getProperty(PROP_ATTR_VALUES).getValues();
-            values = new Value[names.length];
+            values = new Value[names.length+1];
             System.arraycopy(oldValues, 0, values, 0, oldValues.length);
             values[values.length-1] = valueFactory.createValue(value);
         } else {
