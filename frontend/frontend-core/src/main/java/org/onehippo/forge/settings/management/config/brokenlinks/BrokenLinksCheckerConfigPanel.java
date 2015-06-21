@@ -67,7 +67,7 @@ public class BrokenLinksCheckerConfigPanel extends FeatureConfigPanel {
         TextField cronExpressionField = new TextField("linkscheck-cronexpression", new PropertyModel(brokenLinksCheckerConfigModel, "cronExpression"));
         TextField brokenlinksCheckConnectionTimeoutField = new TextField("linkscheck-connectionTimeout", new PropertyModel(brokenLinksCheckerConfigModel,"connectionTimeout"));
         TextField brokenlinksCheckSocketTimeoutField = new TextField("linkscheck-socketTimeout", new PropertyModel(brokenLinksCheckerConfigModel,"socketTimeout"));
-        TextField brokenlinksCheckNrOfThreads = new TextField("linkscheck-nrOfThreads", new PropertyModel(brokenLinksCheckerConfigModel,"nrOfThreads"));
+        TextField brokenlinksCheckNrHttpThreads = new TextField("linkscheck-nrHttpThreads", new PropertyModel(brokenLinksCheckerConfigModel,"nrHttpThreads"));
         TextField brokenlinksUrlExcludes = new TextField("linkscheck-urlExcludes", new PropertyModel(brokenLinksCheckerConfigModel,"urlExcludes"));
 
         final TextField brokenlinksCheckStartPath = new TextField("linkscheck-startPath", new PropertyModel(this, "checkerStartPath"));
@@ -129,7 +129,7 @@ public class BrokenLinksCheckerConfigPanel extends FeatureConfigPanel {
         add(locationPickLink);
         add(brokenlinksCheckConnectionTimeoutField);
         add(brokenlinksCheckSocketTimeoutField);
-        add(brokenlinksCheckNrOfThreads);
+        add(brokenlinksCheckNrHttpThreads);
         add(brokenlinksCheckStartPath);
         add(brokenlinksUrlExcludes);
     }

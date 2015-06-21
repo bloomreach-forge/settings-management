@@ -33,7 +33,7 @@ public class BrokenlinksCheckerConfig implements CMSFeatureConfig {
 
     public static final String ATTR_CONNECTION_TIMEOUT = "connectionTimeout";
     public static final String ATTR_SOCKET_TIMEOUT = "socketTimeout";
-    public static final String ATTR_NR_THREADS = "nrOfThreads";
+    public static final String ATTR_NR_HTTP_THREADS = "nrHttpThreads";
     public static final String ATTR_STARTPATH = "startPath";
     public static final String ATTR_URLEXCLUDES = "urlExcludes";
 
@@ -45,7 +45,7 @@ public class BrokenlinksCheckerConfig implements CMSFeatureConfig {
     private transient Node jobNode;
     private Long connectionTimeout;
     private Long socketTimeout;
-    private Long nrOfThreads;
+    private Long nrHttpThreads;
     private String startPath;
     private String startPathUUID;
     private String urlExcludes;
@@ -58,7 +58,7 @@ public class BrokenlinksCheckerConfig implements CMSFeatureConfig {
         try {
             connectionTimeout = SchedulerUtils.getAttributeAsLong(jobNode, ATTR_CONNECTION_TIMEOUT, DEFAULT_CONNECTION_TIMEOUT);
             socketTimeout = SchedulerUtils.getAttributeAsLong(jobNode, ATTR_SOCKET_TIMEOUT, DEFAULT_SOCKET_TIMEOUT);
-            nrOfThreads = SchedulerUtils.getAttributeAsLong(jobNode, ATTR_NR_THREADS, DEFAULT_NR_THREADS);
+            nrHttpThreads = SchedulerUtils.getAttributeAsLong(jobNode, ATTR_NR_HTTP_THREADS, DEFAULT_NR_THREADS);
             startPath = SchedulerUtils.getAttribute(jobNode, ATTR_STARTPATH, DEFAULT_START_PATH);
             startPathUUID = getIdentifierForPath(startPath);
             urlExcludes = SchedulerUtils.getAttribute(jobNode, ATTR_URLEXCLUDES, null);
@@ -86,7 +86,7 @@ public class BrokenlinksCheckerConfig implements CMSFeatureConfig {
     public void save() throws RepositoryException {
         SchedulerUtils.setAttribute(jobNode, ATTR_CONNECTION_TIMEOUT, getConnectionTimeout());
         SchedulerUtils.setAttribute(jobNode, ATTR_SOCKET_TIMEOUT, getSocketTimeout());
-        SchedulerUtils.setAttribute(jobNode, ATTR_NR_THREADS, getNrOfThreads());
+        SchedulerUtils.setAttribute(jobNode, ATTR_NR_HTTP_THREADS, getNrHttpThreads());
         SchedulerUtils.setAttribute(jobNode, ATTR_STARTPATH, getStartPath());
         SchedulerUtils.setAttribute(jobNode, ATTR_URLEXCLUDES, getUrlExcludes());
         jobNode.getSession().save();
@@ -116,12 +116,12 @@ public class BrokenlinksCheckerConfig implements CMSFeatureConfig {
         this.startPath = startPath;
     }
 
-    public Long getNrOfThreads() {
-        return nrOfThreads;
+    public Long getNrHttpThreads() {
+        return nrHttpThreads;
     }
 
-    public void setNrOfThreads(final long nrOfThreads) {
-        this.nrOfThreads = nrOfThreads;
+    public void setNrHttpThreads(final long nrHttpThreads) {
+        this.nrHttpThreads = nrHttpThreads;
     }
 
     public String getStartPathUUID() {
