@@ -19,8 +19,8 @@
 
   <parent>
     <groupId>org.onehippo.cms7</groupId>
-    <artifactId>hippo-cms7-release</artifactId>
-    <version>11.0.0</version>
+    <artifactId>hippo-cms7-project</artifactId>
+    <version>28.1</version>
   </parent>
 
   <packaging>pom</packaging>
@@ -37,6 +37,9 @@
   <version>0.5.1-SNAPSHOT</version>
 
   <properties>
+    <hippo.repository.version>4.0.1</hippo.repository.version>
+    <hippo.cms.version>4.0.1</hippo.cms.version>
+
     <!-- test related -->
     <junit.version>4.10</junit.version>
     <easymock.version>3.0</easymock.version>
