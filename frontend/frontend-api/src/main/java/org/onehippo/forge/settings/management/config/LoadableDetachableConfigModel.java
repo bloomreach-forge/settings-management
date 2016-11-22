@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2013-2016 Hippo B.V. (http://www.onehippo.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,7 @@ package org.onehippo.forge.settings.management.config;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
+import javax.jcr.Session;
 
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.hippoecm.frontend.session.UserSession;
@@ -38,10 +39,15 @@ public abstract class LoadableDetachableConfigModel<T> extends LoadableDetachabl
 
     protected Node getConfigNode(final String path) {
         try {
-            return UserSession.get().getJcrSession().getNode(path);
+            final Session jcrSession = UserSession.get().getJcrSession();
+            if (jcrSession.nodeExists(path)) {
+                return jcrSession.getNode(path);
+            }
         } catch (RepositoryException e) {
-            log.warn("No configuration found at: {}", path);
+            log.error("Error trying to retrieve configuration node at {}", path);
         }
+
+        log.info("No configuration found at {}", path);
         return null;
     }
 

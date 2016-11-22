@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2013 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2011-2016 Hippo B.V. (http://www.onehippo.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,6 +14,11 @@
  * limitations under the License.
  */
 
+div.info-message {
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
 div.settings-formfield-group {
     margin: 0.3em 0;
     clear: both;
@@ -25,8 +30,6 @@ div.settings-formfield-group {
     white-space: nowrap;
     clear: none;
 }
-
-/* === Form Elements === */
 
 .settings-formfield-group label {
     float: left;
