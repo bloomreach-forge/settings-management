@@ -20,7 +20,7 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-project</artifactId>
-    <version>28.1</version>
+    <version>28.4</version>
   </parent>
 
   <packaging>pom</packaging>
@@ -114,6 +114,11 @@
       <id>hippo-maven2</id>
       <name>Hippo Maven 2</name>
       <url>http://maven.onehippo.com/maven2</url>
+    </repository>
+    <repository>
+      <id>hippo-maven2-snapshots</id>
+      <name>Hippo Maven 2 Snapshots</name>
+      <url>https://maven.onehippo.com/maven2-snapshots</url>
     </repository>
     <repository>
       <id>hippo-maven2-forge</id>
