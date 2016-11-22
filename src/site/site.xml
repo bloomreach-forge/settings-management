@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-   Copyright 2013 Hippo B.V. (http://www.onehippo.com)
+   Copyright 2013-2016 Hippo B.V. (http://www.onehippo.com)
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -19,31 +19,10 @@
          name="Settings Management">
 
   <skin>
-    <groupId>org.apache.maven.skins</groupId>
-    <artifactId>maven-fluido-skin</artifactId>
-    <version>1.3.1</version>
+    <groupId>org.onehippo.forge.mavenskin</groupId>
+    <artifactId>forge-maven-skin</artifactId>
+    <version>1.04.00</version>
   </skin>
-  <publishDate format="d MMMM yyyy" position="right"/>
-
-  <bannerRight>
-    <name>Settings Management</name>
-    <alt>Settings Management</alt>
-    <src>images/hippo-logo.png</src>
-    <height>55</height>
-    <href>/index.html</href>
-  </bannerRight>
-
-  <custom>
-    <fluidoSkin>
-      <twitter>
-        <user>onehippo</user>
-        <showUser>true</showUser>
-        <showFollowers>true</showFollowers>
-      </twitter>
-    </fluidoSkin>
-  </custom>
-
-  <googleAnalyticsAccountId>UA-516609-6</googleAnalyticsAccountId>
 
   <body>
     <menu name="Main">
@@ -60,6 +39,5 @@
     </menu>
     <menu ref="reports" />
   </body>
-
 
 </project>
