@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright 2011-2016 Hippo B.V. (http://www.onehippo.com)
+  Copyright 2011-2017 Hippo B.V. (http://www.onehippo.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -30,7 +30,6 @@
   <description>
     This plugin allows administrators to configure system settings, which are normally stored somewhere in the Hippo Repository.
   </description>
-  <url>http://manage_settings.forge.onehippo.org/</url>
 
   <groupId>org.onehippo.forge.settingsmanagement</groupId>
   <artifactId>hippo-addon-settings-management</artifactId>
@@ -54,16 +53,26 @@
   </modules>
 
   <scm>
-    <connection>scm:svn:https://forge.onehippo.org/svn/manage_settings/trunk</connection>
-    <developerConnection>scm:svn:https://forge.onehippo.org/svn/manage_settings/trunk</developerConnection>
-    <url>https://forge.onehippo.org/svn/manage_settings/trunk</url>
+    <connection>scm:git:git@github.com:onehippo-forge/settings-management.git</connection>
+    <developerConnection>scm:git:git@github.com:onehippo-forge/settings-management.git</developerConnection>
+    <url>https://github.com/onehippo-forge/settings-management.git</url>
+    <tag>HEAD</tag>
   </scm>
+
+  <distributionManagement>
+    <repository>
+      <name>Hippo Maven 2 Forge Repository</name>
+      <id>hippo-maven2-forge</id>
+      <url>https://maven.onehippo.com/content/repositories/maven2-forge/</url>
+      <uniqueVersion>false</uniqueVersion>
+    </repository>
+  </distributionManagement>
 
 
   <developers>
     <developer>
-      <id>jreijn</id>
-      <name>Jeroen Reijn</name>
+      <id>jhoffman</id>
+      <name>Jeroen Hoffman</name>
       <organization>Hippo</organization>
       <organizationUrl>http://www.onehippo.com</organizationUrl>
       <timezone>1</timezone>
@@ -77,28 +86,11 @@
     </developer>
   </developers>
 
-  <contributors>
-    <contributor>
-
-    </contributor>
-  </contributors>
-
-  <ciManagement>
-    <system>Hudson</system>
-    <url>http://hudson.onehippo.org/job/Hippo%20Forge%Settings%20Management%20Plugin%20Trunk/</url>
-  </ciManagement>
-
-  <distributionManagement>
-    <repository>
-      <uniqueVersion>false</uniqueVersion>
-      <id>settings-management-maven-repo</id>
-      <url>svn:https://forge.onehippo.org/svn/manage_settings/maven2</url>
-    </repository>
-  </distributionManagement>
+  <ciManagement/>
 
   <issueManagement>
-    <system>Hippo Forge</system>
-    <url>http://forge.onehippo.org/gf/project/manage_settings/tracker/</url>
+    <system>Hippo JIRA</system>
+    <url>https://issues.onehippo.com/projects/HIPFORGE</url>
   </issueManagement>
 
   <mailingLists>
@@ -116,17 +108,11 @@
       <url>http://maven.onehippo.com/maven2</url>
     </repository>
     <repository>
-      <id>hippo-maven2-snapshots</id>
-      <name>Hippo Maven 2 Snapshots</name>
-      <url>https://maven.onehippo.com/maven2-snapshots</url>
-    </repository>
-    <repository>
       <id>hippo-maven2-forge</id>
       <name>Hippo Maven 2 Forge Repositories</name>
       <url>http://maven.onehippo.com/maven2-forge</url>
     </repository>
   </repositories>
-
 
   <build>
     <defaultGoal>package</defaultGoal>
@@ -142,6 +128,9 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
         <version>${maven.plugin.site.version}</version>
+        <configuration>
+          <outputDirectory>docs</outputDirectory>
+        </configuration>
         <dependencies>
           <dependency>
             <groupId>org.apache.maven.doxia</groupId>
@@ -199,55 +188,5 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-
-  <profiles>
-    <profile>
-      <id>pedantic</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.rat</groupId>
-            <artifactId>apache-rat-plugin</artifactId>
-            <version>${maven.plugin.rat.version}</version>
-            <inherited>false</inherited>
-            <executions>
-              <execution>
-                <phase>validate</phase>
-                <goals>
-                  <goal>check</goal>
-                </goals>
-              </execution>
-            </executions>
-            <configuration>
-              <addDefaultLicenseMatchers>false</addDefaultLicenseMatchers>
-              <excludeSubProjects>false</excludeSubProjects>
-              <licenses>
-                <license implementation="org.apache.rat.analysis.license.AppliedApacheSoftwareLicense20">
-                  <copyrightOwner>Hippo B\.V\. \(http://www\.onehippo\.com\)</copyrightOwner>
-                </license>
-              </licenses>
-              <excludes>
-                <!-- no license headers needed for these files -->
-                <exclude>TODO</exclude>
-                <exclude>atlassian-ide-plugin.xml</exclude>
-                <exclude>**/*.cnd</exclude>
-                <exclude>**/*.json</exclude>
-                <exclude>**/*.log</exclude>
-                <exclude>**/*.patch</exclude>
-                <exclude>**/*.plxarc</exclude>
-                <exclude>**/*.properties</exclude>
-                <exclude>**/log4j.dtd</exclude>
-                <exclude>**/MANIFEST.MF</exclude>
-                <!-- exclude IntelliJ module files of sub-projects -->
-                <exclude>**/*.iml</exclude>
-                <exclude>frontend/src/main/resources/**/*.xml</exclude>
-              </excludes>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
-
 
 </project>
