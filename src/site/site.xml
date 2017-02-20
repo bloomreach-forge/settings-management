@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-   Copyright 2013-2016 Hippo B.V. (http://www.onehippo.com)
+   Copyright 2013-2017 Hippo B.V. (http://www.onehippo.com)
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -30,12 +30,10 @@
       <item name="Screenshots" href="screenshots.html" />
       <item name="Functional coverage" href="features.html" />
       <item name="Release notes" href="release-notes.html" />
-      <item name="Roadmap" href="roadmap.html" />
     </menu>
     <menu name="Usage">
       <item name="Installation" href="install.html" />
       <item name="Adding custom features" href="adding-features.html" />
-      <item name="Building from source" href="building-from-source.html"/>
     </menu>
     <menu ref="reports" />
   </body>
