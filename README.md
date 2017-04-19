@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/onehippo-forge/settings-management.svg?branch=develop)](https://travis-ci.org/onehippo-forge/settings-management)
 
 # Settings Management Plugin
 
