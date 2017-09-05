@@ -20,6 +20,24 @@
 These instruction assumes that you have an Hippo CMS project based on the Hippo website archetype, i.e. a Maven multi-module project
 consisting of at least three sub-modules: cms, site and bootstrap.
 
+### Forge Repository
+In the main pom.xml of the project, in the repositories section, add this repository if it is not configured there yet. 
+
+```
+<repository>
+  <id>hippo-forge</id>
+  <name>Hippo Forge maven 2 repository.</name>
+  <url>https://maven.onehippo.com/maven2-forge/</url>
+  <snapshots>
+    <enabled>false</enabled>
+  </snapshots>
+  <releases>
+    <updatePolicy>never</updatePolicy>
+  </releases>
+  <layout>default</layout>
+</repository>
+```
+
 ### Installation in CMS/Repository
 Add this property to the properties section of the *root* pom.xml:
 
@@ -47,20 +65,3 @@ Add these two dependency to the pom.xml of your *cms* module:
 Rebuild your project. In case you start with an existing repository don't forget to add *-Drepo.bootstrap=true*
 to your startup options.
 
-### Maven 3 repository (optional)
-If you are not using a Hippo release pom as parent, you may need to add the following repository to your root pom.xml:
-
-```
-<repository>
-  <id>hippo-forge</id>
-  <name>Hippo Forge maven 3 repository.</name>
-  <url>http://maven.onehippo.com/maven2-forge/</url>
-  <snapshots>
-    <enabled>false</enabled>
-  </snapshots>
-  <releases>
-    <updatePolicy>never</updatePolicy>
-  </releases>
-  <layout>default</layout>
-</repository>
-```
