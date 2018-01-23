@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-release</artifactId>
-    <version>11.2.0-SNAPSHOT</version>
+    <version>11.2.0</version>
   </parent>
 
   <name>Setting Manager Demo</name>
@@ -23,8 +23,8 @@
     <!--***START temporary override of versions*** -->
     <!-- ***END temporary override of versions*** -->
 
-    <forge.settingsmanagement.version>0.6.0-SNAPSHOT</forge.settingsmanagement.version>
-    <forge.urlrewriter.version>2.1.0-SNAPSHOT</forge.urlrewriter.version>
+    <forge.settingsmanagement.version>${project.version}</forge.settingsmanagement.version>
+    <forge.urlrewriter.version>2.1.0</forge.urlrewriter.version>
 
     <essentials.version>2.2.0</essentials.version>
     <jsp-api.version>2.2</jsp-api.version>

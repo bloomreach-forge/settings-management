@@ -12,7 +12,7 @@ to the settings management panel. See the [adding features page](adding-features
 
 ## Code
 
-Code is on GitHub at [github.com//onehippo-forge/settings-management](https://github.com/onehippo-forge/settings-management)  
+Code is on GitHub at [github.com/onehippo-forge/settings-management](https://github.com/onehippo-forge/settings-management)  
 
 ## Versioning
 
