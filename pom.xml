@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright 2011-2017 Hippo B.V. (http://www.onehippo.com)
+  Copyright 2011-2018 Hippo B.V. (http://www.onehippo.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -43,8 +43,10 @@
     <junit.version>4.10</junit.version>
     <easymock.version>3.0</easymock.version>
     <sonar.l10n.locales>nl,fr,it,de</sonar.l10n.locales>
-    <extension.wagon-svn.version>1.12</extension.wagon-svn.version>
-    <maven.plugin.site.version>3.3</maven.plugin.site.version>
+
+    <!--documentation site -->
+    <maven.plugin.site.version>3.6</maven.plugin.site.version>
+    <maven.doxia.markdown.version>1.7</maven.doxia.markdown.version>
   </properties>
 
   <modules>
@@ -116,26 +118,16 @@
 
   <build>
     <defaultGoal>package</defaultGoal>
-    <extensions>
-      <extension>
-        <groupId>org.jvnet.wagon-svn</groupId>
-        <artifactId>wagon-svn</artifactId>
-        <version>${extension.wagon-svn.version}</version>
-      </extension>
-    </extensions>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
         <version>${maven.plugin.site.version}</version>
-        <configuration>
-          <outputDirectory>docs</outputDirectory>
-        </configuration>
         <dependencies>
           <dependency>
             <groupId>org.apache.maven.doxia</groupId>
             <artifactId>doxia-module-markdown</artifactId>
-            <version>1.5</version>
+            <version>${maven.doxia.markdown.version}</version>
           </dependency>
         </dependencies>
       </plugin>
@@ -188,5 +180,23 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <profiles>
+    <profile>
+      <!-- For generating/publishing GitHub Site Pages into /docs/ folder on master branch only -->
+      <id>github.pages</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-site-plugin</artifactId>
+            <configuration>
+              <outputDirectory>docs</outputDirectory>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
 </project>
