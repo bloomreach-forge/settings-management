@@ -33,7 +33,7 @@
 
   <groupId>org.onehippo.forge.settingsmanagement</groupId>
   <artifactId>hippo-addon-settings-management</artifactId>
-  <version>0.6.0-SNAPSHOT</version>
+  <version>0.6.0</version>
 
   <properties>
     <hippo.repository.version>4.2.0</hippo.repository.version>
