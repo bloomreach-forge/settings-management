@@ -1,6 +1,0 @@
-definitions:
-  config:
-    /hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/upload/imageupload:
-      jcr:primaryType: frontend:pluginconfig
-      featureConfigClass: org.onehippo.forge.settings.management.config.upload.ImageUploadConfigPanel
-      sequence: 0.0

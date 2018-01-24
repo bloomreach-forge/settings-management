@@ -1,6 +1,0 @@
-definitions:
-  config:
-    /hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/urlrewriter/urlrewriter-config-panel:
-      jcr:primaryType: frontend:pluginconfig
-      featureConfigClass: org.onehippo.forge.settings.management.config.urlrewriter.UrlRewriterConfigPanel
-      sequence: 1.0

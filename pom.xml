@@ -20,7 +20,7 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-project</artifactId>
-    <version>28.7</version>
+    <version>28.4</version>
   </parent>
 
   <packaging>pom</packaging>
@@ -33,18 +33,16 @@
 
   <groupId>org.onehippo.forge.settingsmanagement</groupId>
   <artifactId>hippo-addon-settings-management</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>0.6.0-SNAPSHOT</version>
 
   <properties>
-    <!-- Hippo CMS 12.0.3 versioning -->
-    <hippo.cms.version>5.0.4</hippo.cms.version>
-    <hippo.repository.version>5.0.4</hippo.repository.version>
-    <hippo.services.version>4.0.3</hippo.services.version>
-    <hippo.services.eventbus.version>4.0.1</hippo.services.eventbus.version>
+    <hippo.repository.version>4.2.0</hippo.repository.version>
+    <hippo.cms.version>4.2.0</hippo.cms.version>
 
     <!-- test related -->
-    <junit.version>4.12</junit.version>
-    <easymock.version>3.5.1</easymock.version>
+    <junit.version>4.10</junit.version>
+    <easymock.version>3.0</easymock.version>
+    <sonar.l10n.locales>nl,fr,it,de</sonar.l10n.locales>
 
     <!--documentation site -->
     <maven.plugin.site.version>3.6</maven.plugin.site.version>
@@ -78,14 +76,14 @@
       <id>jhoffman</id>
       <name>Jeroen Hoffman</name>
       <organization>Hippo</organization>
-      <organizationUrl>http://www.bloomreach.com</organizationUrl>
+      <organizationUrl>http://www.onehippo.com</organizationUrl>
       <timezone>1</timezone>
     </developer>
     <developer>
       <id>tjeger</id>
       <name>Tobias Jeger</name>
       <organization>Hippo</organization>
-      <organizationUrl>http://www.bloomreach.com</organizationUrl>
+      <organizationUrl>http://www.onehippo.com</organizationUrl>
       <timezone>1</timezone>
     </developer>
   </developers>
