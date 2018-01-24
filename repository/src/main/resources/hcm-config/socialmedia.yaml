@@ -1,0 +1,6 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/other/socialmedia:
+      jcr:primaryType: frontend:pluginconfig
+      featureConfigClass: org.onehippo.forge.settings.management.config.social.SocialMediaConfigPanel
+      sequence: 0.0

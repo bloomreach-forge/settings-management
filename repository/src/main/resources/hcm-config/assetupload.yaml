@@ -1,0 +1,6 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/upload/assetupload:
+      jcr:primaryType: frontend:pluginconfig
+      featureConfigClass: org.onehippo.forge.settings.management.config.upload.AssetUploadConfigPanel
+      sequence: 0.0
