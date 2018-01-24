@@ -1,0 +1,6 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/security/loginpage:
+      jcr:primaryType: frontend:pluginconfig
+      featureConfigClass: org.onehippo.forge.settings.management.config.loginpage.LoginPageConfigPanel
+      sequence: 0.0

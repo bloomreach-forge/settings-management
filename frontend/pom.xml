@@ -20,12 +20,8 @@
   <parent>
     <artifactId>hippo-addon-settings-management</artifactId>
     <groupId>org.onehippo.forge.settingsmanagement</groupId>
-    <version>0.6.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
   </parent>
-
-  <properties>
-    <wicket.version>6.19.0</wicket.version>
-  </properties>
 
   <artifactId>hippo-addon-settings-management-frontend</artifactId>
   <name>Hippo Addon Settings Management Frontend</name>
