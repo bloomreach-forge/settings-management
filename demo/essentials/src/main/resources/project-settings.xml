@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<project>
+  <projectNamespace>settingsmanagementdemo</projectNamespace>
+  <confirmParams>false</confirmParams>
+  <selectedProjectPackage>org.onehippo.forge.settingsmanagement.demo</selectedProjectPackage>
+  <selectedBeansPackage>org.onehippo.forge.settingsmanagement.demo.beans</selectedBeansPackage>
+  <selectedComponentsPackage>org.onehippo.forge.settingsmanagement.demo.components</selectedComponentsPackage>
+  <selectedRestPackage>org.onehippo.forge.settingsmanagement.demo.rest</selectedRestPackage>
+  <setupDone>false</setupDone>
+  <templateLanguage>freemarker</templateLanguage>
+  <useSamples>true</useSamples>
+  <extraTemplates>true</extraTemplates>
+</project>

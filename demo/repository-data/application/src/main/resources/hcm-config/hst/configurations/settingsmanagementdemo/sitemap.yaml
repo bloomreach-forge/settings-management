@@ -1,0 +1,4 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/settingsmanagementdemo/hst:sitemap:
+      jcr:primaryType: hst:sitemap
