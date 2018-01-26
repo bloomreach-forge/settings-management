@@ -37,11 +37,7 @@ definitions:
           jcr:mixinTypes: ['hippo:translated']
           sequence: 4.0
           title: Url Rewriter
-          /hippo:translation[1]:
-            jcr:primaryType: hippo:translation
-            hippo:language: nl
-            hippo:message: Url Rewriter
-          /hippo:translation[2]:
+          /hippo:translation:
             jcr:primaryType: hippo:translation
             hippo:language: nl
             hippo:message: Url Rewriter
