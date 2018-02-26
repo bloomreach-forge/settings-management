@@ -16,6 +16,12 @@
 
 ## Release notes
 
+### Version 1.0.0 
+Release date: 26 Feb 2018
+
++ Upgraded project + demo to Hippo 12.
++ Textual improvements, in Dutch mainly.
+
 ### Version 0.6.0 
 Release date: 24 Jan 2018
 
