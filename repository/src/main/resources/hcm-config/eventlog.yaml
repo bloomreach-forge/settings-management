@@ -1,0 +1,6 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/maintenance/eventlog:
+      jcr:primaryType: frontend:pluginconfig
+      featureConfigClass: org.onehippo.forge.settings.management.config.eventlog.EventLogConfigPanel
+      sequence: 0.0

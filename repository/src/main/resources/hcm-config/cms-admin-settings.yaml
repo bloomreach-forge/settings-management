@@ -1,0 +1,52 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:frontend/cms/cms-admin/settings:
+      jcr:primaryType: frontend:plugin
+      plugin.class: org.onehippo.forge.settings.management.SettingsPlugin
+      /tabconfig:
+        jcr:primaryType: frontend:pluginconfig
+        /maintenance:
+          jcr:primaryType: frontend:pluginconfig
+          jcr:mixinTypes: ['hippo:translated']
+          sequence: 0.0
+          title: Maintenance
+          /hippo:translation:
+            jcr:primaryType: hippo:translation
+            hippo:language: nl
+            hippo:message: Onderhoud
+        /security:
+          jcr:primaryType: frontend:pluginconfig
+          jcr:mixinTypes: ['hippo:translated']
+          sequence: 2.0
+          title: Security
+          /hippo:translation:
+            jcr:primaryType: hippo:translation
+            hippo:language: nl
+            hippo:message: Beveiliging
+        /upload:
+          jcr:primaryType: frontend:pluginconfig
+          jcr:mixinTypes: ['hippo:translated']
+          sequence: 3.0
+          title: Upload
+          /hippo:translation:
+            jcr:primaryType: hippo:translation
+            hippo:language: nl
+            hippo:message: Uploaden
+        /urlrewriter:
+          jcr:primaryType: frontend:pluginconfig
+          jcr:mixinTypes: ['hippo:translated']
+          sequence: 4.0
+          title: Url Rewriter
+          /hippo:translation:
+            jcr:primaryType: hippo:translation
+            hippo:language: nl
+            hippo:message: Url Rewriter
+        /other:
+          jcr:primaryType: frontend:pluginconfig
+          jcr:mixinTypes: ['hippo:translated']
+          sequence: 5.0
+          title: Other
+          /hippo:translation:
+            jcr:primaryType: hippo:translation
+            hippo:language: nl
+            hippo:message: Overige

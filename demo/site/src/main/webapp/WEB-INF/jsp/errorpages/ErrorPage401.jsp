@@ -7,7 +7,7 @@
   String destination = "";
   HttpSession session = pageContext.getSession();
   if (session != null) {
-    String destination = (String) session.getAttribute("org.hippoecm.hst.security.servlet.destination");
+    destination = (String) session.getAttribute("org.hippoecm.hst.security.servlet.destination");
     if (destination == null) destination = "";
   }
   int autoRedirectSeconds = 2;
@@ -32,7 +32,7 @@
   <div class="hippo-login-panel">
     <form class="hippo-login-panel-form" name="signInForm" method="post" action="${loginProxyUrl}">
       <h2>
-        <div class="hippo-global-hideme"><span>Hippo CMS 7</span></div>
+        <div class="hippo-global-hideme"><span>Hippo CMS</span></div>
       </h2>
       <div class="hippo-login-form-container">
         <table>

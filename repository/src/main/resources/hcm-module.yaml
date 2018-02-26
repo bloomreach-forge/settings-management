@@ -1,0 +1,5 @@
+group:
+  name: hippo-forge
+  after: hippo-cms
+project: settings-management
+module: repository

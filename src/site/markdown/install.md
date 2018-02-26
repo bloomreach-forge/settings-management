@@ -1,5 +1,5 @@
 <!--
-  Copyright 2014 Hippo B.V. (http://www.onehippo.com)
+  Copyright 2014-2018 Hippo B.V. (http://www.onehippo.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -41,7 +41,7 @@ In the main pom.xml of the project, in the repositories section, add this reposi
 ### Installation in CMS/Repository
 Add this property to the properties section of the *root* pom.xml:
 
-    <forge.settingsmanagement.version>0.X.X</forge.settingsmanagement.version>
+    <forge.settingsmanagement.version>1.0.0</forge.settingsmanagement.version>
 
 Select the correct version for your project. See the [release notes](release-notes.html) for more information on which version is applicable.
 

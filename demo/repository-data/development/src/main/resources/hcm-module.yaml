@@ -1,0 +1,7 @@
+group: 
+  name: settingsmanagementdemo
+  after: hippo-cms
+project: settingsmanagementdemo
+module: 
+  name: settingsmanagementdemo-repository-data-development
+  after: settingsmanagementdemo-repository-data-application
