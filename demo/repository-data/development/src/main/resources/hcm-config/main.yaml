@@ -5,7 +5,7 @@ definitions:
         operation: add
         type: string
         value: [repository-data/development]
-     /hippo:configuration/hippo:groups/author:
+    /hippo:configuration/hippo:groups/author:
       hipposys:members:
         operation: add
         type: string
