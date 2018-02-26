@@ -20,7 +20,7 @@
   <parent>
     <artifactId>hippo-addon-settings-management</artifactId>
     <groupId>org.onehippo.forge.settingsmanagement</groupId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
   </parent>
 
   <artifactId>hippo-addon-settings-management-frontend</artifactId>
