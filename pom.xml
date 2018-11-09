@@ -57,9 +57,9 @@
   </modules>
 
   <scm>
-    <connection>scm:git:git@github.com:onehippo-forge/settings-management.git</connection>
-    <developerConnection>scm:git:git@github.com:onehippo-forge/settings-management.git</developerConnection>
-    <url>https://github.com/onehippo-forge/settings-management.git</url>
+    <connection>scm:git:git@github.com:bloomreach-forge/settings-management.git</connection>
+    <developerConnection>scm:git:git@github.com:bloomreach-forge/settings-management.git</developerConnection>
+    <url>https://github.com/bloomreach-forge/settings-management.git</url>
     <tag>HEAD</tag>
   </scm>
 

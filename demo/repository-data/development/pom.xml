@@ -8,8 +8,8 @@
     <version>1.0.1-SNAPSHOT</version>
   </parent>
 
-  <name>Hippo Forge Settings Management Demo Repository Data For Development</name>
-  <description>Hippo Forge Settings Management Demo Repository Data For Development</description>
+  <name>Bloomreach Forge Settings Management Demo Repository Data For Development</name>
+  <description>Bloomreach Forge Settings Management Demo Repository Data For Development</description>
   <artifactId>settingsmanagementdemo-repository-data-development</artifactId>
 
   <build>

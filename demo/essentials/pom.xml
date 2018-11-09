@@ -9,8 +9,8 @@
   </parent>
   <artifactId>settingsmanagementdemo-essentials</artifactId>
   <packaging>war</packaging>
-  <name>Hippo Forge Settings Management Demo Essentials</name>
-  <description>Hippo Forge Settings Management Demo Essentials</description>
+  <name>Bloomreach Forge Settings Management Demo Essentials</name>
+  <description>Bloomreach Forge Settings Management Demo Essentials</description>
   <dependencies>
     <dependency>
       <groupId>org.onehippo.cms7</groupId>

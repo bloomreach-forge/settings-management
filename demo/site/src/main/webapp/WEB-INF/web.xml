@@ -6,8 +6,8 @@
          id="site">
 
 
-  <display-name>Hippo Forge Settings Management Demo site</display-name>
-  <description>Hippo Forge Settings Management Demo site</description>
+  <display-name>Bloomreach Forge Settings Management Demo site</display-name>
+  <description>Bloomreach Forge Settings Management Demo site</description>
 
   <jsp-config>
     <jsp-property-group>

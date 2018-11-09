@@ -19,17 +19,17 @@
          name="Settings Management">
 
   <skin>
-    <groupId>org.onehippo.forge.mavenskin</groupId>
+    <groupId>org.bloomreach.forge.mavenskin</groupId>
     <artifactId>forge-maven-skin</artifactId>
-    <version>2.0.1</version>
+    <version>3.0.1</version>
   </skin>
 
   <custom>
-    <hippoSkin>
+    <bloomreach>
       <gitHub>
-        <projectId>onehippo-forge/settings-management</projectId>
+        <projectId>bloomreach-forge/settings-management</projectId>
       </gitHub>
-    </hippoSkin>
+    </bloomreach>
   </custom>
 
   <publishDate format="d MMMM yyyy" />
