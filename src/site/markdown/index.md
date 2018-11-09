@@ -12,7 +12,7 @@ to the settings management panel. See the [adding features page](adding-features
 
 ### Code
 
-Code is on GitHub at [github.com/onehippo-forge/settings-management](https://github.com/onehippo-forge/settings-management)  
+Code is on GitHub at [github.com/bloomreach-forge/settings-management](https://github.com/bloomreach-forge/settings-management)  
 
 ### Versions
 
@@ -30,4 +30,4 @@ We need help with:
 - Add more panels for existing parts of Hippo CMS
 - Improve the UI of the existing plugins
 
-See [this Hippo Forge GitHub page](https://onehippo-forge.github.io/development.html) on how to contribute.
+See [this Bloomreach Forge GitHub page](https://bloomreach-forge.github.io/development.html) on how to contribute.

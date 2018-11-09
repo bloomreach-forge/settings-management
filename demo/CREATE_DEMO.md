@@ -13,7 +13,7 @@
        artifactId: settingsmanagementdemo
        version: major.0.0-SNAPSHOT
        package: org.onehippo.forge.settingsmanagement.demo
-       projectName: Hippo Forge Settings Management Demo
+       projectName: Bloomreach Forge Settings Management Demo
     ```
  
 2) Install the translations addon as documented 

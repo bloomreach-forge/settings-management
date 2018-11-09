@@ -9,8 +9,8 @@
   </parent>
   <artifactId>settingsmanagementdemo-cms</artifactId>
   <packaging>war</packaging>
-  <name>Hippo Forge Settings Management Demo CMS</name>
-  <description>Hippo Forge Settings Management Demo CMS</description>
+  <name>Bloomreach Forge Settings Management Demo CMS</name>
+  <description>Bloomreach Forge Settings Management Demo CMS</description>
   <dependencies>
     <dependency>
       <groupId>org.onehippo.forge.settingsmanagement</groupId>

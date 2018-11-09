@@ -6,8 +6,8 @@
          id="cms">
 
   <!-- General configuration -->
-  <display-name>Hippo Forge Settings Management Demo CMS</display-name>
-  <description>Hippo Forge Settings Management Demo CMS</description>
+  <display-name>Bloomreach Forge Settings Management Demo CMS</display-name>
+  <description>Bloomreach Forge Settings Management Demo CMS</description>
 
   <context-param>
     <description>The address of the repository</description>

@@ -9,8 +9,8 @@
   </parent>
   <artifactId>settingsmanagementdemo-site</artifactId>
   <packaging>war</packaging>
-  <name>Hippo Forge Settings Management Demo Site</name>
-  <description>Hippo Forge Settings Management Demo Site</description>
+  <name>Bloomreach Forge Settings Management Demo Site</name>
+  <description>Bloomreach Forge Settings Management Demo Site</description>
   <dependencies>
     <dependency>
       <groupId>javax.servlet.jsp</groupId>
