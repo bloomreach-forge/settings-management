@@ -3,5 +3,5 @@ definitions:
     /hst:hst/hst:configurations/settingsmanagementdemo/hst:workspace/hst:channel:
       .meta:residual-child-node-category: content
       jcr:primaryType: hst:channel
-      hst:name: Bloomreach Forge Settings Management Demo
+      hst:name: demo
       hst:type: website

@@ -8,9 +8,9 @@
     <version>3.0.0-SNAPSHOT</version>
   </parent>
 
-  <name>Bloomreach Forge Settings Management Demo Repository Data For Application</name>
-  <description>Bloomreach Forge Settings Management Demo Repository Data For Application</description>
-  <artifactId>settingsmanagementdemo-repository-data-application</artifactId>
+  <name>Bloomreach Forge Settings Management Demo Repository Data For Site</name>
+  <description>Bloomreach Forge Settings Management Demo Repository Data For Site</description>
+  <artifactId>settingsmanagementdemo-repository-data-site</artifactId>
 
   <build>
     <defaultGoal>install</defaultGoal>
