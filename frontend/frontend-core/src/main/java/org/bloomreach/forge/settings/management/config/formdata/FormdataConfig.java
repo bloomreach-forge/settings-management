@@ -31,9 +31,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author Jeroen Reijn
- *
- * TODO: attribute batchsize
+ * Configuration panel for form data.
  */
 public class FormdataConfig implements CMSFeatureConfig {
 

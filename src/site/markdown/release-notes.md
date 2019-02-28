@@ -25,6 +25,8 @@ Release date: 28 February 2019
   When upgrading, please revisit the [installation page](install.html).
 + [HIPFORGE-279](https://issues.onehippo.com/browse/HIPFORGE-279)<br/>
   Remove the BrokenLinksChecker panel since the checker is no longer present in 13.
++ [HIPFORGE-280](https://issues.onehippo.com/browse/HIPFORGE-280)<br/>
+  Make add/remove form data exclude paths work.
 
 
 ### Version 1.0.0 
