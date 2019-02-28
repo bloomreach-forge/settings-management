@@ -13,9 +13,9 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   -->
-# How to install the settings management plugin
+## How to install the settings management plugin
 
-## Prerequisites
+### Prerequisites
 
 These instruction assumes that you have a BloomReach CMS 13 project based on the archetype, i.e. a Maven 
 multi-module project consisting of at least four sub-modules: cms, cms-dependencies, site and bootstrap.

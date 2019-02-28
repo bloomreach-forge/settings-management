@@ -14,7 +14,7 @@
   limitations under the License.
   -->
 
-# Features
+## Features
 
 The Settings management plugin covers the following features:
 

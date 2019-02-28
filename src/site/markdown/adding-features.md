@@ -14,7 +14,7 @@
   limitations under the License.
   -->
 
-# Adding configuration options for custom features
+## Adding configuration options for custom features
 
 Adding or extending the configuration panels with your own BloomReach CMS plugin configuration is quite easy.
 It basically consists of three steps:
@@ -25,7 +25,7 @@ It basically consists of three steps:
 * Create a Wicket Panel for displaying the fields in the settings management panel
 * Adding the new panel to one of the existing categories (or to a new category)
 
-## Add the API dependency to your project
+### Add the API dependency to your project
 
 Add the frontend api to your custom feature module. 
 
@@ -39,7 +39,7 @@ Add the frontend api to your custom feature module.
 
 Select the correct version for your project. See the [release notes](release-notes.html) for more information on which version is applicable.
 
-## Creating a Wicket Model
+### Creating a Wicket Model
 
 Make sure the newly created Java class implement the _CMSFeatureConfig_ interface.
 
@@ -100,7 +100,7 @@ public class UserManagementConfigModel extends LoadableDetachableConfigModel<Use
     }
 }
 ```
-## Creating the Wicket Panel
+### Creating the Wicket Panel
 
 ```java
 public class UserManagementConfigPanel extends FeatureConfigPanel {
@@ -156,7 +156,7 @@ And adding the markup for our panel.
 </html>
 ```
 
-## Adding the configuration
+### Adding the configuration
 
 Be sure to create node /hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/security/usermanagement
 

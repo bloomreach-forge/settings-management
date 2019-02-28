@@ -24,7 +24,7 @@
   </parent>
 
   <artifactId>bloomreach-settingsmanagement-frontend-api</artifactId>
-  <name>BloomReach Plugin Settings Management Plugin Frontend API</name>
+  <name>BloomReach Settings Management Plugin Frontend API</name>
 
   <build>
     <defaultGoal>package</defaultGoal>

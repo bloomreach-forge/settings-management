@@ -24,7 +24,7 @@
   </parent>
 
   <artifactId>bloomreach-settingsmanagement-repository</artifactId>
-  <name>BloomReach Plugin Settings Management Plugin Repository</name>
+  <name>BloomReach Settings Management Plugin Repository</name>
   <packaging>jar</packaging>
 
   <build>
