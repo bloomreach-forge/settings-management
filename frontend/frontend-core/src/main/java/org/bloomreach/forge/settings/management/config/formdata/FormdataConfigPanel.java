@@ -92,7 +92,7 @@ public class FormdataConfigPanel extends FeatureConfigPanel {
             }
         };
 
-        excludedPathsView.setReuseItems(true);
+        excludedPathsView.setOutputMarkupId(true);
 
         listContainer.add(excludedPathsView);
         listContainer.add(addExtension);
