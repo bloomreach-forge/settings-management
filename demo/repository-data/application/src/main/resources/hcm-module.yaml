@@ -1,4 +1,4 @@
-group: 
+group:
   name: settingsmanagementdemo
   after: [hippo-cms, hippo-forge]
 project: settingsmanagementdemo
