@@ -17,7 +17,7 @@
 
 ## Prerequisites
 
-These instruction assumes that you have a BloomReach Experience 13 project based on the archetype, i.e. a Maven 
+These instruction assumes that you have a BloomReach CMS 13 project based on the archetype, i.e. a Maven 
 multi-module project consisting of at least four sub-modules: cms, cms-dependencies, site and bootstrap.
 
 ### Forge Repository

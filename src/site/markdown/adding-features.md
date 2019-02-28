@@ -16,7 +16,7 @@
 
 # Adding configuration options for custom features
 
-Adding or extending the configuration panels with your own Hippo CMS plugin configuration is quite easy.
+Adding or extending the configuration panels with your own BloomReach CMS plugin configuration is quite easy.
 It basically consists of three steps:
 
 * Create a new Maven project (or add an existing module to your project/plugin)
