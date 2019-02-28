@@ -16,6 +16,7 @@
 
 package org.bloomreach.forge.settings.management.config.formdata;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -24,8 +25,8 @@ import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
 import org.bloomreach.forge.settings.management.config.CMSFeatureConfig;
-
 import org.bloomreach.forge.settings.management.config.SchedulerUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -63,7 +64,7 @@ public class FormdataConfig implements CMSFeatureConfig {
             minutesToLive = SchedulerUtils.getAttributeAsLong(jobNode, ATTR_MINUTES_TO_LIVE, -1l);
             final String excludepathsAttr = SchedulerUtils.getAttribute(jobNode, ATTR_EXCLUDE_PATHS, "/formdata/permanent/");
             if (excludepathsAttr != null) {
-                excludepaths = Arrays.asList(excludepathsAttr.split("\\|"));
+                excludepaths = new ArrayList<>(Arrays.asList(excludepathsAttr.split("\\|")));
             }
         } catch (RepositoryException e) {
             logger.error("Error: {}", e);
