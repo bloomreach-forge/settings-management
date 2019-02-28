@@ -2,5 +2,5 @@ definitions:
   config:
     /hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/upload/imageupload-validation:
       jcr:primaryType: frontend:pluginconfig
-      featureConfigClass: org.onehippo.forge.settings.management.config.upload.ImageValidationServiceConfigPanel
+      featureConfigClass: org.bloomreach.forge.settings.management.config.upload.ImageValidationServiceConfigPanel
       sequence: 0.0

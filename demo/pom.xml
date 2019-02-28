@@ -10,7 +10,7 @@
 
   <name>Bloomreach Forge Settings Management Demo</name>
   <description>Bloomreach Forge Settings Management Demo</description>
-  <groupId>org.onehippo.forge.settingsmanagement.demo</groupId>
+  <groupId>org.bloomreach.forge.settingsmanagement.demo</groupId>
   <artifactId>settingsmanagementdemo</artifactId>
   <version>2.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
@@ -59,7 +59,7 @@
   <!-- End of emptied/overridden metadata from parent hippo-cms7-release pom. -->
 
   <properties>
-	  <forge.settingsmanagement.version>${project.version}</forge.settingsmanagement.version>
+	  <bloomreach.forge.settingsmanagement.version>${project.version}</bloomreach.forge.settingsmanagement.version>
     <!--***START temporary override of versions*** -->
     <!-- ***END temporary override of versions*** -->
 

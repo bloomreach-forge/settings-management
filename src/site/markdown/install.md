@@ -1,5 +1,5 @@
 <!--
-  Copyright 2014-2018 Hippo B.V. (http://www.onehippo.com)
+  Copyright 2014-2019 BloomReach Inc. (https://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -17,11 +17,11 @@
 
 ## Prerequisites
 
-These instruction assumes that you have an Hippo CMS project based on the Hippo website archetype, i.e. a Maven multi-module project
-consisting of at least three sub-modules: cms, site and bootstrap.
+These instruction assumes that you have a BloomReach Experience 13 project based on the archetype, i.e. a Maven 
+multi-module project consisting of at least four sub-modules: cms, cms-dependencies, site and bootstrap.
 
 ### Forge Repository
-In the main pom.xml of the project, in the repositories section, add this repository if it is not configured there yet. 
+In the main pom.xml of the project, in the repositories section, add this repository if it is not configured yet. 
 
 ```
 <repository>
@@ -38,30 +38,35 @@ In the main pom.xml of the project, in the repositories section, add this reposi
 </repository>
 ```
 
-### Installation in CMS/Repository
+### Installation in CMS
 Add this property to the properties section of the *root* pom.xml:
 
-    <forge.settingsmanagement.version>1.0.0</forge.settingsmanagement.version>
+    <bloomreach.forge.settingsmanagement.version>2.0.0</bloomreach.forge.settingsmanagement.version>
 
 Select the correct version for your project. See the [release notes](release-notes.html) for more information on which version is applicable.
 
-Add these two dependency to the pom.xml of your *cms* module:
+Add these two dependency to the pom.xml of your *cms-dependencies* (or *cms*) module:
 
 ```
 <dependency>
-  <groupId>org.onehippo.forge.settingsmanagement</groupId>
-  <artifactId>hippo-addon-settings-management-repository</artifactId>
-  <version>${forge.settingsmanagement.version}</version>
+  <groupId>org.bloomreach.forge.settingsmanagement</groupId>
+  <artifactId>bloomreach-settingsmanagement-repository</artifactId>
+  <version>${bloomreach.forge.settingsmanagement.version}</version>
 </dependency>
 
 <dependency>
-  <groupId>org.onehippo.forge.settingsmanagement</groupId>
-  <artifactId>hippo-addon-settings-management-frontend-core</artifactId>
-  <version>${forge.settingsmanagement.version}</version>
+  <groupId>org.bloomreach.forge.settingsmanagement</groupId>
+  <artifactId>bloomreach-settingsmanagement-frontend-core</artifactId>
+  <version>${bloomreach.forge.settingsmanagement.version}</version>
 </dependency>
 
 ```
 
-Rebuild your project. In case you start with an existing repository don't forget to add *-Drepo.bootstrap=true*
+<div class="alert alert-info">
+    Note: before version 2.0, the artifacts' groupId was <code>org.onehippo.forge.settingsmanagement</code> and
+    the artifactIds started with <code>hippo-addon-settings-management</code>. 
+</div>
+
+Rebuild and start your project. In case you start with an existing repository don't forget to add *-Drepo.bootstrap=true*
 to your startup options.
 

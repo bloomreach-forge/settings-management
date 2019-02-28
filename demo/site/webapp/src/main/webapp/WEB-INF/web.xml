@@ -51,7 +51,7 @@
   -->
   <context-param>
     <param-name>hst-beans-annotated-classes</param-name>
-    <param-value>classpath*:org/onehippo/forge/settingsmanagement/demo/**/*.class
+    <param-value>classpath*:org/bloomreach/forge/settingsmanagement/demo/**/*.class
       ,classpath*:org/onehippo/**/*.class
       ,classpath*:com/onehippo/**/*.class
       ,classpath*:org/onehippo/forge/**/*.class

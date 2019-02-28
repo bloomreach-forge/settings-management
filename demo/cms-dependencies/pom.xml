@@ -3,31 +3,33 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.onehippo.forge.settingsmanagement.demo</groupId>
+    <groupId>org.bloomreach.forge.settingsmanagement.demo</groupId>
     <artifactId>settingsmanagementdemo</artifactId>
     <version>2.0.0-SNAPSHOT</version>
   </parent>
+
   <artifactId>settingsmanagementdemo-cms-dependencies</artifactId>
   <packaging>pom</packaging>
   <name>Bloomreach Forge Settings Management Demo CMS Dependencies</name>
   <description>Bloomreach Forge Settings Management Demo CMS Dependencies</description>
+
   <dependencies>
-  	<!-- Settings managment -->
+  	<!-- Settings management -->
   	<dependency>
-      <groupId>org.onehippo.forge.settingsmanagement</groupId>
-      <artifactId>hippo-addon-settings-management-repository</artifactId>
-      <version>${forge.settingsmanagement.version}</version>
+      <groupId>org.bloomreach.forge.settingsmanagement</groupId>
+      <artifactId>bloomreach-settingsmanagement-repository</artifactId>
+      <version>${bloomreach.forge.settingsmanagement.version}</version>
     </dependency>
 	 
     <dependency>
-      <groupId>org.onehippo.forge.settingsmanagement</groupId>
-      <artifactId>hippo-addon-settings-management-frontend-core</artifactId>
-      <version>${forge.settingsmanagement.version}</version>
+      <groupId>org.bloomreach.forge.settingsmanagement</groupId>
+      <artifactId>bloomreach-settingsmanagement-frontend-core</artifactId>
+      <version>${bloomreach.forge.settingsmanagement.version}</version>
     </dependency>
-    <!-- Settings managment -->
+    <!-- /Settings management -->
 	
     <dependency>
-      <groupId>org.onehippo.forge.settingsmanagement.demo</groupId>
+      <groupId>org.bloomreach.forge.settingsmanagement.demo</groupId>
       <artifactId>settingsmanagementdemo-repository-data-application</artifactId>
       <version>${project.version}</version>
     </dependency>

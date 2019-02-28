@@ -123,7 +123,7 @@
     </Logger>
 
     <!-- project logging -->
-    <Logger name="org.onehippo.forge.settingsmanagement.demo" level="debug"/>
+    <Logger name="org.bloomreach.forge.settingsmanagement.demo" level="debug"/>
 
     <Root level="warn">
       <AppenderRef ref="site"/>

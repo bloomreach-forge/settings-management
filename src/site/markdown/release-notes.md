@@ -1,5 +1,5 @@
 <!--
-  Copyright 2013-2018 Hippo B.V. (http://www.onehippo.com)
+  Copyright 2013-2019 BloomReach Inc. (https://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -16,10 +16,17 @@
 
 ## Release notes
 
+### Version 2.0.0 
+Release date: 28 February 2019
+
++ Upgraded plugin + demo to BloomReach Experience 13. 
+  This also entails renaming of Maven coordinates and Java packaging from 'onehippo' to 'bloomreach'. 
+  When upgrading, please revisit the [installation page](install.html).
+
 ### Version 1.0.0 
 Release date: 26 Feb 2018
 
-+ Upgraded project + demo to Hippo 12.
++ Upgraded plugin + demo to Hippo 12.
 + Textual improvements, in Dutch mainly.
 
 ### Version 0.6.0 

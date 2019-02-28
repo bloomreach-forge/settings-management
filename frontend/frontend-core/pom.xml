@@ -18,13 +18,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <artifactId>hippo-addon-settings-management-frontend</artifactId>
-    <groupId>org.onehippo.forge.settingsmanagement</groupId>
+    <artifactId>bloomreach-settingsmanagement-frontend</artifactId>
+    <groupId>org.bloomreach.forge.settingsmanagement</groupId>
     <version>2.0.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>hippo-addon-settings-management-frontend-core</artifactId>
-  <name>Hippo Addon Settings Management Frontend Core</name>
+  <artifactId>bloomreach-settingsmanagement-frontend-core</artifactId>
+  <name>BloomReach Plugin Settings Management Plugin Frontend Core</name>
 
   <build>
     <defaultGoal>package</defaultGoal>
@@ -56,8 +56,8 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.onehippo.forge.settingsmanagement</groupId>
-      <artifactId>hippo-addon-settings-management-frontend-api</artifactId>
+      <groupId>org.bloomreach.forge.settingsmanagement</groupId>
+      <artifactId>bloomreach-settingsmanagement-frontend-api</artifactId>
       <version>${project.version}</version>
     </dependency>
 

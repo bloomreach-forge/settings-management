@@ -1,5 +1,5 @@
 <!--
-  Copyright 2013-2018 Hippo B.V. (http://www.onehippo.com)
+  Copyright 2013-2019 BloomReach Inc. (https://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -31,8 +31,8 @@ Add the frontend api to your custom feature module.
 
 ```xml
 <dependency>
-  <groupId>org.onehippo.forge.settingsmanagement</groupId>
-  <artifactId>hippo-addon-settings-management-frontend-api</artifactId>
+  <groupId>org.bloomreach.forge.settingsmanagement</groupId>
+  <artifactId>bloomreach-settingsmanagement-frontend-api</artifactId>
   <version>1.0.0</version>
 </dependency>
 ```

@@ -26,13 +26,13 @@
   <packaging>pom</packaging>
   <inceptionYear>2013</inceptionYear>
 
-  <name>Hippo Addon Settings Management</name>
+  <name>BloomReach Plugin Settings Management Plugin</name>
   <description>
     This plugin allows administrators to configure system settings, which are normally stored somewhere in the Hippo Repository.
   </description>
 
-  <groupId>org.onehippo.forge.settingsmanagement</groupId>
-  <artifactId>hippo-addon-settings-management</artifactId>
+  <groupId>org.bloomreach.forge.settingsmanagement</groupId>
+  <artifactId>bloomreach-settingsmanagement</artifactId>
   <version>2.0.0-SNAPSHOT</version>
 
   <properties>
@@ -99,9 +99,8 @@
 
   <mailingLists>
     <mailingList>
-      <name>Google Groups - Hippo CMS Community</name>
-      <archive>http://groups.google.com/group/hippo-community</archive>
-      <subscribe>http://groups.google.com/group/hippo-community/subscribe</subscribe>
+      <name>BloomReach Community</name>
+      <archive>https://community.bloomreach.com/</archive>
     </mailingList>
   </mailingLists>
 

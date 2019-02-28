@@ -24,7 +24,8 @@ See more [screenshots](screenshots.html).
 
 ## Status
 
-Version range 0.5.x runs on Hippo 11, 0.4.x runs on Hippo 10, use 0.3.x when on Hippo 7.9, 0.2.x for Hippo 7.8
+Version 2.x runs on BloomReach Experience 13, 1.0 runs on BloomReach Experience 13, 0.5.x runs on Hippo 11. 
+See more at the [release notes](release-notes.html).  
 
 ## How you can contribute
 We need help with:

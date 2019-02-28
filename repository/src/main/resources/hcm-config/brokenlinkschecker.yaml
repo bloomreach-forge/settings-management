@@ -2,6 +2,6 @@ definitions:
   config:
     /hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/maintenance/brokenlinkschecker:
       jcr:primaryType: frontend:pluginconfig
-      featureConfigClass: org.onehippo.forge.settings.management.config.brokenlinks.BrokenLinksCheckerConfigPanel
+      featureConfigClass: org.bloomreach.forge.settings.management.config.brokenlinks.BrokenLinksCheckerConfigPanel
       nodetypes: ['hippostd:directory', 'hippostd:folder']
       sequence: 1.0

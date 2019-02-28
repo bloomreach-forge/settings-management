@@ -18,13 +18,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <artifactId>hippo-addon-settings-management</artifactId>
-    <groupId>org.onehippo.forge.settingsmanagement</groupId>
+    <artifactId>bloomreach-settingsmanagement</artifactId>
+    <groupId>org.bloomreach.forge.settingsmanagement</groupId>
     <version>2.0.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>hippo-addon-settings-management-repository</artifactId>
-  <name>Hippo Addon Settings Management Repository</name>
+  <artifactId>bloomreach-settingsmanagement-repository</artifactId>
+  <name>BloomReach Plugin Settings Management Plugin Repository</name>
   <packaging>jar</packaging>
 
   <build>
