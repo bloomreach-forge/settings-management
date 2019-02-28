@@ -33,10 +33,10 @@
 
   <groupId>org.onehippo.forge.settingsmanagement</groupId>
   <artifactId>hippo-addon-settings-management</artifactId>
-  <version>3.0.0-SNAPSHOT</version>
+  <version>2.0.0-SNAPSHOT</version>
 
   <properties>
-    <!-- Hippo CMS 12.0.3 versioning -->
+    <!-- BloomReach Experience 13.0.0 versioning -->
     <hippo.cms.version>13.0.0</hippo.cms.version>
     <hippo.repository.version>13.0.0</hippo.repository.version>
     <!-- from CMS root pom -->
