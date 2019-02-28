@@ -19,14 +19,18 @@
 ### Version 2.0.0 
 Release date: 28 February 2019
 
-+ Upgraded plugin + demo to BloomReach Experience 13. 
++ [HIPFORGE-278](https://issues.onehippo.com/browse/HIPFORGE-278)<br/> 
+  Upgrade to BloomReach Experience 13, including demo project. 
   This also entails renaming of Maven coordinates and Java packaging from 'onehippo' to 'bloomreach'. 
   When upgrading, please revisit the [installation page](install.html).
++ [HIPFORGE-279](https://issues.onehippo.com/browse/HIPFORGE-279)<br/>
+  Remove the BrokenLinksChecker panel since the checker is no longer present in 13.
+
 
 ### Version 1.0.0 
 Release date: 26 Feb 2018
 
-+ Upgraded plugin + demo to Hippo 12.
+  Upgrade to BloomReach Experience 12, including demo project. 
 + Textual improvements, in Dutch mainly.
 
 ### Version 0.6.0 

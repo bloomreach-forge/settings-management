@@ -21,7 +21,6 @@ The Settings management plugin covers the following features:
 + Maintenance
     + Form data
     + Event log
-    + Brokenlinks checker
 + Uploads
     + Configure image upload settings
         + Simultaneous threads
