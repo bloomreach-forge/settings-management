@@ -33,10 +33,11 @@ public class UrlRewriterConfig implements CMSFeatureConfig {
 
     public static final String CONFIGURATION_PATH = "/hippo:configuration/hippo:modules/urlrewriter/hippo:moduleconfig";
 
-    public static final String SKIP_POST = "urlrewriter:skippost";
-    public static final String IGNORE_CONTEXT_PATH = "urlrewriter:ignorecontextpath";
-    public static final String USE_QUERY_STRING = "urlrewriter:usequerystring";
-    public static final String SKIPPED_PREFIXES = "urlrewriter:skippedprefixes";
+    private static final String SKIP_POST = "urlrewriter:skippost";
+    private static final String IGNORE_CONTEXT_PATH = "urlrewriter:ignorecontextpath";
+    private static final String USE_QUERY_STRING = "urlrewriter:usequerystring";
+    private static final String SKIPPED_PREFIXES = "urlrewriter:skippedprefixes";
+    private static final String DISALLOWED_DUPLICATE_HEADERS = "urlrewriter:disallowedduplicateheaders";
 
     private final transient Node node;
 
@@ -44,6 +45,7 @@ public class UrlRewriterConfig implements CMSFeatureConfig {
     private Boolean ignoreContextPath = true;
     private Boolean useQueryString = false;
     private ArrayList<String> skippedPrefixes = new ArrayList<>(0);
+    private ArrayList<String> disallowedDuplicateHeaders = new ArrayList<>(0);
 
     public Boolean hasConfiguration() {
         return node != null;
@@ -89,6 +91,14 @@ public class UrlRewriterConfig implements CMSFeatureConfig {
         skippedPrefixes.add(StringUtils.EMPTY);
     }
 
+    public ArrayList<String> getDisallowedDuplicateHeaders() {
+        return disallowedDuplicateHeaders;
+    }
+
+    public void setDisallowedDuplicateHeaders(final ArrayList<String> disallowedDuplicateHeaders) {
+        this.disallowedDuplicateHeaders = disallowedDuplicateHeaders;
+    }
+
     public UrlRewriterConfig(final Node configNode) {
 
         this.node = configNode;
@@ -107,6 +117,10 @@ public class UrlRewriterConfig implements CMSFeatureConfig {
                     Value[] values = node.getProperty(SKIPPED_PREFIXES).getValues();
                     this.skippedPrefixes = ConfigUtil.getListOfStringsFromValueArray(values);
                 }
+                if (node.hasProperty(DISALLOWED_DUPLICATE_HEADERS)) {
+                    Value[] values = node.getProperty(DISALLOWED_DUPLICATE_HEADERS).getValues();
+                    this.disallowedDuplicateHeaders = ConfigUtil.getListOfStringsFromValueArray(values);
+                }
             } catch (RepositoryException e) {
                 log.error("Error: {}", e);
             }
@@ -121,6 +135,10 @@ public class UrlRewriterConfig implements CMSFeatureConfig {
         if (skippedPrefixes != null) {
             String[] prefixes = skippedPrefixes.toArray(new String[skippedPrefixes.size()]);
             node.setProperty(SKIPPED_PREFIXES, prefixes);
+        }
+        if (disallowedDuplicateHeaders != null) {
+            String[] disallowedDuplicates = disallowedDuplicateHeaders.toArray(new String[disallowedDuplicateHeaders.size()]);
+            node.setProperty(DISALLOWED_DUPLICATE_HEADERS, disallowedDuplicates);
         }
         node.getSession().save();
     }

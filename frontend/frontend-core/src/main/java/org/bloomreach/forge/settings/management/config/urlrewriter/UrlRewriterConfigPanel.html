@@ -69,9 +69,22 @@
     </div>
     <div class="settings-formfield-group">
       <label class="settings-formfield-label" for="skipped-prefixes"><wicket:message key="skipped-prefixes"/></label>
-      <table id="skipped-prefixes" wicket:id="skippedPrefixesContainer">
+      <table id="skipped-prefixes" wicket:id="skipped-prefixes-container">
         <tr wicket:id="urlrewriter-skipped-prefixes">
-          <td style="width: 60%"><input type="text" wicket:id="prefix"></td>
+          <td style="width: 60%"><input type="text" wicket:id="skipped-prefixes"></td>
+          <td><a class="delete-16 icon-16" wicket:id="remove"></a></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><a class="add-16 icon-16" wicket:id="add"></a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="settings-formfield-group">
+      <label class="settings-formfield-label" for="disallowed-duplicate-headers"><wicket:message key="disallowed-duplicate-headers"/><a href="#" class="tooltip">?<span class="callout"><wicket:message key="disallowed-duplicate-headers-tip"/></span></a></label>
+      <table id="disallowed-duplicate-headers" wicket:id="disallowed-duplicate-headers-container">
+        <tr wicket:id="urlrewriter-disallowed-duplicate-headers">
+          <td style="width: 60%"><input type="text" wicket:id="disallowed-duplicate-headers"></td>
           <td><a class="delete-16 icon-16" wicket:id="remove"></a></td>
         </tr>
         <tr>

@@ -41,7 +41,9 @@ import org.bloomreach.forge.settings.management.FeatureConfigPanel;
 
 public class UrlRewriterConfigPanel extends FeatureConfigPanel {
 
-    private final Model<ArrayList<String>> copyOfSkippedPrefixesModel;
+    private final Model<ArrayList<String>> skippedPrefixesModel;
+    private final Model<ArrayList<String>> disallowedDuplicateHeadersModel;
+
     private UrlRewriterConfigModel urlRewriterConfigModel;
 
     public UrlRewriterConfigPanel(IPluginContext context, IPluginConfig config) {
@@ -68,11 +70,15 @@ public class UrlRewriterConfigPanel extends FeatureConfigPanel {
         useQueryStringRadioGroup.add(new Radio("use-query-string-enabled", new Model(Boolean.TRUE)));
         add(useQueryStringRadioGroup);
 
-        ArrayList<String> copy = new ArrayList<>();
-        copy.addAll(urlRewriterConfigModel.getObject().getSkippedPrefixes());
-        copyOfSkippedPrefixesModel = new Model(copy);
-        final WebMarkupContainer skippedPrefixes = createSkippedPrefixes(copyOfSkippedPrefixesModel);
+        final ArrayList<String> copyOfSkippedPrefixes = new ArrayList<>(urlRewriterConfigModel.getObject().getSkippedPrefixes());
+        skippedPrefixesModel = new Model(copyOfSkippedPrefixes);
+        final WebMarkupContainer skippedPrefixes = createMultiValueContainer(skippedPrefixesModel, "skipped-prefixes");
         add(skippedPrefixes);
+
+        final ArrayList<String> copyOfDisallowedDuplicateHeaders = new ArrayList<>(urlRewriterConfigModel.getObject().getDisallowedDuplicateHeaders());
+        disallowedDuplicateHeadersModel = new Model(copyOfDisallowedDuplicateHeaders);
+        final WebMarkupContainer disallowedDuplicateHeaders = createMultiValueContainer(disallowedDuplicateHeadersModel, "disallowed-duplicate-headers");
+        add(disallowedDuplicateHeaders);
 
         final Label notInstalledMessage = new Label("not-installed", new ClassResourceModel("not-installed", UrlRewriterConfigPanel.class));
         notInstalledMessage.setVisible(false);
@@ -84,28 +90,29 @@ public class UrlRewriterConfigPanel extends FeatureConfigPanel {
             ignoreContextPathRadioGroup.setEnabled(false);
             useQueryStringRadioGroup.setEnabled(false);
             skippedPrefixes.setEnabled(false);
+            disallowedDuplicateHeaders.setEnabled(false);
         }
     }
 
-    private WebMarkupContainer createSkippedPrefixes(Model copyOfSkippedPrefixesModel) {
+    private WebMarkupContainer createMultiValueContainer(Model model, String property) {
 
-        final WebMarkupContainer listContainer = new WebMarkupContainer("skippedPrefixesContainer");
+        final WebMarkupContainer listContainer = new WebMarkupContainer(property + "-container");
         //generate a markup-id so the contents can be updated through an AJAX call
         listContainer.setOutputMarkupId(true);
-        ListView<String> skippedPrefixes = new ListView<String>("urlrewriter-skipped-prefixes", copyOfSkippedPrefixesModel) {
+        ListView<String> propertyValuesList = new ListView<String>("urlrewriter-" + property, model) {
             private static final long serialVersionUID = 1L;
             @Override
             protected void populateItem(final ListItem<String> item) {
-                RequiredTextField prefixField = new RequiredTextField("prefix", item.getModel());
-                prefixField.setOutputMarkupId(true);
-                prefixField.add(new OnChangeAjaxBehavior() {
+                RequiredTextField propertyField = new RequiredTextField(property, item.getModel());
+                propertyField.setOutputMarkupId(true);
+                propertyField.add(new OnChangeAjaxBehavior() {
                     private static final long serialVersionUID = 1L;
 
                     @Override
                     protected void onUpdate(AjaxRequestTarget target) {
                     }
                 });
-                item.add(prefixField);
+                item.add(propertyField);
 
                 AjaxSubmitLink remove = new AjaxSubmitLink("remove") {
                     private static final long serialVersionUID = 1L;
@@ -127,21 +134,22 @@ public class UrlRewriterConfigPanel extends FeatureConfigPanel {
 
             @Override
             public void onClick(AjaxRequestTarget target) {
-                skippedPrefixes.getModelObject().add("");
+                propertyValuesList.getModelObject().add("");
                 target.add(listContainer);
                 target.focusComponent(this);
             }
         };
 
-        skippedPrefixes.setOutputMarkupId(true);
-        listContainer.add(skippedPrefixes);
+        propertyValuesList.setOutputMarkupId(true);
+        listContainer.add(propertyValuesList);
         listContainer.add(addPrefix);
         return listContainer;
     }
 
     public void save() {
         UrlRewriterConfig userManagementConfig = urlRewriterConfigModel.getObject();
-        userManagementConfig.setSkippedPrefixes(copyOfSkippedPrefixesModel.getObject());
+        userManagementConfig.setSkippedPrefixes(skippedPrefixesModel.getObject());
+        userManagementConfig.setDisallowedDuplicateHeaders(disallowedDuplicateHeadersModel.getObject());
 
         try {
             userManagementConfig.save();
