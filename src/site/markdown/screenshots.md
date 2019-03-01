@@ -1,5 +1,5 @@
 <!--
-  Copyright 2013 Hippo B.V. (http://www.onehippo.com)
+  Copyright 2013-2019 BloomReach Inc. (https://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -14,8 +14,19 @@
   limitations under the License.
   -->
 
-# Screenshots
+## Screenshots
 
-![Admin panel](images/admin_panel.png)
-![Settings panel - Other](images/settings-panel.png)
-![Security panel - Other](images/security-panel.png)
+### Entry point
+![Admin Entry Point](images/admin_panel.png)
+
+### Maintenance category
+![Maintenance Category](images/maintenance_panel.png)
+
+### Security category
+![Security Category](images/security_panel.png)
+
+### Upload category
+![Upload Category](images/upload_panel.png)
+
+### Other category
+![Other Category](images/other_panel.png)

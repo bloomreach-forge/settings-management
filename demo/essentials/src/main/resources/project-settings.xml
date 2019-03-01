@@ -2,12 +2,13 @@
 <project>
   <projectNamespace>settingsmanagementdemo</projectNamespace>
   <confirmParams>false</confirmParams>
-  <selectedProjectPackage>org.onehippo.forge.settingsmanagement.demo</selectedProjectPackage>
-  <selectedBeansPackage>org.onehippo.forge.settingsmanagement.demo.beans</selectedBeansPackage>
-  <selectedComponentsPackage>org.onehippo.forge.settingsmanagement.demo.components</selectedComponentsPackage>
-  <selectedRestPackage>org.onehippo.forge.settingsmanagement.demo.rest</selectedRestPackage>
+  <selectedProjectPackage>org.bloomreach.forge.settingsmanagement.demo</selectedProjectPackage>
+  <selectedBeansPackage>org.bloomreach.forge.settingsmanagement.demo.beans</selectedBeansPackage>
+  <selectedComponentsPackage>org.bloomreach.forge.settingsmanagement.demo.components</selectedComponentsPackage>
+  <selectedRestPackage>org.bloomreach.forge.settingsmanagement.demo.rest</selectedRestPackage>
+  <hstRoot>/hst:settingsmanagementdemo</hstRoot>
+  <webfileBundleName>site</webfileBundleName>
   <setupDone>false</setupDone>
-  <templateLanguage>freemarker</templateLanguage>
   <useSamples>true</useSamples>
   <extraTemplates>true</extraTemplates>
 </project>

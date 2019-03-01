@@ -2,5 +2,5 @@ definitions:
   config:
     /hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/maintenance/formdata:
       jcr:primaryType: frontend:pluginconfig
-      featureConfigClass: org.onehippo.forge.settings.management.config.formdata.FormdataConfigPanel
+      featureConfigClass: org.bloomreach.forge.settings.management.config.formdata.FormdataConfigPanel
       sequence: 0.0

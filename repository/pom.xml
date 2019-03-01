@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright 2011-2018 Hippo B.V. (http://www.onehippo.com)
+  Copyright 2011-2019 BloomReach Inc. (http://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -18,13 +18,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <artifactId>hippo-addon-settings-management</artifactId>
-    <groupId>org.onehippo.forge.settingsmanagement</groupId>
-    <version>1.0.0</version>
+    <artifactId>bloomreach-settingsmanagement</artifactId>
+    <groupId>org.bloomreach.forge.settingsmanagement</groupId>
+    <version>2.0.0</version>
   </parent>
 
-  <artifactId>hippo-addon-settings-management-repository</artifactId>
-  <name>Hippo Addon Settings Management Repository</name>
+  <artifactId>bloomreach-settingsmanagement-repository</artifactId>
+  <name>BloomReach Settings Management Plugin Repository</name>
   <packaging>jar</packaging>
 
   <build>

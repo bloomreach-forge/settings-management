@@ -1,5 +1,5 @@
 group: 
   name: settingsmanagementdemo
-  after: hippo-cms
 project: settingsmanagementdemo
-module: settingsmanagementdemo-repository-data-webfiles
+module:
+  name: settingsmanagementdemo-repository-data-webfiles

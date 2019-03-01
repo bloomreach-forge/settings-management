@@ -1,5 +1,5 @@
 <!--
-  Copyright 2015 Hippo B.V. (http://www.onehippo.com)
+  Copyright 2015-2019 BloomReach Inc. (https://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -14,14 +14,13 @@
   limitations under the License.
   -->
 
-# Features
+## Features
 
 The Settings management plugin covers the following features:
 
 + Maintenance
     + Form data
     + Event log
-    + Brokenlinks checker
 + Uploads
     + Configure image upload settings
         + Simultaneous threads

@@ -2,5 +2,5 @@ definitions:
   config:
     /hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/upload/assetupload-validation:
       jcr:primaryType: frontend:pluginconfig
-      featureConfigClass: org.onehippo.forge.settings.management.config.upload.AssetValidationServiceConfigPanel
+      featureConfigClass: org.bloomreach.forge.settings.management.config.upload.AssetValidationServiceConfigPanel
       sequence: 0.0

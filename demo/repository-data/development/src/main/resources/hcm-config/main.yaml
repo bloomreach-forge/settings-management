@@ -4,7 +4,8 @@ definitions:
       autoexport:modules:
         operation: add
         type: string
-        value: [repository-data/development]
+        value: [repository-data/development, 'repository-data/site:settingsmanagementdemo:/hst:settingsmanagementdemo']
+      autoexport:enabled: false
     /hippo:configuration/hippo:groups/author:
       hipposys:members:
         operation: add

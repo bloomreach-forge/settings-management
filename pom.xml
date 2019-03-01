@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright 2011-2018 Hippo B.V. (http://www.onehippo.com)
+  Copyright 2018-2019 BloomReach Inc. (http://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -20,35 +20,34 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-project</artifactId>
-    <version>28.7</version>
+    <version>30.0</version>
   </parent>
 
   <packaging>pom</packaging>
   <inceptionYear>2013</inceptionYear>
 
-  <name>Hippo Addon Settings Management</name>
+  <name>BloomReach Settings Management Plugin</name>
   <description>
     This plugin allows administrators to configure system settings, which are normally stored somewhere in the Hippo Repository.
   </description>
 
-  <groupId>org.onehippo.forge.settingsmanagement</groupId>
-  <artifactId>hippo-addon-settings-management</artifactId>
-  <version>1.0.0</version>
+  <groupId>org.bloomreach.forge.settingsmanagement</groupId>
+  <artifactId>bloomreach-settingsmanagement</artifactId>
+  <version>2.0.0</version>
 
   <properties>
-    <!-- Hippo CMS 12.0.3 versioning -->
-    <hippo.cms.version>5.0.4</hippo.cms.version>
-    <hippo.repository.version>5.0.4</hippo.repository.version>
+    <!-- BloomReach CMS 13.0.0 versioning -->
+    <hippo.cms.version>13.0.0</hippo.cms.version>
+    <hippo.repository.version>13.0.0</hippo.repository.version>
     <!-- from CMS root pom -->
-    <wicket.version>6.26.0</wicket.version>
+    <wicket.version>7.10.0</wicket.version>
 
     <!-- test related -->
     <junit.version>4.12</junit.version>
-    <easymock.version>3.5.1</easymock.version>
+    <easymock.version>4.0.2</easymock.version>
 
     <!--documentation site -->
-    <maven.plugin.site.version>3.6</maven.plugin.site.version>
-    <maven.doxia.markdown.version>1.7</maven.doxia.markdown.version>
+    <maven.plugin.site.version>3.7.1</maven.plugin.site.version>
   </properties>
 
   <modules>
@@ -99,9 +98,8 @@
 
   <mailingLists>
     <mailingList>
-      <name>Google Groups - Hippo CMS Community</name>
-      <archive>http://groups.google.com/group/hippo-community</archive>
-      <subscribe>http://groups.google.com/group/hippo-community/subscribe</subscribe>
+      <name>BloomReach Community</name>
+      <archive>https://community.bloomreach.com/</archive>
     </mailingList>
   </mailingLists>
 
@@ -125,13 +123,6 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
         <version>${maven.plugin.site.version}</version>
-        <dependencies>
-          <dependency>
-            <groupId>org.apache.maven.doxia</groupId>
-            <artifactId>doxia-module-markdown</artifactId>
-            <version>${maven.doxia.markdown.version}</version>
-          </dependency>
-        </dependencies>
       </plugin>
     </plugins>
   </build>

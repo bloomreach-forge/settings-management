@@ -2,7 +2,7 @@ definitions:
   config:
     /hippo:configuration/hippo:frontend/cms/cms-admin/settings:
       jcr:primaryType: frontend:plugin
-      plugin.class: org.onehippo.forge.settings.management.SettingsPlugin
+      plugin.class: org.bloomreach.forge.settings.management.SettingsPlugin
       /tabconfig:
         jcr:primaryType: frontend:pluginconfig
         /maintenance:

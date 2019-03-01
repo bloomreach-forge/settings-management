@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2013-2019 BloomReach Inc. (http://www.bloomreach.com)
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~  http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
+  <wicket:extend>
+      <div class="settings-formfield-group">
+          <label class="settings-formfield-label" for="assetvalidation-extensions"><wicket:message key="valid.extensions"/> <a href="#" class="tooltip">?<span class="callout"><wicket:message key="valid.extensions.tooltip"/></span></a></label>
+          <table id="assetvalidation-extensions" wicket:id="allowedExtensionsView">
+              <tr wicket:id="assetvalidation-allowedExtensions" class="file-extensions">
+                  <td style="width: 60%"><input type="text" wicket:id="asset-extension"></td>
+                  <td><a class="delete-16 icon-16" wicket:id="remove"></a></td>
+              </tr>
+              <tr>
+                  <td></td>
+                  <td><a class="add-16 icon-16" wicket:id="add-extension"></a></td>
+              </tr>
+          </table>
+      </div>
+      <div class="settings-formfield-group">
+          <label class="settings-formfield-label" for="assetvalidation-max-file-size"><wicket:message key="max-file-size">Maximale bestandsgrote</wicket:message></label>
+          <input wicket:id="assetvalidation-max-file-size"/>
+      </div>
+  </wicket:extend>
+</html>
