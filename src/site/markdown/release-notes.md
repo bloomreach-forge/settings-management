@@ -23,6 +23,8 @@ Release date: 4 March 2019
   Upgrade to BloomReach CMS 13, including demo project. 
   This also entails renaming of Maven coordinates and Java packaging from 'onehippo' to 'bloomreach'. 
   When upgrading, please revisit the [installation page](install.html).
++ [HIPFORGE-271](https://issues.onehippo.com/browse/HIPFORGE-271)<br/>
+  In URL Rewriter tab, add a field for the disallowed duplicate headers.
 + [HIPFORGE-279](https://issues.onehippo.com/browse/HIPFORGE-279)<br/>
   Remove the BrokenLinksChecker panel since the checker is no longer present in 13.
 + [HIPFORGE-280](https://issues.onehippo.com/browse/HIPFORGE-280)<br/>
