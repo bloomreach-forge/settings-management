@@ -17,7 +17,7 @@
 ## Release notes
 
 ### Version 2.0.0 
-Release date: 4 March 2019
+Release date: 2 March 2019
 
 + [HIPFORGE-278](https://issues.onehippo.com/browse/HIPFORGE-278)<br/> 
   Upgrade to BloomReach CMS 13, including demo project. 
