@@ -41,8 +41,9 @@ import org.bloomreach.forge.settings.management.FeatureConfigPanel;
 
 public class UrlRewriterConfigPanel extends FeatureConfigPanel {
 
-    private final Model<ArrayList<String>> copyOfSkippedPrefixesModel;
-    private final Model<ArrayList<String>> copyOfDisallowedDuplicateHeadersModel;
+    private final Model<ArrayList<String>> skippedPrefixesModel;
+    private final Model<ArrayList<String>> disallowedDuplicateHeadersModel;
+
     private UrlRewriterConfigModel urlRewriterConfigModel;
 
     public UrlRewriterConfigPanel(IPluginContext context, IPluginConfig config) {
@@ -69,14 +70,14 @@ public class UrlRewriterConfigPanel extends FeatureConfigPanel {
         useQueryStringRadioGroup.add(new Radio("use-query-string-enabled", new Model(Boolean.TRUE)));
         add(useQueryStringRadioGroup);
 
-        ArrayList<String> tempValueListCopyToModel = new ArrayList<>(urlRewriterConfigModel.getObject().getSkippedPrefixes());
-        copyOfSkippedPrefixesModel = new Model(tempValueListCopyToModel);
-        final WebMarkupContainer skippedPrefixes = createMultiValueContainer(copyOfSkippedPrefixesModel, "skipped-prefixes");
+        final ArrayList<String> copyOfSkippedPrefixes = new ArrayList<>(urlRewriterConfigModel.getObject().getSkippedPrefixes());
+        skippedPrefixesModel = new Model(copyOfSkippedPrefixes);
+        final WebMarkupContainer skippedPrefixes = createMultiValueContainer(skippedPrefixesModel, "skipped-prefixes");
         add(skippedPrefixes);
 
-        tempValueListCopyToModel = new ArrayList<>(urlRewriterConfigModel.getObject().getDisallowedDuplicateHeaders());
-        copyOfDisallowedDuplicateHeadersModel = new Model(tempValueListCopyToModel);
-        final WebMarkupContainer disallowedDuplicateHeaders = createMultiValueContainer(copyOfDisallowedDuplicateHeadersModel, "disallowed-duplicate-headers");
+        final ArrayList<String> copyOfDisallowedDuplicateHeaders = new ArrayList<>(urlRewriterConfigModel.getObject().getDisallowedDuplicateHeaders());
+        disallowedDuplicateHeadersModel = new Model(copyOfDisallowedDuplicateHeaders);
+        final WebMarkupContainer disallowedDuplicateHeaders = createMultiValueContainer(disallowedDuplicateHeadersModel, "disallowed-duplicate-headers");
         add(disallowedDuplicateHeaders);
 
         final Label notInstalledMessage = new Label("not-installed", new ClassResourceModel("not-installed", UrlRewriterConfigPanel.class));
@@ -93,12 +94,12 @@ public class UrlRewriterConfigPanel extends FeatureConfigPanel {
         }
     }
 
-    private WebMarkupContainer createMultiValueContainer(Model copyOfPropertyModel, String property) {
+    private WebMarkupContainer createMultiValueContainer(Model model, String property) {
 
         final WebMarkupContainer listContainer = new WebMarkupContainer(property + "-container");
         //generate a markup-id so the contents can be updated through an AJAX call
         listContainer.setOutputMarkupId(true);
-        ListView<String> propertyValuesList = new ListView<String>("urlrewriter-" + property, copyOfPropertyModel) {
+        ListView<String> propertyValuesList = new ListView<String>("urlrewriter-" + property, model) {
             private static final long serialVersionUID = 1L;
             @Override
             protected void populateItem(final ListItem<String> item) {
@@ -147,8 +148,8 @@ public class UrlRewriterConfigPanel extends FeatureConfigPanel {
 
     public void save() {
         UrlRewriterConfig userManagementConfig = urlRewriterConfigModel.getObject();
-        userManagementConfig.setSkippedPrefixes(copyOfSkippedPrefixesModel.getObject());
-        userManagementConfig.setDisallowedDuplicateHeaders(copyOfDisallowedDuplicateHeadersModel.getObject());
+        userManagementConfig.setSkippedPrefixes(skippedPrefixesModel.getObject());
+        userManagementConfig.setDisallowedDuplicateHeaders(disallowedDuplicateHeadersModel.getObject());
 
         try {
             userManagementConfig.save();
