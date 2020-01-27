@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 BloomReach Inc. (http://www.bloomreach.com)
+ * Copyright 2013-2020 BloomReach Inc. (http://www.bloomreach.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,14 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.bloomreach.forge.settings.management;
-
 
 import org.apache.wicket.extensions.breadcrumb.IBreadCrumbModel;
 import org.apache.wicket.model.IModel;
-import org.apache.wicket.request.resource.PackageResourceReference;
-import org.apache.wicket.request.resource.ResourceReference;
+
 import org.hippoecm.frontend.plugin.IPluginContext;
 import org.hippoecm.frontend.plugin.config.IPluginConfig;
 import org.hippoecm.frontend.plugins.cms.admin.AdminPanelPlugin;
@@ -37,11 +34,6 @@ public class SettingsPlugin extends AdminPanelPlugin {
     private static final long serialVersionUID = 1L;
     public SettingsPlugin(final IPluginContext context, final IPluginConfig config) {
         super(context, config);
-    }
-
-    @Override
-    public ResourceReference getImage() {
-        return new PackageResourceReference(getClass(), "settings-info-48.png");
     }
 
     @Override
