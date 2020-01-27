@@ -8,37 +8,17 @@ definitions:
         jcr:primaryType: frontend:pluginconfig
         /maintenance:
           jcr:primaryType: frontend:pluginconfig
-          jcr:mixinTypes: ['hippo:translated']
-          sequence: 0.0
-          title: Maintenance
-          /hippo:translation:
-            jcr:primaryType: hippo:translation
-            hippo:language: nl
-            hippo:message: Onderhoud
+          sequence: 1.0
+          titleKey: maintenance
         /security:
           jcr:primaryType: frontend:pluginconfig
-          jcr:mixinTypes: ['hippo:translated']
           sequence: 2.0
-          title: Security
-          /hippo:translation:
-            jcr:primaryType: hippo:translation
-            hippo:language: nl
-            hippo:message: Beveiliging
+          titleKey: security
         /upload:
           jcr:primaryType: frontend:pluginconfig
-          jcr:mixinTypes: ['hippo:translated']
           sequence: 3.0
-          title: Upload
-          /hippo:translation:
-            jcr:primaryType: hippo:translation
-            hippo:language: nl
-            hippo:message: Uploaden
+          titleKey: upload
         /urlrewriter:
           jcr:primaryType: frontend:pluginconfig
-          jcr:mixinTypes: ['hippo:translated']
           sequence: 4.0
-          title: Url Rewriter
-          /hippo:translation:
-            jcr:primaryType: hippo:translation
-            hippo:language: nl
-            hippo:message: Url Rewriter
+          titleKey: urlrewriter

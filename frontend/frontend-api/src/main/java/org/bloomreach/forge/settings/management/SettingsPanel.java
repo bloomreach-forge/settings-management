@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.bloomreach.forge.settings.management;
 
 import java.util.ArrayList;
@@ -37,6 +36,8 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.resource.CssResourceReference;
+
+import org.hippoecm.frontend.l10n.ResourceBundleModel;
 import org.hippoecm.frontend.plugin.IPluginContext;
 import org.hippoecm.frontend.plugin.config.IPluginConfig;
 import org.hippoecm.frontend.plugins.cms.admin.AdminBreadCrumbPanel;
@@ -47,7 +48,6 @@ import org.slf4j.LoggerFactory;
 /**
  * Panel for displaying the available settings.
  * The available settings are categorized in tabs.
- * @author Jeroen Reijn, Tobi Jeger
  */
 public class SettingsPanel extends AdminBreadCrumbPanel {
 
@@ -55,7 +55,10 @@ public class SettingsPanel extends AdminBreadCrumbPanel {
     private final static Logger logger = LoggerFactory.getLogger(SettingsPanel.class);
 
     private static Comparator<IPluginConfig> comparator;
+
     private static final String FEATURE_CONFIG_PROPERTY = "featureConfigClass";
+    private static final String TAB_TITLE_KEY = "titleKey";
+
     static {
         comparator = new Comparator<IPluginConfig>() {
             @Override
@@ -75,15 +78,15 @@ public class SettingsPanel extends AdminBreadCrumbPanel {
         super(componentId,breadCrumbModel);
 
         // Load the tabs configuration from the repository
-        List<Tab> tabConfigs = new ArrayList<Tab>();
+        List<Tab> tabConfigs = new ArrayList<>();
         try {
             final Set<IPluginConfig> pluginConfigSet = config.getPluginConfigSet();
             final Iterator<IPluginConfig> pluginConfigIterator = pluginConfigSet.iterator();
-            if(pluginConfigIterator.hasNext()) {
+            if (pluginConfigIterator.hasNext()) {
                 tabConfigs = loadTabs(pluginConfigIterator.next().getPluginConfigSet());
             }
         } catch (RepositoryException ex) {
-            logger.warn("An exception occurred while trying to load the tabs: {}",ex);
+            logger.warn("An exception occurred while trying to load the tabs", ex);
             return;
         }
 
@@ -188,7 +191,13 @@ public class SettingsPanel extends AdminBreadCrumbPanel {
      */
     protected Tab loadTab(final IPluginConfig pluginConfig) throws RepositoryException {
         Tab tab = null;
-        String tabTitle = pluginConfig.getString("title","");
+
+        String tabTitle = pluginConfig.getString(TAB_TITLE_KEY,"");
+        // i18n for tab labels below /hippo:configuration/hippo:translations/hippo:cms/settingsmanagement/
+        final String localizedTabTitle = ResourceBundleModel.of("hippo:cms.settingsmanagement", tabTitle).getObject();
+        if (localizedTabTitle != null) {
+            tabTitle = localizedTabTitle;
+        }
 
         final List<IPluginConfig> featureConfigs = new ArrayList<IPluginConfig>();
         final Iterator fit = pluginConfig.getPluginConfigSet().iterator();
@@ -197,16 +206,6 @@ public class SettingsPanel extends AdminBreadCrumbPanel {
             IPluginConfig config = (IPluginConfig) fit.next();
             if (config.containsKey(FEATURE_CONFIG_PROPERTY)) {
                 featureConfigs.add(config);
-            }
-            //i18n for tab labels
-            if (config.getName().contains("hippo:translation")) {
-                String language = "";
-                if (config.containsKey("hippo:language")) {
-                    language = config.getString("hippo:language");
-                }
-                if (language.equals(getLocale().getLanguage())) {
-                    tabTitle = config.getString("hippo:message");
-                }
             }
         }
 
