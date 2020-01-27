@@ -25,7 +25,6 @@ import org.slf4j.LoggerFactory;
 
 /**
  * ChangePasswordConfig
- * ChangePasswordConfig
  */
 public class ChangePasswordConfig implements CMSFeatureConfig {
 
