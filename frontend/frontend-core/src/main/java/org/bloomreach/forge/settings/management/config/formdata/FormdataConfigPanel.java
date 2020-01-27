@@ -35,9 +35,9 @@ import org.bloomreach.forge.settings.management.FeatureConfigPanel;
 import org.bloomreach.forge.settings.management.config.CMSFeatureConfig;
 
 /**
+ * FormdataConfigPanel
  */
 public class FormdataConfigPanel extends FeatureConfigPanel {
-    private static final long serialVersionUID = 1L;
     private FormdataConfigModel formdataConfigModel = new FormdataConfigModel();
     private boolean isVisble;
 
@@ -60,7 +60,6 @@ public class FormdataConfigPanel extends FeatureConfigPanel {
         // Don't do this in a listview
         final ListView<String> excludedPathsView;
         excludedPathsView = new ListView<String>("formdata-excludedPaths", new PropertyModel(formdataConfig, "excludepaths")) {
-            private static final long serialVersionUID = 1L;
             @Override
             protected void populateItem(final ListItem<String> item) {
                 RequiredTextField extensionField = new RequiredTextField("formdata-path", item.getModel());
@@ -68,8 +67,6 @@ public class FormdataConfigPanel extends FeatureConfigPanel {
                 item.add(extensionField);
 
                 AjaxSubmitLink remove = new AjaxSubmitLink("remove") {
-                    private static final long serialVersionUID = 1L;
-
                     @Override
                     protected void onSubmit(AjaxRequestTarget target, Form form) {
                         getModelObject().remove(item.getModelObject());
@@ -82,8 +79,6 @@ public class FormdataConfigPanel extends FeatureConfigPanel {
         };
 
         AjaxLink addExtension = new AjaxLink("add-path") {
-            private static final long serialVersionUID = 1L;
-
             @Override
             public void onClick(AjaxRequestTarget target) {
                 excludedPathsView.getModelObject().add("");

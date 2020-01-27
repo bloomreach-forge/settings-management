@@ -30,7 +30,6 @@ import org.bloomreach.forge.settings.management.config.CMSFeatureConfig;
  * Panel for configuring the image validation service.
  */
 public class ImageUploadConfigPanel extends FeatureConfigPanel {
-    private static final long serialVersionUID = 1L;
 
     private ImageUploadSettingConfigModel imageUploadSettingConfigModel = new ImageUploadSettingConfigModel();
 

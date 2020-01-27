@@ -19,10 +19,9 @@ package org.bloomreach.forge.settings.management.config.loginpage;
 import org.bloomreach.forge.settings.management.config.LoadableDetachableConfigModel;
 
 /**
- * @author Jeroen Reijn
+ * LoginConfigModel
  */
 public class LoginConfigModel extends LoadableDetachableConfigModel<LoginConfig> {
-    private static final long serialVersionUID = 1L;
     public static final String LOGIN_PAGE_CONFIG_PATH = "/hippo:configuration/hippo:frontend/login/login/loginPage";
 
     @Override

@@ -22,10 +22,8 @@ import org.bloomreach.forge.settings.management.config.LoadableDetachableConfigM
  * Loadable detachable model of the image upload config.
  * Configuration can be found in the repository at path:
  * hippo:configuration/hippo:frontend/cms/cms-services/imageValidationService
- * @author Jeroen Reijn
  */
 public class ImageValidationServiceConfigModel extends LoadableDetachableConfigModel<ImageValidationServiceConfig> {
-    private static final long serialVersionUID = 1L;
     public static final String IMAGE_VALIDATION_CONFIG_PATH = "/hippo:configuration/hippo:frontend/cms/cms-services/imageValidationService";
 
     @Override

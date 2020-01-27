@@ -19,12 +19,10 @@ package org.bloomreach.forge.settings.management.config.formdata;
 import org.bloomreach.forge.settings.management.config.LoadableDetachableConfigModel;
 
 /**
- * 
- * @author Jeroen Reijn
+ * FormdataConfigModel
  */
 public class FormdataConfigModel extends LoadableDetachableConfigModel<FormdataConfig> {
 
-    private static final long serialVersionUID = 1L;
     public static final String FORMDATA_CLEANUP_MODULE_PATH = "/hippo:configuration/hippo:modules/scheduler/hippo:moduleconfig/system/FormDataCleanup";
 
     @Override

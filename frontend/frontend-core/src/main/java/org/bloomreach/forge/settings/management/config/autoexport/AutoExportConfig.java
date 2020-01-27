@@ -27,7 +27,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author Jeroen Reijn
+ * AutoExportConfig
  */
 public class AutoExportConfig {
 

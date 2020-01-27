@@ -25,8 +25,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Config mapping for path:
- * @author Jeroen Reijn
+ * Config mapping for path
  */
 public class HippoSecurityConfig implements CMSFeatureConfig {
 

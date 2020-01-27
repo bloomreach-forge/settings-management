@@ -26,11 +26,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author Jeroen Reijn
+ * LoadableDetachableConfigModel
  */
 public abstract class LoadableDetachableConfigModel<T> extends LoadableDetachableModel<T> {
 
-    private static final long serialVersionUID = 1L;
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     public CMSFeatureConfig getConfig() {

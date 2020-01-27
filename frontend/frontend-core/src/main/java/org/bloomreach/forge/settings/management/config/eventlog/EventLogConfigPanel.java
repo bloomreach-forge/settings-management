@@ -28,7 +28,6 @@ import org.bloomreach.forge.settings.management.config.CMSFeatureConfig;
 
 
 public class EventLogConfigPanel extends FeatureConfigPanel {
-    private static final long serialVersionUID = 1L;
     private EventLogConfigModel detachableEventLogConfig = new EventLogConfigModel();
 
     public EventLogConfigPanel(IPluginContext context, IPluginConfig config) {

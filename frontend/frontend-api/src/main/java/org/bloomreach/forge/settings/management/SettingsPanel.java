@@ -51,7 +51,6 @@ import org.slf4j.LoggerFactory;
  */
 public class SettingsPanel extends AdminBreadCrumbPanel {
 
-    private static final long serialVersionUID = 1L;
     private final static Logger logger = LoggerFactory.getLogger(SettingsPanel.class);
 
     private static Comparator<IPluginConfig> comparator;
@@ -111,7 +110,6 @@ public class SettingsPanel extends AdminBreadCrumbPanel {
 
                 tabs.add(new AbstractTab(new Model<>(tabConfig.getTitle()))
                 {
-                    private static final long serialVersionUID = 1L;
                     private TabPanel panel;
                     @Override
                     public Panel getPanel(String panelId)

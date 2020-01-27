@@ -19,10 +19,9 @@ package org.bloomreach.forge.settings.management.config.passwordpolicies;
 import org.bloomreach.forge.settings.management.config.LoadableDetachableConfigModel;
 
 /**
- * @author Jeroen Reijn
+ * PasswordValidationConfigModel
  */
 public class PasswordValidationConfigModel extends LoadableDetachableConfigModel<PasswordValidationConfig> {
-    private static final long serialVersionUID = 1L;
     public static final String PASSWORD_SERVICE_PATH = "/hippo:configuration/hippo:frontend/cms/cms-services/passwordValidationService";
 
     @Override

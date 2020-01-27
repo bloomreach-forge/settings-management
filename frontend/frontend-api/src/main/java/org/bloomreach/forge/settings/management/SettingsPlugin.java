@@ -26,12 +26,9 @@ import org.hippoecm.frontend.plugins.standards.panelperspective.breadcrumb.Panel
 
 /**
  * Plugin that exposes a settings overview.
- *
- * @author Jeroen Reijn
  */
 public class SettingsPlugin extends AdminPanelPlugin {
 
-    private static final long serialVersionUID = 1L;
     public SettingsPlugin(final IPluginContext context, final IPluginConfig config) {
         super(context, config);
     }

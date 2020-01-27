@@ -19,10 +19,9 @@ package org.bloomreach.forge.settings.management.config.autoexport;
 import org.bloomreach.forge.settings.management.config.LoadableDetachableConfigModel;
 
 /**
- * @author Jeroen Reijn
+ * AutoExportConfigModel
  */
 public class AutoExportConfigModel extends LoadableDetachableConfigModel<AutoExportConfig> {
-    private static final long serialVersionUID = 1L;
     public static final String AUTOEXPORT_MODULE_PATH = "/hippo:configuration/hippo:modules/autoexport/hippo:moduleconfig";
 
     @Override

@@ -41,7 +41,6 @@ import org.slf4j.LoggerFactory;
 
 public class TabPanel extends Panel {
 
-    private static final long serialVersionUID = 1L;
     private final static Logger log = LoggerFactory.getLogger(TabPanel.class);
     private IPluginContext context;
     private IPluginConfig config;
@@ -62,7 +61,6 @@ public class TabPanel extends Panel {
 
         // create feedback panel to show errors
         final FeedbackPanel feedback = new FeedbackPanel("feedback", new IFeedbackMessageFilter() {
-            private static final long serialVersionUID = 1L;
             @Override
             public boolean accept(final FeedbackMessage message) {
                 return !message.isRendered();
@@ -73,7 +71,6 @@ public class TabPanel extends Panel {
         final Form form = new Form("form");
 
         form.add(new AjaxButton("save-button", form) {
-            private static final long serialVersionUID = 1L;
             @Override
             protected void onSubmit(final AjaxRequestTarget target, final Form<?> form) {
                 for (FeatureConfigPanel feature : features) {
@@ -92,8 +89,6 @@ public class TabPanel extends Panel {
         });
 
         form.add(new AjaxButton("cancel-button") {
-            private static final long serialVersionUID = 1L;
-
             @Override
             protected void onSubmit(AjaxRequestTarget target, Form form) {
                 for (FeatureConfigPanel feature : features) {
@@ -114,7 +109,6 @@ public class TabPanel extends Panel {
 
         // add a ListView containing all features to the form
         final ListView<FeatureConfigPanel> listView = new ListView<FeatureConfigPanel>("feature-list", features) { // or use a provider
-            private static final long serialVersionUID = 1L;
             @Override
             protected void populateItem(final ListItem<FeatureConfigPanel> item) {
                 FeatureConfigPanel feature = item.getModelObject();

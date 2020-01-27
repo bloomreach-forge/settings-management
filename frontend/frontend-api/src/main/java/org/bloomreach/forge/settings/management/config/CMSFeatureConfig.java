@@ -19,7 +19,7 @@ package org.bloomreach.forge.settings.management.config;
 import javax.jcr.RepositoryException;
 
 /**
- * @author Jeroen Reijn
+ * CMSFeatureConfig
  */
 public interface CMSFeatureConfig {
 

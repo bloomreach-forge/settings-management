@@ -22,10 +22,8 @@ import org.bloomreach.forge.settings.management.config.LoadableDetachableConfigM
  * Loadable detachable model of the image upload config.
  * Configuration can be found in the repository at path:
  * /hippo:configuration/hippo:workflows/gallery/image-gallery/frontend:renderer
- * @author Jeroen Reijn
  */
 public class ImageUploadSettingConfigModel extends LoadableDetachableConfigModel<UploadSettingsConfig> {
-    private static final long serialVersionUID = 1L;
     public static final String IMAGE_UPLOAD_CONFIG_PATH = "/hippo:configuration/hippo:workflows/gallery/image-gallery/frontend:renderer";
 
     @Override

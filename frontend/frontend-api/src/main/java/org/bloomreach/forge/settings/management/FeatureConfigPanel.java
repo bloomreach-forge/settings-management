@@ -35,7 +35,6 @@ import org.hippoecm.frontend.plugin.config.IPluginConfig;
  * a specialization of the LoadableDetachableConfigModel.
  */
 public abstract class FeatureConfigPanel extends Panel {
-    private static final long serialVersionUID = 1L;
     private IPluginContext context;
     private IPluginConfig config;
 

@@ -33,5 +33,3 @@ The Settings management plugin covers the following features:
 + Security
     + Login page security
     + Password policies
-+ Other
-    + Social sharing configuration

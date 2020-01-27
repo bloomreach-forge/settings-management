@@ -100,13 +100,11 @@ public class UrlRewriterConfigPanel extends FeatureConfigPanel {
         //generate a markup-id so the contents can be updated through an AJAX call
         listContainer.setOutputMarkupId(true);
         ListView<String> propertyValuesList = new ListView<String>("urlrewriter-" + property, model) {
-            private static final long serialVersionUID = 1L;
             @Override
             protected void populateItem(final ListItem<String> item) {
                 RequiredTextField propertyField = new RequiredTextField(property, item.getModel());
                 propertyField.setOutputMarkupId(true);
                 propertyField.add(new OnChangeAjaxBehavior() {
-                    private static final long serialVersionUID = 1L;
 
                     @Override
                     protected void onUpdate(AjaxRequestTarget target) {
@@ -115,7 +113,6 @@ public class UrlRewriterConfigPanel extends FeatureConfigPanel {
                 item.add(propertyField);
 
                 AjaxSubmitLink remove = new AjaxSubmitLink("remove") {
-                    private static final long serialVersionUID = 1L;
 
                     @Override
                     protected void onSubmit(AjaxRequestTarget target, Form form) {
@@ -130,7 +127,6 @@ public class UrlRewriterConfigPanel extends FeatureConfigPanel {
         };
 
         AjaxLink addPrefix = new AjaxLink("add") {
-            private static final long serialVersionUID = 1L;
 
             @Override
             public void onClick(AjaxRequestTarget target) {

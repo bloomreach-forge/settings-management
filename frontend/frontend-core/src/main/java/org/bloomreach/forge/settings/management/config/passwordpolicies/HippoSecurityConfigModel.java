@@ -20,10 +20,9 @@ import org.hippoecm.repository.api.HippoNodeType;
 import org.bloomreach.forge.settings.management.config.LoadableDetachableConfigModel;
 
 /**
- * @author Jeroen Reijn
+ * HippoSecurityConfigModel
  */
 public class HippoSecurityConfigModel extends LoadableDetachableConfigModel<HippoSecurityConfig> {
-    private static final long serialVersionUID = 1L;
     private static final String SECURITY_PATH = '/' + HippoNodeType.CONFIGURATION_PATH + '/' + HippoNodeType.SECURITY_PATH;
 
     @Override
