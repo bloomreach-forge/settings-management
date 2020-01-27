@@ -1,5 +1,5 @@
 <!--
-  Copyright 2013-2019 BloomReach Inc. (https://www.bloomreach.com)
+  Copyright 2013-2020 Bloomreach Inc. (https://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@
 Release date: 2 March 2019
 
 + [HIPFORGE-278](https://issues.onehippo.com/browse/HIPFORGE-278)<br/> 
-  Upgrade to BloomReach CMS 13, including demo project. 
+  Upgrade to Bloomreach CMS 13, including demo project. 
   This also entails renaming of Maven coordinates and Java packaging from 'onehippo' to 'bloomreach'. 
   When upgrading, please revisit the [installation page](install.html).
 + [HIPFORGE-271](https://issues.onehippo.com/browse/HIPFORGE-271)<br/>
@@ -34,7 +34,7 @@ Release date: 2 March 2019
 ### Version 1.0.0 
 Release date: 26 Feb 2018
 
-  Upgrade to BloomReach CMS 12, including demo project. 
+  Upgrade to Bloomreach CMS 12, including demo project. 
 + Textual improvements, in Dutch mainly.
 
 ### Version 0.6.0 

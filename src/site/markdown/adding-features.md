@@ -1,5 +1,5 @@
 <!--
-  Copyright 2013-2019 BloomReach Inc. (https://www.bloomreach.com)
+  Copyright 2013-2020 Bloomreach Inc. (https://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 ## Adding configuration options for custom features
 
-Adding or extending the configuration panels with your own BloomReach CMS plugin configuration is quite easy.
+Adding or extending the configuration panels with your own Bloomreach CMS plugin configuration is quite easy.
 It basically consists of three steps:
 
 * Create a new Maven project (or add an existing module to your project/plugin)

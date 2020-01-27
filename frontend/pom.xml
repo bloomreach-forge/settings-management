@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright 2011-2020 BloomReach Inc. (http://www.bloomreach.com)
+  Copyright 2011-2020 Bloomreach Inc. (http://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@
   </parent>
 
   <artifactId>bloomreach-settingsmanagement-frontend</artifactId>
-  <name>BloomReach Settings Management Plugin Frontend</name>
+  <name>Bloomreach Settings Management Plugin Frontend</name>
   <modules>
     <module>frontend-api</module>
     <module>frontend-core</module>

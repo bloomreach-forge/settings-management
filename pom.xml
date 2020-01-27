@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright 2018-2020 BloomReach Inc. (http://www.bloomreach.com)
+  Copyright 2018-2020 Bloomreach Inc. (http://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@
   <packaging>pom</packaging>
   <inceptionYear>2013</inceptionYear>
 
-  <name>BloomReach Settings Management Plugin</name>
+  <name>Bloomreach Settings Management Plugin</name>
   <description>
     This plugin allows administrators to configure system settings, which are normally stored somewhere in the Hippo Repository.
   </description>
@@ -35,7 +35,7 @@
   <version>3.0.0-SNAPSHOT</version>
 
   <properties>
-    <!-- BloomReach CMS 14.0.0-2 versioning -->
+    <!-- Bloomreach CMS 14.0.0-2 versioning -->
     <hippo.cms.version>14.0.0-2</hippo.cms.version>
     <hippo.repository.version>14.0.0-2</hippo.repository.version>
     <!-- from CMS root pom -->
@@ -75,14 +75,14 @@
     <developer>
       <id>jhoffman</id>
       <name>Jeroen Hoffman</name>
-      <organization>BloomReach</organization>
+      <organization>Bloomreach</organization>
       <organizationUrl>http://www.bloomreach.com</organizationUrl>
       <timezone>1</timezone>
     </developer>
     <developer>
       <id>tjeger</id>
       <name>Tobias Jeger</name>
-      <organization>BloomReach</organization>
+      <organization>Bloomreach</organization>
       <organizationUrl>http://www.bloomreach.com</organizationUrl>
       <timezone>1</timezone>
     </developer>
@@ -97,7 +97,7 @@
 
   <mailingLists>
     <mailingList>
-      <name>BloomReach Community</name>
+      <name>Bloomreach Community</name>
       <archive>https://community.bloomreach.com/</archive>
     </mailingList>
   </mailingLists>

@@ -1,5 +1,5 @@
 <!--
-  Copyright 2014-2019 BloomReach Inc. (https://www.bloomreach.com)
+  Copyright 2014-2020 Bloomreach Inc. (https://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 
 ### Prerequisites
 
-These instruction assumes that you have a BloomReach CMS 13 project based on the archetype, i.e. a Maven 
+These instruction assumes that you have a Bloomreach CMS 13 project based on the archetype, i.e. a Maven 
 multi-module project consisting of at least four sub-modules: cms, cms-dependencies, site and bootstrap.
 
 ### Forge Repository
