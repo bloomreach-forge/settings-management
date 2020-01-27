@@ -2,6 +2,7 @@ definitions:
   config:
     /hippo:configuration/hippo:frontend/cms/cms-admin/settings:
       jcr:primaryType: frontend:plugin
+      hipposys:userrole: xm.system.admin
       plugin.class: org.bloomreach.forge.settings.management.SettingsPlugin
       /tabconfig:
         jcr:primaryType: frontend:pluginconfig
@@ -41,12 +42,3 @@ definitions:
             jcr:primaryType: hippo:translation
             hippo:language: nl
             hippo:message: Url Rewriter
-        /other:
-          jcr:primaryType: frontend:pluginconfig
-          jcr:mixinTypes: ['hippo:translated']
-          sequence: 5.0
-          title: Other
-          /hippo:translation:
-            jcr:primaryType: hippo:translation
-            hippo:language: nl
-            hippo:message: Overige
