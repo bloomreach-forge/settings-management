@@ -1,0 +1,6 @@
+site: settingsmanagementdemo
+group: settingsmanagementdemo
+project: settingsmanagementdemo
+module:
+  name: settingsmanagementdemo-repository-data-site-development
+  after: settingsmanagementdemo-repository-data-site

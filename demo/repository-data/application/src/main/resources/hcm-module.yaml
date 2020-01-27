@@ -1,6 +1,6 @@
 group:
   name: settingsmanagementdemo
-  after: [hippo-cms, bloomreach-forge]
+  after: hippo-cms
 project: settingsmanagementdemo
 module:
   name: settingsmanagementdemo-repository-data-application
