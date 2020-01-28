@@ -28,5 +28,5 @@
 ### Upload category
 ![Upload Category](images/upload_panel.png)
 
-### Other category
-![Other Category](images/other_panel.png)
+### Url Rewriter
+![Url Rewriter](images/urlrewriter_panel.png)

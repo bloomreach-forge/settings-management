@@ -33,7 +33,7 @@ Add the frontend api to your custom feature module.
 <dependency>
   <groupId>org.bloomreach.forge.settingsmanagement</groupId>
   <artifactId>bloomreach-settingsmanagement-frontend-api</artifactId>
-  <version>1.0.0</version>
+  <version>3.0.0</version>
 </dependency>
 ```
 
@@ -160,7 +160,7 @@ And adding the markup for our panel.
 
 Be sure to create node /hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/security/usermanagement
 
-For Hippo 12, this node is bootstrapped by a yaml file, e.g. at repository-data/application/src/main/resources/hcm-config/configuration/admin/usermanagement.yaml:
+This node is bootstrapped by a yaml file, e.g. at repository-data/application/src/main/resources/hcm-config/configuration/admin/usermanagement.yaml:
 
 ```yaml
 definitions:
@@ -172,6 +172,3 @@ definitions:
 ```
 
 As you can see you can control the order of your item in an existing category by changing the sequence property of the node.
-
-
-Before you start it's highly recommended to take a look at the [existing code](source-repository.html) for examples and references.

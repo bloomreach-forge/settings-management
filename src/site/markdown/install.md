@@ -41,7 +41,7 @@ In the main pom.xml of the project, in the repositories section, add this reposi
 ### Installation in CMS
 Add this property to the properties section of the *root* pom.xml:
 
-    <bloomreach.forge.settingsmanagement.version>2.0.0</bloomreach.forge.settingsmanagement.version>
+    <bloomreach.forge.settingsmanagement.version>3.0.0</bloomreach.forge.settingsmanagement.version>
 
 Select the correct version for your project. See the [release notes](release-notes.html) for more information on which version is applicable.
 
@@ -63,7 +63,7 @@ Add these two dependency to the pom.xml of your *cms-dependencies* (or *cms*) mo
 ```
 
 <div class="alert alert-info">
-    Note: before version 2.0, the artifacts' groupId was <code>org.onehippo.forge.settingsmanagement</code> and
+    Note: before version 2.0.0, the artifacts' groupId was <code>org.onehippo.forge.settingsmanagement</code> and
     the artifactIds started with <code>hippo-addon-settings-management</code>. 
 </div>
 

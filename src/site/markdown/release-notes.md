@@ -16,11 +16,21 @@
 
 ## Release notes
 
+### Version 3.0.0 
+Release date: 29 January 2020
+
++ Upgrade to Bloomreach Experience Manager 14, including the demo project.<br/>
+  The "Other" section (tab) was removed since it contained only settings for the Social Sharing plugin, which was
+  removed from version 14.   
++ The translations of configured tabs moved from hippo:translation subnodes below<br/>
+ ```/hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig``` to <br/>
+ ```/hippo:configuration/hippo:translations/hippo:cms/settingsmanagement```.
+
 ### Version 2.0.0 
 Release date: 2 March 2019
 
 + [HIPFORGE-278](https://issues.onehippo.com/browse/HIPFORGE-278)<br/> 
-  Upgrade to Bloomreach CMS 13, including demo project. 
+  Upgrade to Bloomreach Experience Manager 13, including the demo project. 
   This also entails renaming of Maven coordinates and Java packaging from 'onehippo' to 'bloomreach'. 
   When upgrading, please revisit the [installation page](install.html).
 + [HIPFORGE-271](https://issues.onehippo.com/browse/HIPFORGE-271)<br/>
@@ -29,7 +39,6 @@ Release date: 2 March 2019
   Remove the BrokenLinksChecker panel since the checker is no longer present in 13.
 + [HIPFORGE-280](https://issues.onehippo.com/browse/HIPFORGE-280)<br/>
   Make add/remove form data exclude paths work.
-
 
 ### Version 1.0.0 
 Release date: 26 Feb 2018
