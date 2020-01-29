@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 BloomReach Inc. (http://www.bloomreach.com)
+ * Copyright 2013-2020 Bloomreach Inc. (http://www.bloomreach.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,8 +25,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Config mapping for path:
- * @author Jeroen Reijn
+ * Config mapping for path
  */
 public class HippoSecurityConfig implements CMSFeatureConfig {
 

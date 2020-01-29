@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 BloomReach Inc. (http://www.bloomreach.com)
+ * Copyright 2013-2020 Bloomreach Inc. (http://www.bloomreach.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,6 @@ import org.bloomreach.forge.settings.management.config.CMSFeatureConfig;
  * Panel for configuring the image validation service.
  */
 public class ImageUploadConfigPanel extends FeatureConfigPanel {
-    private static final long serialVersionUID = 1L;
 
     private ImageUploadSettingConfigModel imageUploadSettingConfigModel = new ImageUploadSettingConfigModel();
 

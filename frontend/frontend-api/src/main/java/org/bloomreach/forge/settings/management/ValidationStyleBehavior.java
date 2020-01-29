@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 BloomReach Inc. (http://www.bloomreach.com)
+ * Copyright 2014-2020 Bloomreach Inc. (http://www.bloomreach.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,6 @@ import org.apache.wicket.markup.html.form.FormComponent;
 
 public class ValidationStyleBehavior extends Behavior {
 
-    private static final long serialVersionUID = 1L;
     public void onComponentTag(final Component component, final ComponentTag tag) {
 
         FormComponent comp = (FormComponent) component;

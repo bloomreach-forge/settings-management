@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 BloomReach Inc. (http://www.bloomreach.com)
+ * Copyright 2013-2020 Bloomreach Inc. (http://www.bloomreach.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,10 +19,9 @@ package org.bloomreach.forge.settings.management.config.autoexport;
 import org.bloomreach.forge.settings.management.config.LoadableDetachableConfigModel;
 
 /**
- * @author Jeroen Reijn
+ * AutoExportConfigModel
  */
 public class AutoExportConfigModel extends LoadableDetachableConfigModel<AutoExportConfig> {
-    private static final long serialVersionUID = 1L;
     public static final String AUTOEXPORT_MODULE_PATH = "/hippo:configuration/hippo:modules/autoexport/hippo:moduleconfig";
 
     @Override

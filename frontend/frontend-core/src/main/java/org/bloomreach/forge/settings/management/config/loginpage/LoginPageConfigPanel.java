@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 BloomReach Inc. (http://www.bloomreach.com)
+ * Copyright 2013-2020 Bloomreach Inc. (http://www.bloomreach.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,6 @@ import org.hippoecm.frontend.plugin.config.IPluginConfig;
 import org.bloomreach.forge.settings.management.FeatureConfigPanel;
 
 public class LoginPageConfigPanel extends FeatureConfigPanel {
-    private static final long serialVersionUID = 1L;
     private LoginConfigModel loginConfigModel;
 
     public LoginPageConfigPanel(IPluginContext context, IPluginConfig config) {

@@ -1,5 +1,5 @@
 <!--
-  Copyright 2013-2019 BloomReach Inc. (https://www.bloomreach.com)
+  Copyright 2013-2020 Bloomreach Inc. (https://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -28,5 +28,5 @@
 ### Upload category
 ![Upload Category](images/upload_panel.png)
 
-### Other category
-![Other Category](images/other_panel.png)
+### Url Rewriter
+![Url Rewriter](images/urlrewriter_panel.png)

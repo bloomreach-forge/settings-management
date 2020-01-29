@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright 2018-2019 BloomReach Inc. (http://www.bloomreach.com)
+  Copyright 2018-2020 Bloomreach Inc. (http://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -13,34 +13,33 @@
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   See the License for the specific language governing permissions and
   limitations under the License.
-  -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  --><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-project</artifactId>
-    <version>30.0</version>
+    <version>31.0.0</version>
   </parent>
 
   <packaging>pom</packaging>
   <inceptionYear>2013</inceptionYear>
 
-  <name>BloomReach Settings Management Plugin</name>
+  <name>Bloomreach Settings Management Plugin</name>
   <description>
     This plugin allows administrators to configure system settings, which are normally stored somewhere in the Hippo Repository.
   </description>
 
   <groupId>org.bloomreach.forge.settingsmanagement</groupId>
   <artifactId>bloomreach-settingsmanagement</artifactId>
-  <version>2.0.0</version>
+  <version>3.0.0</version>
 
   <properties>
-    <!-- BloomReach CMS 13.0.0 versioning -->
-    <hippo.cms.version>13.0.0</hippo.cms.version>
-    <hippo.repository.version>13.0.0</hippo.repository.version>
+    <!-- Bloomreach CMS 14.0.0-2 versioning -->
+    <hippo.cms.version>14.0.0-2</hippo.cms.version>
+    <hippo.repository.version>14.0.0-2</hippo.repository.version>
     <!-- from CMS root pom -->
-    <wicket.version>7.10.0</wicket.version>
+    <wicket.version>7.14.0</wicket.version>
 
     <!-- test related -->
     <junit.version>4.12</junit.version>
@@ -76,14 +75,14 @@
     <developer>
       <id>jhoffman</id>
       <name>Jeroen Hoffman</name>
-      <organization>BloomReach</organization>
+      <organization>Bloomreach</organization>
       <organizationUrl>http://www.bloomreach.com</organizationUrl>
       <timezone>1</timezone>
     </developer>
     <developer>
       <id>tjeger</id>
       <name>Tobias Jeger</name>
-      <organization>BloomReach</organization>
+      <organization>Bloomreach</organization>
       <organizationUrl>http://www.bloomreach.com</organizationUrl>
       <timezone>1</timezone>
     </developer>
@@ -98,7 +97,7 @@
 
   <mailingLists>
     <mailingList>
-      <name>BloomReach Community</name>
+      <name>Bloomreach Community</name>
       <archive>https://community.bloomreach.com/</archive>
     </mailingList>
   </mailingLists>

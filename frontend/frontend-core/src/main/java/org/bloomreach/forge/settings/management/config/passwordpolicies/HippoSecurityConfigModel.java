@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 BloomReach Inc. (http://www.bloomreach.com)
+ * Copyright 2013-2020 Bloomreach Inc. (http://www.bloomreach.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,10 +20,9 @@ import org.hippoecm.repository.api.HippoNodeType;
 import org.bloomreach.forge.settings.management.config.LoadableDetachableConfigModel;
 
 /**
- * @author Jeroen Reijn
+ * HippoSecurityConfigModel
  */
 public class HippoSecurityConfigModel extends LoadableDetachableConfigModel<HippoSecurityConfig> {
-    private static final long serialVersionUID = 1L;
     private static final String SECURITY_PATH = '/' + HippoNodeType.CONFIGURATION_PATH + '/' + HippoNodeType.SECURITY_PATH;
 
     @Override

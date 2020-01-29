@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 BloomReach Inc. (http://www.bloomreach.com)
+ * Copyright 2013-2020 Bloomreach Inc. (http://www.bloomreach.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ package org.bloomreach.forge.settings.management.config;
 import javax.jcr.RepositoryException;
 
 /**
- * @author Jeroen Reijn
+ * CMSFeatureConfig
  */
 public interface CMSFeatureConfig {
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 BloomReach Inc. (http://www.bloomreach.com)
+ * Copyright 2013-2020 Bloomreach Inc. (http://www.bloomreach.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,10 +19,9 @@ package org.bloomreach.forge.settings.management.config.loginpage;
 import org.bloomreach.forge.settings.management.config.LoadableDetachableConfigModel;
 
 /**
- * @author Jeroen Reijn
+ * LoginConfigModel
  */
 public class LoginConfigModel extends LoadableDetachableConfigModel<LoginConfig> {
-    private static final long serialVersionUID = 1L;
     public static final String LOGIN_PAGE_CONFIG_PATH = "/hippo:configuration/hippo:frontend/login/login/loginPage";
 
     @Override

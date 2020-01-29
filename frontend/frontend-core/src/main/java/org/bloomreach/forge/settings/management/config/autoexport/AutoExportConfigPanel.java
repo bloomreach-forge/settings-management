@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 BloomReach Inc. (http://www.bloomreach.com)
+ * Copyright 2013-2020 Bloomreach Inc. (http://www.bloomreach.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,6 @@ import org.hippoecm.frontend.plugin.config.IPluginConfig;
 import org.bloomreach.forge.settings.management.FeatureConfigPanel;
 
 public class AutoExportConfigPanel extends FeatureConfigPanel {
-    private static final long serialVersionUID = 1L;
     private AutoExportConfigModel autoExportConfigModel;
 
     public AutoExportConfigPanel(IPluginContext context, IPluginConfig config) {
@@ -64,13 +63,11 @@ public class AutoExportConfigPanel extends FeatureConfigPanel {
         final AutoExportConfig autoExportConfig = autoExportConfigModel.getObject();
         //final ArrayList<String> modulesList = autoExportConfig.getModules();
         ListView<String> modules = new ListView<String>("autoexport-modules", new PropertyModel(autoExportConfigModel, "modules")) {
-            private static final long serialVersionUID = 1L;
             @Override
             protected void populateItem(final ListItem<String> item) {
                 RequiredTextField moduleField = new RequiredTextField("module", item.getModel());
                 moduleField.setOutputMarkupId(true);
                 moduleField.add(new OnChangeAjaxBehavior() {
-                    private static final long serialVersionUID = 1L;
 
                     @Override
                     protected void onUpdate(AjaxRequestTarget target) {
@@ -79,8 +76,6 @@ public class AutoExportConfigPanel extends FeatureConfigPanel {
                 item.add(moduleField);
 
                 AjaxSubmitLink remove = new AjaxSubmitLink("remove") {
-                    private static final long serialVersionUID = 1L;
-
                     @Override
                     protected void onSubmit(AjaxRequestTarget target, Form form) {
                         //modulesList.remove(item.getIndex());

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 BloomReach Inc. (http://www.bloomreach.com)
+ * Copyright 2013-2020 Bloomreach Inc. (http://www.bloomreach.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,12 +19,10 @@ package org.bloomreach.forge.settings.management.config.formdata;
 import org.bloomreach.forge.settings.management.config.LoadableDetachableConfigModel;
 
 /**
- * 
- * @author Jeroen Reijn
+ * FormdataConfigModel
  */
 public class FormdataConfigModel extends LoadableDetachableConfigModel<FormdataConfig> {
 
-    private static final long serialVersionUID = 1L;
     public static final String FORMDATA_CLEANUP_MODULE_PATH = "/hippo:configuration/hippo:modules/scheduler/hippo:moduleconfig/system/FormDataCleanup";
 
     @Override
