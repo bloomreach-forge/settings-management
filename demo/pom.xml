@@ -12,7 +12,7 @@
   <description>Bloomreach Forge Settings Management Demo</description>
   <groupId>org.bloomreach.forge.settingsmanagement.demo</groupId>
   <artifactId>settingsmanagementdemo</artifactId>
-  <version>3.0.0</version>
+  <version>3.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <!-- 
