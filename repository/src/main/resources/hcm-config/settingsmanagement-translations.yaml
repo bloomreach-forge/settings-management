@@ -8,9 +8,11 @@ definitions:
         security: Security
         upload: Upload
         urlrewriter: Url Rewriter
+        crispapi: CRISP API
       /nl:
         jcr:primaryType: hipposys:resourcebundle
         maintenance: Onderhoud
         security: Beveiliging
         upload: Uploaden
         urlrewriter: Url Rewriter
+        crispapi: CRISP API

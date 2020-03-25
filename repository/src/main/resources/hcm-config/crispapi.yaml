@@ -1,0 +1,6 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/crispapi/crispapi-config-panel:
+      jcr:primaryType: frontend:pluginconfig
+      featureConfigClass: org.bloomreach.forge.settings.management.config.crispapi.CrispApiConfigPanel
+      sequence: 5.0

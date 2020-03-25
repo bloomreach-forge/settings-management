@@ -22,3 +22,7 @@ definitions:
           jcr:primaryType: frontend:pluginconfig
           sequence: 4.0
           titleKey: urlrewriter
+        /crispapi:
+          jcr:primaryType: frontend:pluginconfig
+          sequence: 5.0
+          titleKey: crispapi
