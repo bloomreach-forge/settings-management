@@ -15,12 +15,14 @@
  */
 package org.bloomreach.forge.settings.management.config.crispapi;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
+import org.apache.commons.lang3.StringUtils;
 import org.bloomreach.forge.settings.management.config.CMSFeatureConfig;
 import org.bloomreach.forge.settings.management.config.urlrewriter.UrlRewriterConfig;
 import org.slf4j.Logger;
@@ -77,5 +79,16 @@ public class CrispApiConfig implements CMSFeatureConfig {
 
     public List<CrispResourceSpace> getCrispResourceSpaces() {
         return crispResourceSpaces;
+    }
+
+    public void removeCrispResourceSpace(final String resourceSpaceName) {
+        for (Iterator<CrispResourceSpace> it = crispResourceSpaces.iterator(); it.hasNext(); ) {
+            final CrispResourceSpace resourceSpace = it.next();
+
+            if (StringUtils.equals(resourceSpaceName, resourceSpace.getResourceSpaceName())) {
+                it.remove();
+                break;
+            }
+        }
     }
 }

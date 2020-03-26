@@ -22,7 +22,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.extensions.markup.html.repeater.data.grid.ICellPopulator;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.AbstractColumn;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.IColumn;
@@ -74,6 +76,15 @@ public class CrispApiConfigPanel extends FeatureConfigPanel {
         notInstalledMessage.setVisible(!crispApiConfigModel.getObject().hasConfiguration());
         add(notInstalledMessage);
 
+        AjaxLink addResourceSpace = new AjaxLink("addResourceSpace") {
+            @Override
+            public void onClick(AjaxRequestTarget target) {
+                // TODO
+                log.error("Want to add a new resoure space.");
+            }
+        };
+        add(addResourceSpace);
+
         final CrispResourceSpaceDataProvider crispResourceSpaceDataProvider = new CrispResourceSpaceDataProvider(
                 crispApiConfigModel);
 
@@ -95,6 +106,31 @@ public class CrispApiConfigPanel extends FeatureConfigPanel {
         });
         resourceSpacesColumns.add(
                 new PropertyColumn<>(new ResourceModel("backend-type-name"), "backendTypeName", "backendTypeName"));
+        resourceSpacesColumns.add(new AbstractColumn<CrispResourceSpace, String>(Model.of("")) {
+            @Override
+            public void populateItem(final Item<ICellPopulator<CrispResourceSpace>> cellItem, final String componentId,
+                    final IModel<CrispResourceSpace> rowModel) {
+                cellItem.add(new AjaxLinkLabel(componentId, Model.of(" ")) {
+                    {
+                        get("link").add(new AttributeModifier("class", "delete-16 icon-16"));
+                    }
+                    @Override
+                    public void onClick(final AjaxRequestTarget target) {
+                        final String resourceSpaceName = rowModel.getObject().getResourceSpaceName();
+                        crispApiConfigModel.getObject().removeCrispResourceSpace(resourceSpaceName);
+
+                        target.add(resourceSpacesTable);
+                        target.add(resourceSpacePropsTable);
+
+                        if (currentCrispResourceSpace != null && StringUtils.equals(resourceSpaceName,
+                                currentCrispResourceSpace.getResourceSpaceName())) {
+                            currentCrispResourceSpace = null;
+                            target.add(curResourceSpacePropsLabel);
+                        }
+                    }
+                });
+            }
+        });
 
         curResourceSpacePropsLabel = new Label("current-resource-space-name",
                 new PropertyModel<String>(this, "currentCrispResourceSpaceName"));
@@ -121,6 +157,7 @@ public class CrispApiConfigPanel extends FeatureConfigPanel {
                                 rowModel.getObject().setValue(object);
                                 detach();
                             }
+
                             @Override
                             protected String load() {
                                 return rowModel.getObject().getValue();
