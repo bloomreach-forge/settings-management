@@ -14,15 +14,27 @@
     limitations under the License.
 -->
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
-
   <wicket:extend>
-
     <div class="info-message" wicket:id="not-installed"></div>
-
-    <div>
-      <table class="hippo-controlpanel-table-default hippo-list-details" cellspacing="0" wicket:id="table">[table]</table>
+    <div class="settings-formfield-group">
+      <div>
+        <table class="hippo-controlpanel-table-default hippo-list-details" cellspacing="0"
+               wicket:id="resourceSpacesTable">[table]</table>
+      </div>
     </div>
-
+    <br/>
+    <div>
+      <h3>
+        <wicket:message key="resource-space-props-label">Properties of the resource space:</wicket:message>
+        <span wicket:id="current-resource-space-name"></span>
+      </h3>
+    </div>
+    <div class="settings-formfield-group">
+      <div>
+        <table class="hippo-controlpanel-table-default hippo-list-details" cellspacing="0"
+               wicket:id="resourceSpacePropsTable">[table]</table>
+      </div>
+    </div>
   </wicket:extend>
 
 </html>

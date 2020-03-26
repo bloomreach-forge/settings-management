@@ -16,17 +16,25 @@
 package org.bloomreach.forge.settings.management.config.crispapi;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.extensions.markup.html.repeater.data.grid.ICellPopulator;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.AbstractColumn;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.IColumn;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.PropertyColumn;
+import org.apache.wicket.extensions.markup.html.repeater.util.SortParam;
+import org.apache.wicket.extensions.markup.html.repeater.util.SortableDataProvider;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
+import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.model.ResourceModel;
 import org.bloomreach.forge.settings.management.FeatureConfigPanel;
 import org.hippoecm.frontend.plugin.IPluginContext;
@@ -34,6 +42,7 @@ import org.hippoecm.frontend.plugin.config.IPluginConfig;
 import org.hippoecm.frontend.plugins.cms.admin.widgets.AdminDataTable;
 import org.hippoecm.frontend.plugins.cms.admin.widgets.AjaxLinkLabel;
 import org.hippoecm.frontend.plugins.standards.ClassResourceModel;
+import org.hippoecm.frontend.widgets.TextFieldWidget;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,12 +50,19 @@ public class CrispApiConfigPanel extends FeatureConfigPanel {
 
     private static Logger log = LoggerFactory.getLogger(CrispApiConfigPanel.class);
 
-    private static final int NUMBER_OF_ITEMS_PER_PAGE = 20;
+    private static final int RESOURCE_SPACES_PAGE_SIZE = 5;
 
-    private final AdminDataTable<CrispResourceSpace> table;
-    private final CrispResourceSpaceDataProvider crispResourceSpaceDataProvider;
+    private static final int RESOURCE_SPACE_PROPS_PAGE_SIZE = 5;
 
     private CrispApiConfigModel crispApiConfigModel;
+
+    private CrispResourceSpace currentCrispResourceSpace;
+
+    private final AdminDataTable<CrispResourceSpace> resourceSpacesTable;
+
+    private final Label curResourceSpacePropsLabel;
+
+    private final AdminDataTable<CrispResourceSpaceProperty> resourceSpacePropsTable;
 
     public CrispApiConfigPanel(IPluginContext context, IPluginConfig config) {
         super(context, config, new ResourceModel("title"));
@@ -58,27 +74,70 @@ public class CrispApiConfigPanel extends FeatureConfigPanel {
         notInstalledMessage.setVisible(!crispApiConfigModel.getObject().hasConfiguration());
         add(notInstalledMessage);
 
-        crispResourceSpaceDataProvider = new CrispResourceSpaceDataProvider();
+        final CrispResourceSpaceDataProvider crispResourceSpaceDataProvider = new CrispResourceSpaceDataProvider(
+                crispApiConfigModel);
 
-        final List<IColumn<CrispResourceSpace, String>> columns = new ArrayList<>();
-        columns.add(new PropertyColumn<>(new ResourceModel("backend-type"), "backendType", "backendType"));
-        columns.add(new AbstractColumn<CrispResourceSpace, String>(new ResourceModel("resource-space-name"), "resourceSpaceName") {
+        final List<IColumn<CrispResourceSpace, String>> resourceSpacesColumns = new ArrayList<>();
+        resourceSpacesColumns.add(new AbstractColumn<CrispResourceSpace, String>(
+                new ResourceModel("resource-space-name"), "resourceSpaceName") {
             @Override
             public void populateItem(final Item<ICellPopulator<CrispResourceSpace>> cellItem, final String componentId,
-                                     final IModel<CrispResourceSpace> rowModel) {
+                    final IModel<CrispResourceSpace> rowModel) {
                 cellItem.add(new AjaxLinkLabel(componentId, Model.of(rowModel.getObject().getResourceSpaceName())) {
-                    // TODO
                     @Override
                     public void onClick(final AjaxRequestTarget target) {
-                        log.error("Resource space clicked: {}.", getDefaultModelObject());
+                        setCurrentCrispResourceSpace(rowModel.getObject());
+                        target.add(curResourceSpacePropsLabel);
+                        target.add(resourceSpacePropsTable);
                     }
                 });
             }
         });
+        resourceSpacesColumns.add(
+                new PropertyColumn<>(new ResourceModel("backend-type-name"), "backendTypeName", "backendTypeName"));
 
-        table = new AdminDataTable<>("table", columns, crispResourceSpaceDataProvider, NUMBER_OF_ITEMS_PER_PAGE);
-        table.setOutputMarkupId(true);
-        add(table);
+        curResourceSpacePropsLabel = new Label("current-resource-space-name",
+                new PropertyModel<String>(this, "currentCrispResourceSpaceName"));
+        curResourceSpacePropsLabel.setOutputMarkupId(true);
+        add(curResourceSpacePropsLabel);
+
+        resourceSpacesTable = new AdminDataTable<>("resourceSpacesTable", resourceSpacesColumns,
+                crispResourceSpaceDataProvider, RESOURCE_SPACES_PAGE_SIZE);
+        resourceSpacesTable.setOutputMarkupId(true);
+        add(resourceSpacesTable);
+
+        final CrispResourceSpacePropertyDataProvider crispResourceSpacePropertyDataProvider = new CrispResourceSpacePropertyDataProvider();
+
+        final List<IColumn<CrispResourceSpaceProperty, String>> resourceSpacePropsColumns = new ArrayList<>();
+        resourceSpacePropsColumns.add(new PropertyColumn<>(new ResourceModel("property-name"), "name", "name"));
+        resourceSpacePropsColumns.add(
+                new AbstractColumn<CrispResourceSpaceProperty, String>(new ResourceModel("property-value"), "value") {
+                    @Override
+                    public void populateItem(final Item<ICellPopulator<CrispResourceSpaceProperty>> cellItem,
+                            final String componentId, final IModel<CrispResourceSpaceProperty> rowModel) {
+                        cellItem.add(new TextFieldWidget(componentId, new LoadableDetachableModel<String>() {
+                            @Override
+                            public void setObject(final String object) {
+                                rowModel.getObject().setValue(object);
+                                detach();
+                            }
+                            @Override
+                            protected String load() {
+                                return rowModel.getObject().getValue();
+                            }
+                        }) {
+                            @Override
+                            protected void onUpdate(final AjaxRequestTarget target) {
+                                target.add(resourceSpacePropsTable);
+                            }
+                        });
+                    }
+                });
+
+        resourceSpacePropsTable = new AdminDataTable<>("resourceSpacePropsTable", resourceSpacePropsColumns,
+                crispResourceSpacePropertyDataProvider, RESOURCE_SPACE_PROPS_PAGE_SIZE);
+        resourceSpacePropsTable.setOutputMarkupId(true);
+        add(resourceSpacePropsTable);
     }
 
     @Override
@@ -89,5 +148,66 @@ public class CrispApiConfigPanel extends FeatureConfigPanel {
     @Override
     public void cancel() {
         // do nothing.
+    }
+
+    public CrispResourceSpace getCurrentCrispResourceSpace() {
+        return currentCrispResourceSpace;
+    }
+
+    public void setCurrentCrispResourceSpace(final CrispResourceSpace currentCrispResourceSpace) {
+        this.currentCrispResourceSpace = currentCrispResourceSpace;
+    }
+
+    public String getCurrentCrispResourceSpaceName() {
+        return (currentCrispResourceSpace != null) ? currentCrispResourceSpace.getResourceSpaceName() : null;
+    }
+
+    private class CrispResourceSpacePropertyDataProvider
+            extends SortableDataProvider<CrispResourceSpaceProperty, String> {
+
+        @Override
+        public long size() {
+            if (currentCrispResourceSpace == null) {
+                return 0L;
+            }
+
+            return currentCrispResourceSpace.getProperties().size();
+        }
+
+        @Override
+        public IModel<CrispResourceSpaceProperty> model(CrispResourceSpaceProperty object) {
+            return new Model<>(object);
+        }
+
+        @Override
+        public Iterator<? extends CrispResourceSpaceProperty> iterator(long first, long count) {
+            if (currentCrispResourceSpace == null) {
+                return Collections.<CrispResourceSpaceProperty> emptyList().iterator();
+            }
+
+            final List<CrispResourceSpaceProperty> propsList = new LinkedList<>(
+                    currentCrispResourceSpace.getProperties());
+
+            final SortParam<String> sortParam = getSort();
+
+            if (sortParam != null) {
+                propsList.sort((prop1, prop2) -> {
+                    final int direction = getSort().isAscending() ? 1 : -1;
+                    switch (getSort().getProperty()) {
+                    case "value":
+                        return direction * StringUtils.compareIgnoreCase(prop1.getValue(), prop2.getValue());
+                    case "name":
+                    default:
+                        return direction * StringUtils.compareIgnoreCase(prop1.getName(), prop2.getName());
+                    }
+                });
+            }
+
+            if (first == 0L && propsList.size() <= count) {
+                return propsList.iterator();
+            }
+
+            return propsList.subList((int) first, (int) Math.min(first + count, propsList.size())).iterator();
+        }
     }
 }

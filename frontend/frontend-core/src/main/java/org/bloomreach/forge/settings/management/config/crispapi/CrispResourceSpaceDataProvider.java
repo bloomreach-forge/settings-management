@@ -15,34 +15,27 @@
  */
 package org.bloomreach.forge.settings.management.config.crispapi;
 
-import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.wicket.extensions.markup.html.repeater.util.SortParam;
 import org.apache.wicket.extensions.markup.html.repeater.util.SortableDataProvider;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
 public class CrispResourceSpaceDataProvider extends SortableDataProvider<CrispResourceSpace, String> {
 
-    private List<CrispResourceSpace> crispResourceSpaces;
+    private final CrispApiConfigModel crispApiConfigModel;
 
-    public CrispResourceSpaceDataProvider() {
-        // FIXME
-        crispResourceSpaces = new ArrayList<>();
-        crispResourceSpaces.add(new CrispResourceSpace("Bloomreach S&M", "brsm"));
-        crispResourceSpaces.add(new CrispResourceSpace("commrecetools", "commercetools"));
-        crispResourceSpaces.add(new CrispResourceSpace("Elastic Path", "elasticpath"));
-    }
-
-    @Override
-    public Iterator<? extends CrispResourceSpace> iterator(long first, long count) {
-        return crispResourceSpaces.iterator();
+    public CrispResourceSpaceDataProvider(final CrispApiConfigModel crispApiConfigModel) {
+        this.crispApiConfigModel = crispApiConfigModel;
     }
 
     @Override
     public long size() {
-        return crispResourceSpaces.size();
+        return crispApiConfigModel.getObject().getCrispResourceSpaces().size();
     }
 
     @Override
@@ -50,4 +43,33 @@ public class CrispResourceSpaceDataProvider extends SortableDataProvider<CrispRe
         return new Model<>(object);
     }
 
+    @Override
+    public Iterator<? extends CrispResourceSpace> iterator(long first, long count) {
+        final List<CrispResourceSpace> resourceSpaceList = new LinkedList<>(
+                crispApiConfigModel.getObject().getCrispResourceSpaces());
+
+        final SortParam<String> sortParam = getSort();
+
+        if (sortParam != null) {
+            resourceSpaceList.sort((resourceSpace1, resourceSpace2) -> {
+                final int direction = sortParam.isAscending() ? 1 : -1;
+                switch (sortParam.getProperty()) {
+                case "backendTypeName":
+                    return direction * StringUtils.compareIgnoreCase(resourceSpace1.getBackendTypeName(),
+                            resourceSpace2.getBackendTypeName());
+                case "resoureSpaceName":
+                default:
+                    return direction * StringUtils.compareIgnoreCase(resourceSpace1.getResourceSpaceName(),
+                            resourceSpace2.getResourceSpaceName());
+                }
+            });
+        }
+
+        if (first == 0L && resourceSpaceList.size() <= count) {
+            return resourceSpaceList.iterator();
+        }
+
+        return resourceSpaceList.subList((int) first, (int) Math.min(first + count, resourceSpaceList.size()))
+                .iterator();
+    }
 }

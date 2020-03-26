@@ -16,47 +16,87 @@
 package org.bloomreach.forge.settings.management.config.crispapi;
 
 import java.io.Serializable;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Objects;
 
-public class CrispResourceSpace implements Serializable, Comparable<CrispResourceSpace> {
+import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.apache.commons.lang.builder.ToStringBuilder;
 
-    private String backendType;
+public class CrispResourceSpace implements Serializable {
+
     private String resourceSpaceName;
+    private String backendTypeName;
+    private List<CrispResourceSpaceProperty> properties = new LinkedList<>();
 
     public CrispResourceSpace() {
     }
 
-    public CrispResourceSpace(final String backendType, final String resourceSpaceName) {
-        this.backendType = backendType;
+    public CrispResourceSpace(final String resourceSpaceName, final String backendTypeName) {
         this.resourceSpaceName = resourceSpaceName;
-    }
-
-    public String getBackendType() {
-        return backendType;
-    }
-
-    public void setBackendType(String backendType) {
-        this.backendType = backendType;
+        this.backendTypeName = backendTypeName;
     }
 
     public String getResourceSpaceName() {
         return resourceSpaceName;
     }
 
-    public void setResourceSpaceName(String resourceSpaceName) {
+    public void setResourceSpaceName(final String resourceSpaceName) {
         this.resourceSpaceName = resourceSpaceName;
     }
 
-    @Override
-    public int compareTo(CrispResourceSpace that) {
-        if (this.resourceSpaceName == null && that.resourceSpaceName == null) {
-            return 0;
-        } else if (this.resourceSpaceName == null && that.resourceSpaceName != null) {
-            return -1;
-        } else if (this.resourceSpaceName != null && that.resourceSpaceName == null) {
-            return 1;
-        } else {
-            return this.resourceSpaceName.compareTo(that.resourceSpaceName);
+    public String getBackendTypeName() {
+        return backendTypeName;
+    }
+
+    public void setBackendTypeName(final String backendTypeName) {
+        this.backendTypeName = backendTypeName;
+    }
+
+    public List<CrispResourceSpaceProperty> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(final List<CrispResourceSpaceProperty> properties) {
+        this.properties.clear();
+
+        if (properties != null) {
+            this.properties.addAll(properties);
         }
     }
 
+    public void addProperty(final CrispResourceSpaceProperty property) {
+        properties.add(property);
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("resourceSpaceName", resourceSpaceName)
+                .append("backendTypeName", backendTypeName)
+                .append("properties", properties)
+                .toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof CrispResourceSpace)) {
+            return false;
+        }
+
+        final CrispResourceSpace that = (CrispResourceSpace) o;
+
+        return Objects.equals(this.resourceSpaceName, that.resourceSpaceName)
+                && Objects.equals(this.backendTypeName, that.backendTypeName)
+                && Objects.equals(this.properties, that.properties);
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+                .append(resourceSpaceName)
+                .append(backendTypeName)
+                .append(properties)
+                .toHashCode();
+    }
 }

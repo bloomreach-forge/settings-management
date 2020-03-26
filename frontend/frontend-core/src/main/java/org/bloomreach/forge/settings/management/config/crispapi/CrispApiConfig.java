@@ -15,6 +15,9 @@
  */
 package org.bloomreach.forge.settings.management.config.crispapi;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
@@ -31,22 +34,48 @@ public class CrispApiConfig implements CMSFeatureConfig {
 
     private final transient Node node;
 
-    public Boolean hasConfiguration() {
-        return node != null;
-    }
+    private List<CrispResourceSpace> crispResourceSpaces = new LinkedList<>();
 
     public CrispApiConfig(final Node configNode) {
 
         this.node = configNode;
 
         if (this.node != null) {
-            // TODO
+            // FIXME
+            crispResourceSpaces.clear();
+
+            CrispResourceSpace resourceSpace = new CrispResourceSpace("brsm", "Bloomreach S&M");
+            resourceSpace.addProperty(new CrispResourceSpaceProperty("prop1.1", "value1.1"));
+            resourceSpace.addProperty(new CrispResourceSpaceProperty("prop1.2", "value1.2"));
+            crispResourceSpaces.add(resourceSpace);
+
+            resourceSpace = new CrispResourceSpace("commercetools", "commrecetools");
+            resourceSpace.addProperty(new CrispResourceSpaceProperty("prop2.1", "value2.1"));
+            resourceSpace.addProperty(new CrispResourceSpaceProperty("prop2.2", "value2.2"));
+            resourceSpace.addProperty(new CrispResourceSpaceProperty("prop2.3", "value2.3"));
+            crispResourceSpaces.add(resourceSpace);
+
+            resourceSpace = new CrispResourceSpace("elasticpath", "Elastic Path");
+            resourceSpace.addProperty(new CrispResourceSpaceProperty("prop3.1", "value3.1"));
+            resourceSpace.addProperty(new CrispResourceSpaceProperty("prop3.2", "value3.2"));
+            resourceSpace.addProperty(new CrispResourceSpaceProperty("prop3.3", "value3.3"));
+            resourceSpace.addProperty(new CrispResourceSpaceProperty("prop3.4", "value3.4"));
+            crispResourceSpaces.add(resourceSpace);
         }
     }
 
     @Override
     public void save() throws RepositoryException {
         // TODO
-        //node.getSession().save();
+        
+        node.getSession().save();
+    }
+
+    public Boolean hasConfiguration() {
+        return node != null;
+    }
+
+    public List<CrispResourceSpace> getCrispResourceSpaces() {
+        return crispResourceSpaces;
     }
 }
