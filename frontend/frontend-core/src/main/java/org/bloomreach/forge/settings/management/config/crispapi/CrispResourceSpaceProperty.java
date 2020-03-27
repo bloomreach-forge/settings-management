@@ -21,7 +21,7 @@ import java.util.Objects;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-public class CrispResourceSpaceProperty implements Serializable {
+public class CrispResourceSpaceProperty implements Serializable, Cloneable {
 
     private String name;
     private String value;
@@ -76,5 +76,10 @@ public class CrispResourceSpaceProperty implements Serializable {
                 .append(name)
                 .append(value)
                 .toHashCode();
+    }
+
+    @Override
+    public Object clone() {
+        return new CrispResourceSpaceProperty(name, value);
     }
 }

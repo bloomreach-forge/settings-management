@@ -24,7 +24,6 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.ajax.AjaxRequestTarget;
-import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.extensions.markup.html.repeater.data.grid.ICellPopulator;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.AbstractColumn;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.IColumn;
@@ -39,6 +38,10 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.model.ResourceModel;
 import org.bloomreach.forge.settings.management.FeatureConfigPanel;
+import org.hippoecm.frontend.dialog.AbstractDialog;
+import org.hippoecm.frontend.dialog.DialogLink;
+import org.hippoecm.frontend.dialog.IDialogFactory;
+import org.hippoecm.frontend.dialog.IDialogService;
 import org.hippoecm.frontend.plugin.IPluginContext;
 import org.hippoecm.frontend.plugin.config.IPluginConfig;
 import org.hippoecm.frontend.plugins.cms.admin.widgets.AdminDataTable;
@@ -76,13 +79,13 @@ public class CrispApiConfigPanel extends FeatureConfigPanel {
         notInstalledMessage.setVisible(!crispApiConfigModel.getObject().hasConfiguration());
         add(notInstalledMessage);
 
-        AjaxLink addResourceSpace = new AjaxLink("addResourceSpace") {
-            @Override
-            public void onClick(AjaxRequestTarget target) {
-                // TODO
-                log.error("Want to add a new resoure space.");
-            }
-        };
+        final DialogLink addResourceSpace = new DialogLink("addResourceSpace",
+                new ResourceModel("add-new-resource-space"), new IDialogFactory() {
+                    public AbstractDialog<CrispResourceSpace> createDialog() {
+                        return new CrispResourceSpaceAddDialog(Model.of(new CrispResourceSpace()), crispApiConfigModel,
+                                CrispApiConfigPanel.this);
+                    }
+                }, context.getService(IDialogService.class.getName(), IDialogService.class));
         add(addResourceSpace);
 
         final CrispResourceSpaceDataProvider crispResourceSpaceDataProvider = new CrispResourceSpaceDataProvider(
@@ -153,8 +156,8 @@ public class CrispApiConfigPanel extends FeatureConfigPanel {
                             final String componentId, final IModel<CrispResourceSpaceProperty> rowModel) {
                         cellItem.add(new TextFieldWidget(componentId, new LoadableDetachableModel<String>() {
                             @Override
-                            public void setObject(final String object) {
-                                rowModel.getObject().setValue(object);
+                            public void setObject(final String value) {
+                                rowModel.getObject().setValue(value);
                                 detach();
                             }
 
@@ -197,6 +200,10 @@ public class CrispApiConfigPanel extends FeatureConfigPanel {
 
     public String getCurrentCrispResourceSpaceName() {
         return (currentCrispResourceSpace != null) ? currentCrispResourceSpace.getResourceSpaceName() : null;
+    }
+
+    public void refreshCrispResourceSpacesTable(final AjaxRequestTarget target) {
+        target.add(resourceSpacesTable);
     }
 
     private class CrispResourceSpacePropertyDataProvider

@@ -15,6 +15,7 @@
  */
 package org.bloomreach.forge.settings.management.config.crispapi;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -81,6 +82,11 @@ public class CrispApiConfig implements CMSFeatureConfig {
         return crispResourceSpaces;
     }
 
+    public CrispResourceSpace getCrispResourceSpaceByName(final String resourceSpaceName) {
+        return crispResourceSpaces.stream().filter(r -> StringUtils.equals(resourceSpaceName, r.getResourceSpaceName()))
+                .findFirst().orElse(null);
+    }
+
     public void removeCrispResourceSpace(final String resourceSpaceName) {
         for (Iterator<CrispResourceSpace> it = crispResourceSpaces.iterator(); it.hasNext(); ) {
             final CrispResourceSpace resourceSpace = it.next();
@@ -90,5 +96,13 @@ public class CrispApiConfig implements CMSFeatureConfig {
                 break;
             }
         }
+    }
+
+    public void addCrispResourceSpace(final CrispResourceSpace resourceSpace) {
+        crispResourceSpaces.add((CrispResourceSpace) resourceSpace.clone());
+    }
+
+    public List<String> getAvailableBackendTypeNames() {
+        return Arrays.asList("brsm", "commercetools", "elasticpath");
     }
 }

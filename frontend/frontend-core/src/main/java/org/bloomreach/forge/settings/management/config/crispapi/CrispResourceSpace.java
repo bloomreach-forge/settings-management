@@ -23,7 +23,7 @@ import java.util.Objects;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-public class CrispResourceSpace implements Serializable {
+public class CrispResourceSpace implements Serializable, Cloneable {
 
     private String resourceSpaceName;
     private String backendTypeName;
@@ -98,5 +98,18 @@ public class CrispResourceSpace implements Serializable {
                 .append(backendTypeName)
                 .append(properties)
                 .toHashCode();
+    }
+
+    @Override
+    public Object clone() {
+        final CrispResourceSpace clone = new CrispResourceSpace(this.resourceSpaceName, this.backendTypeName);
+
+        if (this.properties != null && this.properties.isEmpty()) {
+            for (CrispResourceSpaceProperty prop : this.properties) {
+                clone.addProperty((CrispResourceSpaceProperty) prop.clone());
+            }
+        }
+
+        return clone;
     }
 }
