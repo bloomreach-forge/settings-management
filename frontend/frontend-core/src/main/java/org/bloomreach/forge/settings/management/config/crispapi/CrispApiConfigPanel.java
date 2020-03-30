@@ -21,6 +21,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.jcr.RepositoryException;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -57,7 +59,7 @@ public class CrispApiConfigPanel extends FeatureConfigPanel {
 
     private static final int RESOURCE_SPACES_PAGE_SIZE = 5;
 
-    private static final int RESOURCE_SPACE_PROPS_PAGE_SIZE = 5;
+    private static final int RESOURCE_SPACE_PROPS_PAGE_SIZE = 10;
 
     private CrispApiConfigModel crispApiConfigModel;
 
@@ -72,7 +74,7 @@ public class CrispApiConfigPanel extends FeatureConfigPanel {
     public CrispApiConfigPanel(IPluginContext context, IPluginConfig config) {
         super(context, config, new ResourceModel("title"));
 
-        crispApiConfigModel = new CrispApiConfigModel();
+        crispApiConfigModel = new CrispApiConfigModel(config);
 
         final Label notInstalledMessage = new Label("not-installed",
                 new ClassResourceModel("not-installed", CrispApiConfigPanel.class));
@@ -117,10 +119,11 @@ public class CrispApiConfigPanel extends FeatureConfigPanel {
                     {
                         get("link").add(new AttributeModifier("class", "delete-16 icon-16"));
                     }
+
                     @Override
                     public void onClick(final AjaxRequestTarget target) {
                         final String resourceSpaceName = rowModel.getObject().getResourceSpaceName();
-                        crispApiConfigModel.getObject().removeCrispResourceSpace(resourceSpaceName);
+                        crispApiConfigModel.getObject().removeCurrentCrispResourceSpace(resourceSpaceName);
 
                         target.add(resourceSpacesTable);
                         target.add(resourceSpacePropsTable);
@@ -182,7 +185,11 @@ public class CrispApiConfigPanel extends FeatureConfigPanel {
 
     @Override
     public void save() {
-        // TODO
+        try {
+            crispApiConfigModel.getObject().save();
+        } catch (RepositoryException e) {
+            log.error("Failed to save crisp resource space configurations.", e);
+        }
     }
 
     @Override
@@ -204,6 +211,10 @@ public class CrispApiConfigPanel extends FeatureConfigPanel {
 
     public void refreshCrispResourceSpacesTable(final AjaxRequestTarget target) {
         target.add(resourceSpacesTable);
+
+        currentCrispResourceSpace = null;
+        target.add(curResourceSpacePropsLabel);
+        target.add(resourceSpacePropsTable);
     }
 
     private class CrispResourceSpacePropertyDataProvider

@@ -28,6 +28,7 @@ public class CrispResourceSpace implements Serializable, Cloneable {
     private String resourceSpaceName;
     private String backendTypeName;
     private List<CrispResourceSpaceProperty> properties = new LinkedList<>();
+    private String beansDefinition;
 
     public CrispResourceSpace() {
     }
@@ -65,6 +66,32 @@ public class CrispResourceSpace implements Serializable, Cloneable {
         }
     }
 
+    public String[] getPropertyNames() {
+        final String[] propNames = new String[properties.size()];
+        int i = 0;
+        for (CrispResourceSpaceProperty prop : properties) {
+            propNames[i++] = prop.getName();
+        }
+        return propNames;
+    }
+
+    public String[] getPropertyValues() {
+        final String[] propValues = new String[properties.size()];
+        int i = 0;
+        for (CrispResourceSpaceProperty prop : properties) {
+            propValues[i++] = prop.getValue();
+        }
+        return propValues;
+    }
+
+    public String getBeansDefinition() {
+        return beansDefinition;
+    }
+
+    public void setBeansDefinition(String beansDefinition) {
+        this.beansDefinition = beansDefinition;
+    }
+
     public void addProperty(final CrispResourceSpaceProperty property) {
         properties.add(property);
     }
@@ -75,6 +102,7 @@ public class CrispResourceSpace implements Serializable, Cloneable {
                 .append("resourceSpaceName", resourceSpaceName)
                 .append("backendTypeName", backendTypeName)
                 .append("properties", properties)
+                .append("beansDefinition", beansDefinition)
                 .toString();
     }
 
@@ -88,7 +116,8 @@ public class CrispResourceSpace implements Serializable, Cloneable {
 
         return Objects.equals(this.resourceSpaceName, that.resourceSpaceName)
                 && Objects.equals(this.backendTypeName, that.backendTypeName)
-                && Objects.equals(this.properties, that.properties);
+                && Objects.equals(this.properties, that.properties)
+                && Objects.equals(this.beansDefinition, that.beansDefinition);
     }
 
     @Override
@@ -97,6 +126,7 @@ public class CrispResourceSpace implements Serializable, Cloneable {
                 .append(resourceSpaceName)
                 .append(backendTypeName)
                 .append(properties)
+                .append(beansDefinition)
                 .toHashCode();
     }
 
@@ -104,11 +134,13 @@ public class CrispResourceSpace implements Serializable, Cloneable {
     public Object clone() {
         final CrispResourceSpace clone = new CrispResourceSpace(this.resourceSpaceName, this.backendTypeName);
 
-        if (this.properties != null && this.properties.isEmpty()) {
+        if (this.properties != null && !this.properties.isEmpty()) {
             for (CrispResourceSpaceProperty prop : this.properties) {
                 clone.addProperty((CrispResourceSpaceProperty) prop.clone());
             }
         }
+
+        clone.setBeansDefinition(this.beansDefinition);
 
         return clone;
     }

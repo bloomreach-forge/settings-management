@@ -15,6 +15,9 @@
  */
 package org.bloomreach.forge.settings.management.config.crispapi;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.OnChangeAjaxBehavior;
@@ -49,9 +52,10 @@ public class CrispResourceSpaceAddDialog extends AbstractDialog<CrispResourceSpa
         resourceSpaceNameField.setOutputMarkupId(true);
         add(resourceSpaceNameField);
 
+        final List<String> backendTypeNames = crispApiConfigModel.getObject().getCrispResourceSpaceTemplates().stream()
+                .map(item -> item.getBackendTypeName()).collect(Collectors.toList());
         final DropDownChoice<String> backendTypeField = new DropDownChoice<>("backendTypeName",
-                new PropertyModel<String>(model, "backendTypeName"),
-                crispApiConfigModel.getObject().getAvailableBackendTypeNames());
+                new PropertyModel<String>(model, "backendTypeName"), backendTypeNames);
         backendTypeField.setOutputMarkupId(true);
         backendTypeField.add(new OnChangeAjaxBehavior() {
             @Override
@@ -59,7 +63,8 @@ public class CrispResourceSpaceAddDialog extends AbstractDialog<CrispResourceSpa
                 final CrispResourceSpace modelObject = CrispResourceSpaceAddDialog.this.getModel().getObject();
                 if (StringUtils.isNotBlank(modelObject.getBackendTypeName())
                         && StringUtils.isBlank(modelObject.getResourceSpaceName())) {
-                    modelObject.setResourceSpaceName(modelObject.getBackendTypeName());
+                    modelObject.setResourceSpaceName(StringUtils.removeStart(modelObject.getBackendTypeName(),
+                            CrispApiConfigConstants.BRX_BACKEND_TYPE_NAME_PREFIX));
                     target.add(resourceSpaceNameField);
                 }
             }
@@ -80,22 +85,24 @@ public class CrispResourceSpaceAddDialog extends AbstractDialog<CrispResourceSpa
 
     @Override
     protected void onOk() {
-        final CrispResourceSpace updated = getModel().getObject();
+        final CrispResourceSpace newResourceSpace = getModel().getObject();
 
-        if (StringUtils.isBlank(updated.getBackendTypeName())) {
+        if (StringUtils.isBlank(newResourceSpace.getBackendTypeName())) {
             error(new ClassResourceModel("error-blank-backend-type-name", CrispResourceSpaceAddDialog.class)
                     .getObject());
             return;
         }
 
-        if (StringUtils.isBlank(updated.getResourceSpaceName())) {
+        if (StringUtils.isBlank(newResourceSpace.getResourceSpaceName())) {
             error(new ClassResourceModel("error-blank-resource-space-name", CrispResourceSpaceAddDialog.class)
                     .getObject());
             return;
         }
 
-        final CrispResourceSpace existing = crispApiConfigModel.getObject()
-                .getCrispResourceSpaceByName(updated.getResourceSpaceName());
+        final CrispApiConfig crispApiConfig = crispApiConfigModel.getObject();
+
+        final CrispResourceSpace existing = crispApiConfig
+                .getCurrentCrispResourceSpaceByResourceSpaceName(newResourceSpace.getResourceSpaceName());
 
         if (existing != null) {
             error(new ClassResourceModel("error-resource-space-name-exists", CrispResourceSpaceAddDialog.class)
@@ -103,7 +110,21 @@ public class CrispResourceSpaceAddDialog extends AbstractDialog<CrispResourceSpa
             return;
         }
 
-        crispApiConfigModel.getObject().addCrispResourceSpace(updated);
+        final CrispResourceSpace template = crispApiConfig
+                .getCrispResourceSpaceTemplateByBackendTypeName(newResourceSpace.getBackendTypeName());
+
+        if (template != null) {
+            newResourceSpace.setBeansDefinition(template.getBeansDefinition());
+
+            for (CrispResourceSpaceProperty prop : template.getProperties()) {
+                newResourceSpace.addProperty((CrispResourceSpaceProperty) prop.clone());
+            }
+        } else {
+            log.error("Cannot find the crisp resource space template by the backend type name, '{}'.",
+                    newResourceSpace.getBackendTypeName());
+        }
+
+        crispApiConfig.addCurrentCrispResourceSpace(newResourceSpace);
     }
 
     @Override

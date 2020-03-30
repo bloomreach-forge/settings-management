@@ -15,11 +15,24 @@
  */
 package org.bloomreach.forge.settings.management.config.crispapi;
 
+import javax.jcr.Node;
+
 import org.bloomreach.forge.settings.management.config.LoadableDetachableConfigModel;
+import org.hippoecm.frontend.plugin.config.IPluginConfig;
 
 public class CrispApiConfigModel extends LoadableDetachableConfigModel<CrispApiConfig> {
 
+    private final IPluginConfig pluginConfig;
+
+    public CrispApiConfigModel(final IPluginConfig pluginConfig) {
+        this.pluginConfig = pluginConfig;
+    }
+
+    public Node getCrispConfigNode() {
+        return super.getConfigNode(CrispApiConfigConstants.CRISP_CONFIG_PATH);
+    }
+
     protected CrispApiConfig load() {
-        return new CrispApiConfig(getConfigNode(CrispApiConfig.CONFIGURATION_PATH));
+        return new CrispApiConfig(pluginConfig, getCrispConfigNode());
     }
 }

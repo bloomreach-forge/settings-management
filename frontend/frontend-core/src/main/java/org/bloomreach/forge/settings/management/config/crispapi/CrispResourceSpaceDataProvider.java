@@ -35,7 +35,7 @@ public class CrispResourceSpaceDataProvider extends SortableDataProvider<CrispRe
 
     @Override
     public long size() {
-        return crispApiConfigModel.getObject().getCrispResourceSpaces().size();
+        return crispApiConfigModel.getObject().getCurrentCrispResourceSpaces().size();
     }
 
     @Override
@@ -46,7 +46,7 @@ public class CrispResourceSpaceDataProvider extends SortableDataProvider<CrispRe
     @Override
     public Iterator<? extends CrispResourceSpace> iterator(long first, long count) {
         final List<CrispResourceSpace> resourceSpaceList = new LinkedList<>(
-                crispApiConfigModel.getObject().getCrispResourceSpaces());
+                crispApiConfigModel.getObject().getCurrentCrispResourceSpaces());
 
         final SortParam<String> sortParam = getSort();
 
