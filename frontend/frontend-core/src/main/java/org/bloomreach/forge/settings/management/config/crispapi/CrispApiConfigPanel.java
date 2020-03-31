@@ -49,7 +49,11 @@ import org.hippoecm.frontend.plugin.config.IPluginConfig;
 import org.hippoecm.frontend.plugins.cms.admin.widgets.AdminDataTable;
 import org.hippoecm.frontend.plugins.cms.admin.widgets.AjaxLinkLabel;
 import org.hippoecm.frontend.plugins.standards.ClassResourceModel;
+import org.hippoecm.frontend.session.UserSession;
 import org.hippoecm.frontend.widgets.TextFieldWidget;
+import org.onehippo.cms7.services.HippoServiceRegistry;
+import org.onehippo.repository.l10n.LocalizationService;
+import org.onehippo.repository.l10n.ResourceBundle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -71,10 +75,19 @@ public class CrispApiConfigPanel extends FeatureConfigPanel {
 
     private final AdminDataTable<CrispResourceSpaceProperty> resourceSpacePropsTable;
 
+    private ResourceBundle backendTypeResourceBundle;
+
     public CrispApiConfigPanel(IPluginContext context, IPluginConfig config) {
         super(context, config, new ResourceModel("title"));
 
         crispApiConfigModel = new CrispApiConfigModel(config);
+
+        final LocalizationService localizationService = HippoServiceRegistry.getService(LocalizationService.class);
+
+        if (localizationService != null) {
+            backendTypeResourceBundle = localizationService
+                    .getResourceBundle(CrispApiConfigConstants.BACKEND_TYPE_BUNDLE_NAME, UserSession.get().getLocale());
+        }
 
         final Label notInstalledMessage = new Label("not-installed",
                 new ClassResourceModel("not-installed", CrispApiConfigPanel.class));
@@ -85,7 +98,7 @@ public class CrispApiConfigPanel extends FeatureConfigPanel {
                 new ResourceModel("add-new-resource-space"), new IDialogFactory() {
                     public AbstractDialog<CrispResourceSpace> createDialog() {
                         return new CrispResourceSpaceAddDialog(Model.of(new CrispResourceSpace()), crispApiConfigModel,
-                                CrispApiConfigPanel.this);
+                                CrispApiConfigPanel.this, backendTypeResourceBundle);
                     }
                 }, context.getService(IDialogService.class.getName(), IDialogService.class));
         add(addResourceSpace);
@@ -109,8 +122,18 @@ public class CrispApiConfigPanel extends FeatureConfigPanel {
                 });
             }
         });
-        resourceSpacesColumns.add(
-                new PropertyColumn<>(new ResourceModel("backend-type-name"), "backendTypeName", "backendTypeName"));
+        resourceSpacesColumns.add(new PropertyColumn<CrispResourceSpace, String>(new ResourceModel("backend-type-name"),
+                "backendTypeName", "backendTypeName") {
+            @Override
+            public IModel<?> getDataModel(IModel<CrispResourceSpace> rowModel) {
+                final String backendTypeName = rowModel.getObject().getBackendTypeName();
+                return Model
+                        .of((backendTypeResourceBundle != null)
+                                ? StringUtils.defaultIfBlank(backendTypeResourceBundle.getString(backendTypeName),
+                                        backendTypeName)
+                                : backendTypeName);
+            }
+        });
         resourceSpacesColumns.add(new AbstractColumn<CrispResourceSpace, String>(Model.of("")) {
             @Override
             public void populateItem(final Item<ICellPopulator<CrispResourceSpace>> cellItem, final String componentId,

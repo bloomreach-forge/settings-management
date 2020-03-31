@@ -64,6 +64,11 @@ public final class CrispApiConfigConstants {
      */
     public static final String BRX_BACKEND_TYPE_NAME_PREFIX = "brx-";
 
+    /**
+     * Repository Bundle Name for Backend type display names.
+     */
+    public static final String BACKEND_TYPE_BUNDLE_NAME = "settings-management.crispapi.backend";
+
     private CrispApiConfigConstants() {
     }
 

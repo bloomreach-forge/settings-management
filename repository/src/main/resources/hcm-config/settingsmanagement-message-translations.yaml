@@ -1,0 +1,16 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:translations/settings-management:
+      jcr:primaryType: hipposys:resourcebundles
+      /crispapi:
+        jcr:primaryType: hipposys:resourcebundles
+        /backend:
+          jcr:primaryType: hipposys:resourcebundles
+          /en:
+            jcr:primaryType: hipposys:resourcebundle
+            brx-brsm: 'Bloomreach Search & Merchandising (brX Accelerator)'
+            brx-commercetools: 'commercetools (brX Accelerator)'
+            brx-elasticpath: 'Elastic Path (brX Accelerator)'
+            brx-salesforcecc: 'Salesforce Commerce Cloud: B2B (brX Accelerator)'
+            marketo: Marketo
+            salesforce: Salesforce

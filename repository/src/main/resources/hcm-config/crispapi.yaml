@@ -4,7 +4,7 @@ definitions:
       jcr:primaryType: frontend:pluginconfig
       featureConfigClass: org.bloomreach.forge.settings.management.config.crispapi.CrispApiConfigPanel
       sequence: 5.0
-      crisp.templates: ['brx-brsm', 'brx-commercetools', 'brx-elasticpath', 'brx-salesforcecc', 'marketo', 'salesforce', 'webdam']
+      crisp.templates: ['brx-brsm', 'brx-commercetools', 'brx-elasticpath', 'brx-salesforcecc', 'marketo', 'salesforce']
       crisp.template.brx-brsm.beandefinition:
         type: string
         resource: crisptemplates/brx-brsm.xml
@@ -38,8 +38,3 @@ definitions:
         resource: crisptemplates/salesforce.xml
       crisp.template.salesforce.propnames: [baseUrl, cache.enabled, clientId, clientSecret, username, password, securityToken, accessTokenUri]
       crisp.template.salesforce.propvalues: ['', 'true', '', '', '', '', '', '']
-      crisp.template.webdam.beandefinition:
-        type: string
-        resource: crisptemplates/webdam.xml
-      crisp.template.webdam.propnames: [cache.enabled, clientId, clientSecret, baseUrl]
-      crisp.template.webdam.propvalues: ['true', '', '', '']

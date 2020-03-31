@@ -22,6 +22,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.OnChangeAjaxBehavior;
 import org.apache.wicket.markup.html.form.DropDownChoice;
+import org.apache.wicket.markup.html.form.IChoiceRenderer;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.PropertyModel;
@@ -30,6 +31,7 @@ import org.apache.wicket.util.value.IValueMap;
 import org.hippoecm.frontend.dialog.AbstractDialog;
 import org.hippoecm.frontend.dialog.DialogConstants;
 import org.hippoecm.frontend.plugins.standards.ClassResourceModel;
+import org.onehippo.repository.l10n.ResourceBundle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,13 +41,16 @@ public class CrispResourceSpaceAddDialog extends AbstractDialog<CrispResourceSpa
 
     private final CrispApiConfigModel crispApiConfigModel;
     private final CrispApiConfigPanel configPanel;
+    private final ResourceBundle backendTypeResourceBundle;
 
     public CrispResourceSpaceAddDialog(final IModel<CrispResourceSpace> model,
-            final CrispApiConfigModel crispApiConfigModel, final CrispApiConfigPanel configPanel) {
+            final CrispApiConfigModel crispApiConfigModel, final CrispApiConfigPanel configPanel,
+            final ResourceBundle backendTypeResourceBundle) {
         super(model);
 
         this.crispApiConfigModel = crispApiConfigModel;
         this.configPanel = configPanel;
+        this.backendTypeResourceBundle = backendTypeResourceBundle;
 
         final TextField<String> resourceSpaceNameField = new TextField<>("resourceSpaceName",
                 new PropertyModel<String>(model, "resourceSpaceName"));
@@ -55,7 +60,24 @@ public class CrispResourceSpaceAddDialog extends AbstractDialog<CrispResourceSpa
         final List<String> backendTypeNames = crispApiConfigModel.getObject().getCrispResourceSpaceTemplates().stream()
                 .map(item -> item.getBackendTypeName()).collect(Collectors.toList());
         final DropDownChoice<String> backendTypeField = new DropDownChoice<>("backendTypeName",
-                new PropertyModel<String>(model, "backendTypeName"), backendTypeNames);
+                new PropertyModel<String>(model, "backendTypeName"), backendTypeNames, new IChoiceRenderer<String>() {
+                    @Override
+                    public Object getDisplayValue(String object) {
+                        return (backendTypeResourceBundle != null)
+                                ? StringUtils.defaultIfBlank(backendTypeResourceBundle.getString(object), object)
+                                : object;
+                    }
+
+                    @Override
+                    public String getIdValue(String object, int index) {
+                        return object;
+                    }
+
+                    @Override
+                    public String getObject(String id, IModel<? extends List<? extends String>> choices) {
+                        return id;
+                    }
+                });
         backendTypeField.setOutputMarkupId(true);
         backendTypeField.add(new OnChangeAjaxBehavior() {
             @Override
@@ -80,7 +102,7 @@ public class CrispResourceSpaceAddDialog extends AbstractDialog<CrispResourceSpa
 
     @Override
     public IValueMap getProperties() {
-        return DialogConstants.SMALL;
+        return DialogConstants.MEDIUM;
     }
 
     @Override
