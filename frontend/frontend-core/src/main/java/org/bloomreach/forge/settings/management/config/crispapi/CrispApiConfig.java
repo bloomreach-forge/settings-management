@@ -22,7 +22,6 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
@@ -333,12 +332,14 @@ public class CrispApiConfig implements CMSFeatureConfig {
 
     private void updateCrispResourceSpaceConfigNode(final Node target, final CrispResourceSpace source)
             throws RepositoryException {
+        final String oldBackendTypeName = inferBackendTypeName(target);
         final String[] oldPropNames = JcrUtils.getMultipleStringProperty(target, "crisp:propnames",
                 ArrayUtils.EMPTY_STRING_ARRAY);
         final String[] oldPropValues = JcrUtils.getMultipleStringProperty(target, "crisp:propvalues",
                 ArrayUtils.EMPTY_STRING_ARRAY);
         final String oldBeansDef = JcrUtils.getStringProperty(target, "crisp:beandefinition", StringUtils.EMPTY);
 
+        final String newBackendTypeName = source.getBackendTypeName();
         final String[] newPropNames = source.getPropertyNames();
         final String[] newPropValues = source.getPropertyValues();
         final String newBeansDef = source.getBeansDefinition();
@@ -346,10 +347,13 @@ public class CrispApiConfig implements CMSFeatureConfig {
         if (!Arrays.equals(oldPropNames, newPropNames)) {
             target.setProperty("crisp:propnames", newPropNames);
         }
+
         if (!Arrays.equals(oldPropValues, newPropValues)) {
             target.setProperty("crisp:propvalues", newPropValues);
         }
-        if (!Objects.equals(oldBeansDef, newBeansDef)) {
+
+        // if the backend type was not changed, then do not replace the old beans xml as it could have been customized.
+        if (StringUtils.isBlank(oldBeansDef) || !StringUtils.equals(oldBackendTypeName, newBackendTypeName)) {
             target.setProperty("crisp:beandefinition", newBeansDef);
         }
     }
