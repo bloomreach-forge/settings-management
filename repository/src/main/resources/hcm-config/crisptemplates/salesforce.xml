@@ -58,7 +58,7 @@
           <bean class="org.springframework.cache.ehcache.EhCacheCache">
             <constructor-arg>
               <bean parent="abstractCrispResourceEhCache">
-                <property name="cacheName" value="salesForceCache" />
+                <property name="cacheName" value="salesforceCache" />
                 <property name="maxEntriesLocalHeap" value="1000" />
                 <property name="maxEntriesLocalDisk" value="0" />
                 <property name="timeToLiveSeconds" value="60" />
