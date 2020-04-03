@@ -16,11 +16,17 @@
 package org.bloomreach.forge.settings.management.config.crispapi;
 
 import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 
 import org.bloomreach.forge.settings.management.config.LoadableDetachableConfigModel;
 import org.hippoecm.frontend.plugin.config.IPluginConfig;
+import org.hippoecm.frontend.session.UserSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CrispApiConfigModel extends LoadableDetachableConfigModel<CrispApiConfig> {
+
+    private static Logger log = LoggerFactory.getLogger(CrispApiConfigModel.class);
 
     private final IPluginConfig pluginConfig;
 
@@ -29,7 +35,16 @@ public class CrispApiConfigModel extends LoadableDetachableConfigModel<CrispApiC
     }
 
     public Node getCrispConfigNode() {
-        return super.getConfigNode(CrispApiConfigConstants.CRISP_CONFIG_PATH);
+        try {
+            if (UserSession.get().getJcrSession().nodeExists(CrispApiConfigConstants.CRISP_CONFIG_PATH)) {
+                return super.getConfigNode(CrispApiConfigConstants.CRISP_CONFIG_PATH);
+            }
+        } catch (RepositoryException e) {
+            log.error("Cannot read crisp resource space configuration node at {}.",
+                    CrispApiConfigConstants.CRISP_CONFIG_PATH, e);
+        }
+
+        return null;
     }
 
     protected CrispApiConfig load() {

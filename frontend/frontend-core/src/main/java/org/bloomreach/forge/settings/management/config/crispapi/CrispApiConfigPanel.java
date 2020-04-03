@@ -89,9 +89,11 @@ public class CrispApiConfigPanel extends FeatureConfigPanel {
                     .getResourceBundle(CrispApiConfigConstants.BACKEND_TYPE_BUNDLE_NAME, UserSession.get().getLocale());
         }
 
+        final boolean crispConfigInstalled = crispApiConfigModel.getObject().hasConfiguration();
+
         final Label notInstalledMessage = new Label("not-installed",
                 new ClassResourceModel("not-installed", CrispApiConfigPanel.class));
-        notInstalledMessage.setVisible(!crispApiConfigModel.getObject().hasConfiguration());
+        notInstalledMessage.setVisible(!crispConfigInstalled);
         add(notInstalledMessage);
 
         final DialogLink addResourceSpace = new DialogLink("addResourceSpace",
@@ -101,6 +103,7 @@ public class CrispApiConfigPanel extends FeatureConfigPanel {
                                 CrispApiConfigPanel.this, backendTypeResourceBundle);
                     }
                 }, context.getService(IDialogService.class.getName(), IDialogService.class));
+        addResourceSpace.setVisible(crispConfigInstalled);
         add(addResourceSpace);
 
         final CrispResourceSpaceDataProvider crispResourceSpaceDataProvider = new CrispResourceSpaceDataProvider(

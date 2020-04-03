@@ -1,6 +1,6 @@
 definitions:
   config:
-    /hippo:configuration/hippo:translations/settings-management:
+    /hippo:configuration/hippo:translations/hippo:cms/settingsmanagement:
       jcr:primaryType: hipposys:resourcebundles
       /crispapi:
         jcr:primaryType: hipposys:resourcebundles

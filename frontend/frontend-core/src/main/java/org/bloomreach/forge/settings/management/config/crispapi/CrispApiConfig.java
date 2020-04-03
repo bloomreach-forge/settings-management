@@ -62,7 +62,7 @@ public class CrispApiConfig implements CMSFeatureConfig {
     /**
      * The CRISP ResourceResolver configuration node.
      */
-    private transient Node crispConfigNode;
+    private transient Node crispConfigNodeInternal;
 
     /**
      * The CRISP ResourceResolver configuration node path.
@@ -86,15 +86,11 @@ public class CrispApiConfig implements CMSFeatureConfig {
     private final List<CrispResourceSpace> removedCrispResourceSpaces;
 
     public CrispApiConfig(final IPluginConfig pluginConfig, final Node crispConfigNode) {
-        this.crispConfigNode = crispConfigNode;
-
-        try {
-            crispConfigNodePath = crispConfigNode.getPath();
-        } catch (RepositoryException e) {
-            log.error("Cannot get the path of the crisp config node.", e);
-        }
+        this.crispConfigNodeInternal = crispConfigNode;
 
         crispResourceSpaceTemplates = new LinkedList<>();
+        currentCrispResourceSpaces = new LinkedList<>();
+        removedCrispResourceSpaces = new LinkedList<>();
 
         final String[] templateBackendTypeNames = getNonNullStringArrayFromPluginConfig(pluginConfig,
                 CrispApiConfigConstants.PROP_CRISP_TEMPLATES);
@@ -131,16 +127,24 @@ public class CrispApiConfig implements CMSFeatureConfig {
             crispResourceSpaceTemplates.add(crispTemplate);
         }
 
-        currentCrispResourceSpaces = new LinkedList<>();
-        refreshCurrentCrispResourceSpaces();
+        if (crispConfigNode != null) {
+            try {
+                crispConfigNodePath = crispConfigNode.getPath();
+            } catch (RepositoryException e) {
+                log.error("Cannot get the path of the crisp config node.", e);
+            }
 
-        removedCrispResourceSpaces = new LinkedList<>();
+            refreshCurrentCrispResourceSpaces();
+        }
     }
 
     @Override
     public void save() throws RepositoryException {
+        final Node crispConfigNode = getCrispConfigNode();
+
         if (crispConfigNode == null) {
-            crispConfigNode = UserSession.get().getJcrSession().getNode(crispConfigNodePath);
+            log.warn("CRISP resoure space configuration node doesn't exist.");
+            return;
         }
 
         try {
@@ -235,42 +239,47 @@ public class CrispApiConfig implements CMSFeatureConfig {
     private void refreshCurrentCrispResourceSpaces() {
         currentCrispResourceSpaces.clear();
 
-        if (this.crispConfigNode != null) {
-            try {
-                for (NodeIterator nodeIt = this.crispConfigNode.getNodes(); nodeIt.hasNext();) {
-                    final Node node = nodeIt.nextNode();
+        final Node crispConfigNode = getCrispConfigNode();
 
-                    if (node == null) {
-                        continue;
-                    }
+        if (crispConfigNode == null) {
+            log.debug("CRISP resoure space configuration node doesn't exist.");
+            return;
+        }
 
-                    final String resourceSpaceName = node.getName();
-                    final String backendTypeName = inferBackendTypeName(node);
-                    final CrispResourceSpace crispResourceSpace = new CrispResourceSpace(resourceSpaceName,
-                            backendTypeName);
+        try {
+            for (NodeIterator nodeIt = crispConfigNode.getNodes(); nodeIt.hasNext();) {
+                final Node node = nodeIt.nextNode();
 
-                    crispResourceSpace.setBeansDefinition(
-                            JcrUtils.getStringProperty(node, "crisp:beandefinition", StringUtils.EMPTY));
-
-                    final String[] propNames = JcrUtils.getMultipleStringProperty(node, "crisp:propnames",
-                            ArrayUtils.EMPTY_STRING_ARRAY);
-                    final String[] propValues = JcrUtils.getMultipleStringProperty(node, "crisp:propvalues",
-                            ArrayUtils.EMPTY_STRING_ARRAY);
-
-                    try {
-                        final List<CrispResourceSpaceProperty> props = parseCrispResourceSpaceProperties(propNames,
-                                propValues);
-                        crispResourceSpace.setProperties(props);
-                    } catch (Exception pe) {
-                        log.error("CRISP property names/values are unmatched for the backend, '{}'.", backendTypeName,
-                                pe);
-                    }
-
-                    currentCrispResourceSpaces.add(crispResourceSpace);
+                if (node == null) {
+                    continue;
                 }
-            } catch (RepositoryException e) {
-                log.error("Failed to load crisp resource resolver configurations.");
+
+                final String resourceSpaceName = node.getName();
+                final String backendTypeName = inferBackendTypeName(node);
+                final CrispResourceSpace crispResourceSpace = new CrispResourceSpace(resourceSpaceName,
+                        backendTypeName);
+
+                crispResourceSpace.setBeansDefinition(
+                        JcrUtils.getStringProperty(node, "crisp:beandefinition", StringUtils.EMPTY));
+
+                final String[] propNames = JcrUtils.getMultipleStringProperty(node, "crisp:propnames",
+                        ArrayUtils.EMPTY_STRING_ARRAY);
+                final String[] propValues = JcrUtils.getMultipleStringProperty(node, "crisp:propvalues",
+                        ArrayUtils.EMPTY_STRING_ARRAY);
+
+                try {
+                    final List<CrispResourceSpaceProperty> props = parseCrispResourceSpaceProperties(propNames,
+                            propValues);
+                    crispResourceSpace.setProperties(props);
+                } catch (Exception pe) {
+                    log.error("CRISP property names/values are unmatched for the backend, '{}'.", backendTypeName,
+                            pe);
+                }
+
+                currentCrispResourceSpaces.add(crispResourceSpace);
             }
+        } catch (RepositoryException e) {
+            log.error("Failed to load crisp resource resolver configurations.");
         }
     }
 
@@ -370,5 +379,17 @@ public class CrispApiConfig implements CMSFeatureConfig {
         }
 
         return false;
+    }
+
+    private Node getCrispConfigNode() {
+        try {
+            if (crispConfigNodeInternal == null && StringUtils.isNotBlank(crispConfigNodePath)) {
+                crispConfigNodeInternal = UserSession.get().getJcrSession().getNode(crispConfigNodePath);
+            }
+        } catch (RepositoryException e) {
+            log.error("Cannot get the crisp resource space configuratio node at {}.", crispConfigNodePath);
+        }
+
+        return crispConfigNodeInternal;
     }
 }

@@ -67,7 +67,7 @@ public final class CrispApiConfigConstants {
     /**
      * Repository Bundle Name for Backend type display names.
      */
-    public static final String BACKEND_TYPE_BUNDLE_NAME = "settings-management.crispapi.backend";
+    public static final String BACKEND_TYPE_BUNDLE_NAME = "hippo:cms.settingsmanagement.crispapi.backend";
 
     private CrispApiConfigConstants() {
     }
