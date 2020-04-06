@@ -143,25 +143,25 @@ public class CrispApiConfig implements CMSFeatureConfig {
         final Node crispConfigNode = getCrispConfigNode();
 
         if (crispConfigNode == null) {
-            log.warn("CRISP resoure space configuration node doesn't exist.");
+            log.warn("CRISP resource space configuration node doesn't exist.");
             return;
         }
 
         try {
             for (CrispResourceSpace resourceSpace : removedCrispResourceSpaces) {
-                final String resoureceSpaceName = resourceSpace.getResourceSpaceName();
+                final String resourceSpaceName = resourceSpace.getResourceSpaceName();
 
-                if (crispConfigNode.hasNode(resoureceSpaceName)) {
-                    final Node node = crispConfigNode.getNode(resoureceSpaceName);
+                if (crispConfigNode.hasNode(resourceSpaceName)) {
+                    final Node node = crispConfigNode.getNode(resourceSpaceName);
                     node.remove();
                 } else {
                     log.debug("No crisp resource to remove by the name, '{}'. Probably a temporary addition.",
-                            resoureceSpaceName);
+                            resourceSpaceName);
                 }
             }
 
             for (CrispResourceSpace resourceSpace : currentCrispResourceSpaces) {
-                final String resoureceSpaceName = resourceSpace.getResourceSpaceName();
+                final String resourceSpaceName = resourceSpace.getResourceSpaceName();
                 final String backendTypeName = resourceSpace.getBackendTypeName();
 
                 final CrispResourceSpace template = getCrispResourceSpaceTemplateByBackendTypeName(backendTypeName);
@@ -171,9 +171,9 @@ public class CrispApiConfig implements CMSFeatureConfig {
                     continue;
                 }
 
-                final Node targetNode = (crispConfigNode.hasNode(resoureceSpaceName))
-                        ? crispConfigNode.getNode(resoureceSpaceName)
-                        : crispConfigNode.addNode(resoureceSpaceName, "crisp:resourceresolver");
+                final Node targetNode = (crispConfigNode.hasNode(resourceSpaceName))
+                        ? crispConfigNode.getNode(resourceSpaceName)
+                        : crispConfigNode.addNode(resourceSpaceName, "crisp:resourceresolver");
                 updateCrispResourceSpaceConfigNode(targetNode, resourceSpace);
             }
 
@@ -242,7 +242,7 @@ public class CrispApiConfig implements CMSFeatureConfig {
         final Node crispConfigNode = getCrispConfigNode();
 
         if (crispConfigNode == null) {
-            log.debug("CRISP resoure space configuration node doesn't exist.");
+            log.debug("CRISP resource space configuration node doesn't exist.");
             return;
         }
 

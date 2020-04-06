@@ -57,7 +57,7 @@ public class CrispResourceSpaceDataProvider extends SortableDataProvider<CrispRe
                 case "backendTypeName":
                     return direction * StringUtils.compareIgnoreCase(resourceSpace1.getBackendTypeName(),
                             resourceSpace2.getBackendTypeName());
-                case "resoureSpaceName":
+                case "resourceSpaceName":
                 default:
                     return direction * StringUtils.compareIgnoreCase(resourceSpace1.getResourceSpaceName(),
                             resourceSpace2.getResourceSpaceName());
