@@ -41,7 +41,7 @@ In the main pom.xml of the project, in the repositories section, add this reposi
 ### Installation in CMS
 Add this property to the properties section of the *root* pom.xml:
 
-    <bloomreach.forge.settingsmanagement.version>3.0.0</bloomreach.forge.settingsmanagement.version>
+    <bloomreach.forge.settingsmanagement.version>3.1.0</bloomreach.forge.settingsmanagement.version>
 
 Select the correct version for your project. See the [release notes](release-notes.html) for more information on which version is applicable.
 

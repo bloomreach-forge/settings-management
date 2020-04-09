@@ -30,3 +30,6 @@
 
 ### Url Rewriter
 ![Url Rewriter](images/urlrewriter_panel.png)
+
+### CRISP API
+![Url Rewriter](images/crisp_panel.png)

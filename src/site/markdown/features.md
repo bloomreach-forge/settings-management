@@ -33,3 +33,7 @@ The Settings management plugin covers the following features:
 + Security
     + Login page security
     + Password policies
++ Url Rewriter
+    + General configuration
++ CRISP API
+    + Resource space configurations
