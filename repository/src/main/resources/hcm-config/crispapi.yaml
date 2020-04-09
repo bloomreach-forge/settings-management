@@ -14,8 +14,8 @@ definitions:
       crisp.template.brx-commercetools.beandefinition:
         type: string
         resource: crisptemplates/brx-commercetools.xml
-      crisp.template.brx-commercetools.propnames: [cache.enabled, api.base.url, accessTokenUri, clientId, clientSecret, username, password]
-      crisp.template.brx-commercetools.propvalues: ['true', '', '', '', '', '', '']
+      crisp.template.brx-commercetools.propnames: [cache.enabled, api.base.url, accessTokenUri, clientId, clientSecret]
+      crisp.template.brx-commercetools.propvalues: ['true', '', '', '', '']
       crisp.template.brx-elasticpath.beandefinition:
         type: string
         resource: crisptemplates/brx-elasticpath.xml
