@@ -28,14 +28,16 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.util.value.IValueMap;
-import org.hippoecm.frontend.dialog.AbstractDialog;
+
+import org.hippoecm.frontend.dialog.Dialog;
 import org.hippoecm.frontend.dialog.DialogConstants;
 import org.hippoecm.frontend.plugins.standards.ClassResourceModel;
 import org.onehippo.repository.l10n.ResourceBundle;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CrispResourceSpaceAddDialog extends AbstractDialog<CrispResourceSpace> {
+public class CrispResourceSpaceAddDialog extends Dialog<CrispResourceSpace> {
 
     private static Logger log = LoggerFactory.getLogger(CrispResourceSpaceAddDialog.class);
 
@@ -102,7 +104,7 @@ public class CrispResourceSpaceAddDialog extends AbstractDialog<CrispResourceSpa
 
     @Override
     public IValueMap getProperties() {
-        return DialogConstants.MEDIUM;
+        return DialogConstants.MEDIUM_AUTO;
     }
 
     @Override
