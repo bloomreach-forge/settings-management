@@ -19,6 +19,8 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
@@ -94,6 +96,10 @@ public class CrispResourceSpace implements Serializable, Cloneable {
 
     public void addProperty(final CrispResourceSpaceProperty property) {
         properties.add(property);
+    }
+
+    public Set<String> getConcealedPropertyNameSet() {
+        return properties.stream().filter(p -> p.isConcealed()).map(p -> p.getName()).collect(Collectors.toSet());
     }
 
     @Override

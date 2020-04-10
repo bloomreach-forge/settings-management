@@ -25,6 +25,7 @@ import javax.jcr.RepositoryException;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.wicket.AttributeModifier;
+import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.extensions.markup.html.repeater.data.grid.ICellPopulator;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.AbstractColumn;
@@ -183,23 +184,38 @@ public class CrispApiConfigPanel extends FeatureConfigPanel {
                     @Override
                     public void populateItem(final Item<ICellPopulator<CrispResourceSpaceProperty>> cellItem,
                             final String componentId, final IModel<CrispResourceSpaceProperty> rowModel) {
-                        cellItem.add(new TextFieldWidget(componentId, new LoadableDetachableModel<String>() {
+                        final IModel<String> cellItemModel = new LoadableDetachableModel<String>() {
                             @Override
                             public void setObject(final String value) {
-                                rowModel.getObject().setValue(value);
+                                rowModel.getObject().setValue(StringUtils.defaultString(value));
                                 detach();
                             }
 
                             @Override
                             protected String load() {
-                                return rowModel.getObject().getValue();
+                                return StringUtils.defaultString(rowModel.getObject().getValue());
                             }
-                        }) {
-                            @Override
-                            protected void onUpdate(final AjaxRequestTarget target) {
-                                target.add(resourceSpacePropsTable);
-                            }
-                        });
+                        };
+
+                        final Component cellItemWidget;
+
+                        if (!rowModel.getObject().isConcealed()) {
+                            cellItemWidget = new TextFieldWidget(componentId, cellItemModel) {
+                                @Override
+                                protected void onUpdate(final AjaxRequestTarget target) {
+                                    target.add(resourceSpacePropsTable);
+                                }
+                            };
+                        } else {
+                            cellItemWidget = new ConcealedTextFieldWidget(componentId, cellItemModel) {
+                                @Override
+                                protected void onUpdate(final AjaxRequestTarget target) {
+                                    target.add(resourceSpacePropsTable);
+                                }
+                            };
+                        }
+
+                        cellItem.add(cellItemWidget);
                     }
                 });
 
@@ -210,9 +226,10 @@ public class CrispApiConfigPanel extends FeatureConfigPanel {
     }
 
     @Override
-    public void save() {
+    public void save(final AjaxRequestTarget target) {
         try {
             crispApiConfigModel.getObject().save();
+            refreshCrispResourceSpacesTable(target);
         } catch (RepositoryException e) {
             log.error("Failed to save crisp resource space configurations.", e);
         }

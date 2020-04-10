@@ -19,9 +19,11 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
@@ -116,9 +118,13 @@ public class CrispApiConfig implements CMSFeatureConfig {
             final String[] propNames = getNonNullStringArrayFromPluginConfig(pluginConfig, key);
             key = String.format(CrispApiConfigConstants.PROP_CRISP_TEMPLATE_PROPVALUES_FORMAT, backendTypeName);
             final String[] propValues = getNonNullStringArrayFromPluginConfig(pluginConfig, key);
+            key = String.format(CrispApiConfigConstants.PROP_CRISP_TEMPLATE_CONCEALED_PROPNAMES_FORMAT, backendTypeName);
+            final Set<String> concealedPropNameSet = new HashSet<>(
+                    Arrays.asList(getNonNullStringArrayFromPluginConfig(pluginConfig, key)));
 
             try {
-                final List<CrispResourceSpaceProperty> props = parseCrispResourceSpaceProperties(propNames, propValues);
+                final List<CrispResourceSpaceProperty> props = parseCrispResourceSpaceProperties(backendTypeName,
+                        propNames, propValues, concealedPropNameSet);
                 crispTemplate.setProperties(props);
             } catch (Exception pe) {
                 log.error("CRISP property names/values are unmatched for the backend, '{}'.", backendTypeName, pe);
@@ -256,6 +262,7 @@ public class CrispApiConfig implements CMSFeatureConfig {
 
                 final String resourceSpaceName = node.getName();
                 final String backendTypeName = inferBackendTypeName(node);
+                final CrispResourceSpace template = getCrispResourceSpaceTemplateByBackendTypeName(backendTypeName);
                 final CrispResourceSpace crispResourceSpace = new CrispResourceSpace(resourceSpaceName,
                         backendTypeName);
 
@@ -267,14 +274,11 @@ public class CrispApiConfig implements CMSFeatureConfig {
                 final String[] propValues = JcrUtils.getMultipleStringProperty(node, "crisp:propvalues",
                         ArrayUtils.EMPTY_STRING_ARRAY);
 
-                try {
-                    final List<CrispResourceSpaceProperty> props = parseCrispResourceSpaceProperties(propNames,
-                            propValues);
-                    crispResourceSpace.setProperties(props);
-                } catch (Exception pe) {
-                    log.error("CRISP property names/values are unmatched for the backend, '{}'.", backendTypeName,
-                            pe);
-                }
+                final Set<String> concealedPropNames = (template != null) ? template.getConcealedPropertyNameSet()
+                        : null;
+                final List<CrispResourceSpaceProperty> props = parseCrispResourceSpaceProperties(backendTypeName,
+                        propNames, propValues, concealedPropNames);
+                crispResourceSpace.setProperties(props);
 
                 currentCrispResourceSpaces.add(crispResourceSpace);
             }
@@ -288,19 +292,22 @@ public class CrispApiConfig implements CMSFeatureConfig {
         return (values != null) ? values : ArrayUtils.EMPTY_STRING_ARRAY;
     }
 
-    private List<CrispResourceSpaceProperty> parseCrispResourceSpaceProperties(final String[] propNames,
-            final String[] propValues) {
+    private List<CrispResourceSpaceProperty> parseCrispResourceSpaceProperties(final String backendTypeName,
+            final String[] propNames, final String[] propValues, final Set<String> concealedPropNameSet) {
         final List<CrispResourceSpaceProperty> propList = new ArrayList<>();
 
         for (int i = 0; i < propNames.length; i++) {
             final String propName = propNames[i];
-            if (propValues.length > i) {
-                final String propValue = propValues[i];
-                final CrispResourceSpaceProperty crispProp = new CrispResourceSpaceProperty(propName, propValue);
-                propList.add(crispProp);
-            } else {
-                throw new IllegalArgumentException("CRISP property names/values are unmatched");
-            }
+            final String propValue = (propValues.length > i) ? propValues[i] : "";
+            final boolean concealed = (concealedPropNameSet != null && concealedPropNameSet.contains(propName));
+            final CrispResourceSpaceProperty crispProp = new CrispResourceSpaceProperty(propName, propValue, concealed);
+            propList.add(crispProp);
+        }
+
+        if (propNames.length > propValues.length) {
+            log.error(
+                    "CRISP property names/values are unmatched for the backend, '{}'. Names: {}, values: {}. Empty string values set for unmatched property names.",
+                    backendTypeName, propNames, propValues);
         }
 
         return propList;

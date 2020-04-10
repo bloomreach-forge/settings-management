@@ -54,6 +54,11 @@ public final class CrispApiConfigConstants {
     public static final String PROP_CRISP_TEMPLATE_PROPVALUES_FORMAT = PROP_CRISP_TEMPLATE_PREFIX + "%s.propvalues";
 
     /**
+     * The name of the property for the backend specific concealed crisp property names.
+     */
+    public static final String PROP_CRISP_TEMPLATE_CONCEALED_PROPNAMES_FORMAT = PROP_CRISP_TEMPLATE_PREFIX + "%s.concealed.propnames";
+
+    /**
      * The Spring Framework &ltmeta /&gt; element's key attribute value, which may contain the hint of the backend
      * type name in the existing beans XML.
      */

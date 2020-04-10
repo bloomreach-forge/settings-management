@@ -74,7 +74,7 @@ public class TabPanel extends Panel {
             @Override
             protected void onSubmit(final AjaxRequestTarget target, final Form<?> form) {
                 for (FeatureConfigPanel feature : features) {
-                    feature.save();
+                    feature.save(target);
                 }
                 target.add(form);
                 info(getString("data-saved"));

@@ -25,13 +25,19 @@ public class CrispResourceSpaceProperty implements Serializable, Cloneable {
 
     private String name;
     private String value;
+    private boolean concealed;
 
     public CrispResourceSpaceProperty() {
     }
 
     public CrispResourceSpaceProperty(final String name, final String value) {
+        this(name, value, false);
+    }
+
+    public CrispResourceSpaceProperty(final String name, final String value, final boolean concealed) {
         this.name = name;
         this.value = value;
+        this.concealed = concealed;
     }
 
     public String getName() {
@@ -50,11 +56,20 @@ public class CrispResourceSpaceProperty implements Serializable, Cloneable {
         this.value = value;
     }
 
+    public boolean isConcealed() {
+        return concealed;
+    }
+
+    public void setConcealed(boolean concealed) {
+        this.concealed = concealed;
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this)
                 .append("name", name)
                 .append("value", value)
+                .append("concealed", concealed)
                 .toString();
     }
 
@@ -67,7 +82,8 @@ public class CrispResourceSpaceProperty implements Serializable, Cloneable {
         final CrispResourceSpaceProperty that = (CrispResourceSpaceProperty) o;
 
         return Objects.equals(this.name, that.name)
-                && Objects.equals(this.value, that.value);
+                && Objects.equals(this.value, that.value)
+                && this.concealed == that.concealed;
     }
 
     @Override
@@ -75,11 +91,12 @@ public class CrispResourceSpaceProperty implements Serializable, Cloneable {
         return new HashCodeBuilder()
                 .append(name)
                 .append(value)
+                .append(concealed)
                 .toHashCode();
     }
 
     @Override
     public Object clone() {
-        return new CrispResourceSpaceProperty(name, value);
+        return new CrispResourceSpaceProperty(name, value, concealed);
     }
 }
