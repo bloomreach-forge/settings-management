@@ -31,5 +31,9 @@ The Settings management plugin covers the following features:
         + Max file size
         + etc
 + Security
-    + Login page security
+    + User management
     + Password policies
++ Url Rewriter
+    + General configuration
++ CRISP API
+    + Resource space configurations

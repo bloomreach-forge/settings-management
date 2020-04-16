@@ -1,0 +1,45 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:frontend/cms/cms-admin/settings/tabconfig/crispapi/crispapi-config-panel:
+      jcr:primaryType: frontend:pluginconfig
+      featureConfigClass: org.bloomreach.forge.settings.management.config.crispapi.CrispApiConfigPanel
+      sequence: 5.0
+      crisp.templates: ['brx-brsm', 'brx-commercetools', 'brx-elasticpath', 'brx-salesforcecc', 'marketo', 'salesforce']
+      crisp.template.brx-brsm.beandefinition:
+        type: string
+        resource: crisptemplates/brx-brsm.xml
+      crisp.template.brx-brsm.propnames: [api.base.url, cache.enabled]
+      crisp.template.brx-brsm.propvalues: ['', 'true']
+      crisp.template.brx-brsm.depends: ['com.bloomreach.commercedxp.starterstore.crisp.resource.RequestIdAwareSimpleJacksonRestTemplateResourceResolver']
+      crisp.template.brx-commercetools.beandefinition:
+        type: string
+        resource: crisptemplates/brx-commercetools.xml
+      crisp.template.brx-commercetools.propnames: [cache.enabled, api.base.url, accessTokenUri, clientId, clientSecret]
+      crisp.template.brx-commercetools.propvalues: ['true', '', '', '', '']
+      crisp.template.brx-commercetools.concealed.propnames: [clientId, clientSecret]
+      crisp.template.brx-elasticpath.beandefinition:
+        type: string
+        resource: crisptemplates/brx-elasticpath.xml
+      crisp.template.brx-elasticpath.propnames: [cache.enabled, api.base.url, accessTokenUri, username, password, scope, role]
+      crisp.template.brx-elasticpath.propvalues: ['true', '', '', '', '', '', '']
+      crisp.template.brx-elasticpath.concealed.propnames: [username, password]
+      crisp.template.brx-elasticpath.depends: ['com.bloomreach.commercedxp.container.connector.elasticpath.spring.security.oauth2.EPDelegatingVisitorOAuth2ClientContext']
+      crisp.template.brx-salesforcecc.beandefinition:
+        type: string
+        resource: crisptemplates/brx-salesforcecc.xml
+      crisp.template.brx-salesforcecc.propnames: [baseUrl, cache.enabled, clientId, clientSecret, username, password, securityToken, accessTokenUri, autoExpiresInSeconds]
+      crisp.template.brx-salesforcecc.propvalues: ['', 'true', '', '', '', '', '', '', '3600']
+      crisp.template.brx-salesforcecc.concealed.propnames: [clientId, clientSecret, username, password, securityToken]
+      crisp.template.brx-salesforcecc.depends: ['com.bloomreach.commercedxp.b2b.container.connector.salesforcecc.spring.security.oauth2.AutoExpiringDefaultOAuth2ClientContext']
+      crisp.template.marketo.beandefinition:
+        type: string
+        resource: crisptemplates/marketo.xml
+      crisp.template.marketo.propnames: [cache.enabled, clientId, clientSecret, baseUrl]
+      crisp.template.marketo.propvalues: ['true', '', '', '']
+      crisp.template.marketo.concealed.propnames: [clientId, clientSecret]
+      crisp.template.salesforce.beandefinition:
+        type: string
+        resource: crisptemplates/salesforce.xml
+      crisp.template.salesforce.propnames: [baseUrl, cache.enabled, clientId, clientSecret, username, password, securityToken, accessTokenUri]
+      crisp.template.salesforce.propvalues: ['', 'true', '', '', '', '', '', '']
+      crisp.template.salesforce.concealed.propnames: [clientId, clientSecret, username, password, securityToken]

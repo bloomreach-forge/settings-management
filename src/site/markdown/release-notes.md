@@ -16,6 +16,14 @@
 
 ## Release notes
 
+### Version 3.1.0 
+Release date: 16 April 2020
+
++ [HIPFORGE-333](https://issues.onehippo.com/browse/HIPFORGE-333)<br/> 
+    Add a new tab for CRISP API resource space configuration. 
++ [HIPFORGE-344](https://issues.onehippo.com/browse/HIPFORGE-344)<br/> 
+    Remove the Captcha-related settings from the tab 'Security', since these got removed in brXM 14.   
+
 ### Version 3.0.0 
 Release date: 29 January 2020
 

@@ -24,7 +24,7 @@ See more [screenshots](screenshots.html).
 
 ## Status
 
-Version 3.x runs on Bloomreach Experience Manager 13, version 2.x runs on Bloomreach XM 13, 
+Version 3.x runs on Bloomreach Experience Manager 14, version 2.x runs on Bloomreach XM 13, 
 1.0 runs on Bloomreach XM 12, 0.5.x runs on Hippo CMS 11. 
 See more at the [release notes](release-notes.html).  
 

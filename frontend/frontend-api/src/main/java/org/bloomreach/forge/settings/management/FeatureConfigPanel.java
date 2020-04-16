@@ -16,6 +16,7 @@
 
 package org.bloomreach.forge.settings.management;
 
+import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
@@ -51,7 +52,15 @@ public abstract class FeatureConfigPanel extends Panel {
     /**
      * Invoked when the user clicks on the tab's save button.
      */
-    public abstract void save();
+    public void save(final AjaxRequestTarget target) {
+        save();
+    }
+
+    /**
+     * Invoked by {@link #save(AjaxRequestTarget)}.
+     */
+    public void save() {
+    }
 
     /**
      * Invoked when the user clicks on the tab's cancel button.
