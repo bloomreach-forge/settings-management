@@ -1,5 +1,5 @@
 <!--
-  Copyright 2015-2020 Bloomreach Inc. (https://www.bloomreach.com)
+  Copyright 2015-2022 Bloomreach Inc. (https://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -13,6 +13,16 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   -->
+
+## <span style="color:red">To be retired</span>
+
+<div class="alert alert-danger">
+This plugin no longer works when used on Experience Manager 14.1 and up, because of a refactoring of the Admin 
+Perspective, see issue https://issues.onehippo.com/browse/CMS-11846.
+
+Therefore, the plugin is no longer maintained and will probably be retired, unless a large community effort is
+contributed.
+</div>
 
 ## Features
 
